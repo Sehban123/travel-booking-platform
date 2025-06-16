@@ -16,7 +16,7 @@ const AdminBusinessInquiryList = () => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get('http://localhost:5000/api/business-inquiries');
+        const response = await axios.get('https://travel-booking-backend.onrender.com/api/business-inquiries');
         // Sort inquiries by date, newest first
         const sortedInquiries = response.data.sort((a, b) => new Date(b.inquiryDate) - new Date(a.inquiryDate));
         setInquiries(sortedInquiries);

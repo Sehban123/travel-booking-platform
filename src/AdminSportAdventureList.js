@@ -16,7 +16,7 @@ const AdminSportAdventureList = ({ onShowDetails }) => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get('http://localhost:5000/api/sports-adventures');
+        const response = await axios.get('https://travel-booking-backend.onrender.com/api/sports-adventures');
         setAdventures(response.data);
         setFilteredAdventures(response.data); // Initially show all
       } catch (error) {

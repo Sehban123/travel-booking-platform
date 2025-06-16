@@ -16,7 +16,7 @@ const AdminAccommodationList = ({ onShowDetails }) => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get('http://localhost:5000/api/accommodations');
+        const response = await axios.get('https://travel-booking-backend.onrender.com/api/accommodations');
         setAccommodations(response.data);
         setFilteredAccommodations(response.data); // Initially show all
       } catch (error) {

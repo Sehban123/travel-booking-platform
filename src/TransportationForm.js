@@ -3,7 +3,7 @@ import axios from 'axios';
 import './css/TransportationForm.css'; // Import the dedicated CSS file
 
 // Define API URL (base URL of your server)
-const API_URL = 'http://localhost:5000'; // Changed to base URL
+const API_URL = 'https://travel-booking-backend.onrender.com/api'; // Changed to base URL
 
 // Define a list of available transportation types for the dropdown
 const availableTransportTypes = [

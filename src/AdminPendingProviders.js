@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/AdminPendingProviders.css';
 
-const API_URL = 'http://localhost:5000/api';
-
+const API_URL = "https://travel-booking-backend.onrender.com/api";
 const AdminPendingProviders = () => {
     const [pendingProviders, setPendingProviders] = useState([]);
     const [loading, setLoading] = useState(true);

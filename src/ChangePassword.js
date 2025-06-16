@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api'; // Define API URL
+const API_URL = "https://travel-booking-backend.onrender.com/api";
 
 const ChangePassword = ({ providerId, onSuccess, onError, loading, setLoading, setMessage }) => {
     // State for password form data

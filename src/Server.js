@@ -8,7 +8,7 @@ const multer = require("multer"); // Import multer
 const fs = require('fs'); // Import fs for file operations (like deleting old images)
 // const bcrypt = require('bcrypt'); // bcrypt is NOT used for Super Admin as per instruction
 const { type } = require("os"); // Assuming this import is needed elsewhere based on previous code
-
+require('dotenv').config(); // Load .env
 const app = express();
 app.use(express.json());
 
@@ -76,37 +76,42 @@ const uploadSingle = multer({ storage: storage });
 
 // --- Nodemailer Setup for Sending Emails ---
 // IMPORTANT: Replace with your actual email service credentials and settings
-var transporter = nodemailer.createTransport({
+
+const nodemailer = require('nodemailer');
+
+// Transporter configuration using environment variables
+const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
-    secure: true,
+    secure: true, // true for port 465, false for 587
     auth: {
-        user: 'maleksehban4@gmail.com', // Replace with your actual email address
-        pass: 'ccbdewxzwvihxpqv', // Replace with your actual email password or app password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
     },
 });
 
-// Verify Nodemailer connection (optional)
-transporter.verify(function (error, success) {
+// Optional: Verify transporter
+transporter.verify((error, success) => {
     if (error) {
-        console.error("Nodemailer connection error:", error);
+        console.error("❌ Nodemailer connection error:", error);
     } else {
-        console.log("Nodemailer is ready to send emails");
+        console.log("✅ Nodemailer is ready to send emails");
     }
 });
-const uri = "mongodb+srv://sehban:sehban123@travel-booking.acryghn.mongodb.net/travel-booking?retryWrites=true&w=majority&appName=travel-booking";
 
 
-// MongoDB Connection
-mongoose.connect(
-    "mongodb+srv://sehban:sehban123@travel-booking.acryghn.mongodb.net/travel-booking?retryWrites=true&w=majority&appName=travel-booking",
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }
-)
+const mongoose = require('mongoose');
+
+// Load credentials from .env
+const mongoURI = process.env.MONGODB_URI;
+const emailUser = process.env.EMAIL_USER;
+const emailPass = process.env.EMAIL_PASS;
+
+// MongoDB Connection (cleaned - no deprecated options)
+mongoose.connect(mongoURI)
     .then(() => console.log("✅ Connected to MongoDB Atlas"))
     .catch(err => console.error("❌ MongoDB connection error:", err));
+
 // --- Schemas and Models ---
 
 const allowedRoomTypes = {

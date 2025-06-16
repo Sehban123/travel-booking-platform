@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Assuming axios is used for API calls
 
+
 // Import the components for different views
 import ProviderProfile from './ProviderProfile';
 import ChangePassword from './ChangePassword';
@@ -17,7 +18,7 @@ import SportAdventureBookingRequests from './SportAdventureBookingRequests';
 
 import './css/ProviderDashboard.css'; // Import the CSS for styling
 
-const API_URL = 'http://localhost:5000/api'; // Base URL for your backend API
+const API_URL = 'https://travel-booking-backend.onrender.com/api'; // Base URL for your backend API
 
 const ServiceProviderDashboard = () => {
     // Get providerId from the URL parameters

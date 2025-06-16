@@ -23,7 +23,7 @@ const AdminTransportationList = ({ onShowDetails }) => {
             setError(''); // Clear previous errors
             try {
                 // Fetch the flat list of transportation items
-                const response = await axios.get('http://localhost:5000/api/transportations');
+                const response = await axios.get('https://travel-booking-backend.onrender.com/api/transportations');
 
                 // response.data is already the flat array of items - use it directly
                 const flatItems = response.data;

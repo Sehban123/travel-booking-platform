@@ -16,11 +16,11 @@ const AdminSportAdventureDetails = ({ adventureId, onBackToList }) => {
       setError('');
       try {
         // Fetch adventure details
-        const advResponse = await axios.get(`http://localhost:5000/api/sports-adventures/${adventureId}`);
+        const advResponse = await axios.get(`https://travel-booking-backend.onrender.com/api/sports-adventures/${adventureId}`);
         setAdventure(advResponse.data);
 
         // Fetch bookings for this adventure
-        const bookingsResponse = await axios.get(`http://localhost:5000/api/sports-adventures/${adventureId}/bookings`);
+        const bookingsResponse = await axios.get(`https://travel-booking-backend.onrender.com/api/sports-adventures/${adventureId}/bookings`);
         setBookings(bookingsResponse.data);
 
       } catch (error) {

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/AdminSummaryDashboard.css'; // Create this CSS file
 
-const API_URL = 'http://localhost:5000/api'; // Base URL for your backend API
+const API_URL = "https://travel-booking-backend.onrender.com/api";
 
 const AdminSummaryDashboard = () => {
     const [summaryData, setSummaryData] = useState(null);

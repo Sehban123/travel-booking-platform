@@ -18,14 +18,14 @@ const AdminTransportationDetails = ({ transportationId, onBackToList }) => {
             try {
                 // --- Fetch the specific flat transportation item by its _id ---
                 console.log("AdminTransportationDetails: Attempting to fetch item with ID:", transportationId);
-                const itemResponse = await axios.get(`http://localhost:5000/api/transportation/${transportationId}`);
+                const itemResponse = await axios.get(`https://travel-booking-backend.onrender.com/api/transportation/${transportationId}`);
                 setTransportItem(itemResponse.data);
                 console.log("AdminTransportationDetails: Fetched item data:", itemResponse.data);
 
 
                 // --- Fetch bookings for this SPECIFIC TRANSPORT ITEM ---
                 console.log("AdminTransportationDetails: Attempting to fetch bookings for item ID:", transportationId);
-                const bookingsResponse = await axios.get(`http://localhost:5000/api/transportation/${transportationId}/bookings`);
+                const bookingsResponse = await axios.get(`https://travel-booking-backend.onrender.com/api/transportation/${transportationId}/bookings`);
 
                 // --- FIX: Check if bookingsResponse.data is an array before setting state ---
                 if (Array.isArray(bookingsResponse.data)) {

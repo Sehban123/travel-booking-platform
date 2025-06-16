@@ -4,7 +4,7 @@ import './css/AccommodationBooking.css'; // Import the CSS file
 import axios from 'axios';
 
 // Define API URL (base URL of your server)
-const API_URL = 'http://localhost:5000'; // Ensure this matches your server's address
+const API_URL = "https://travel-booking-backend.onrender.com/api"; // Ensure this matches your server's address
 
 // Removed ALL_ROOM_TYPES as it will now be dynamic
 

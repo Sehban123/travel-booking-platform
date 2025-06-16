@@ -4,7 +4,7 @@ import axios from 'axios'; // Assuming axios is used for API calls
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './css/AdminProviderList.css'; // Import the CSS file
 
-const API_URL = 'http://localhost:5000/api'; // Base URL for your backend API
+const API_URL = "https://travel-booking-backend.onrender.com/api"; // Base URL for your backend API
 
 const AdminProviderList = () => {
     const navigate = useNavigate(); // Initialize useNavigate hook

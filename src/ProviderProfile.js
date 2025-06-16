@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/ProviderProfile.css';
 
-const API_URL = 'http://localhost:5000'; // Define base API URL for serving static files
+const API_URL = "https://travel-booking-backend.onrender.com/api";
 
 // --- Static Options for Checkboxes/Dropdowns (Reused from ServiceProviderLogin) ---
 const ROOM_TYPES = ['Single', 'Double', 'Suite', 'Dormitory', 'Family Room', 'Deluxe', 'Standard'];

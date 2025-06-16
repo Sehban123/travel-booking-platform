@@ -15,12 +15,12 @@ const BusinessInquirySummary = ({ inquiryData, onBackToForm }) => {
             setError('');
             try {
                 // Fetch all accommodations
-                const accResponse = await axios.get('http://localhost:5000/api/accommodations');
+                const accResponse = await axios.get('https://travel-booking-backend.onrender.com/api/accommodations');
                 const allAccommodations = accResponse.data;
                 console.log("Fetched all accommodations:", allAccommodations);
 
                 // Fetch all transportation options (assuming a flat list endpoint)
-                const transResponse = await axios.get('http://localhost:5000/api/transportations');
+                const transResponse = await axios.get('https://travel-booking-backend.onrender.com/api/transportations');
                 const allTransportations = transResponse.data;
                  console.log("Fetched all transportations:", allTransportations);
 

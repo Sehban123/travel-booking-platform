@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // Define API URL (base URL of your server)
-const API_URL = 'http://localhost:5000'; // Base URL
+const API_URL = 'https://travel-booking-backend.onrender.com/api'; // Base URL
 
 const Transportation = () => {
   const [searchQuery, setSearchQuery] = useState('');
