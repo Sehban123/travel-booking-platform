@@ -18,6 +18,7 @@ app.use(cors({
 }));
 
 // --- Serve static files from the 'src/images' directory ---
+// We will also fix these paths below to remove the triple 'src'
 app.use('/images', express.static(path.join(__dirname, 'src/images')));
 app.use('/documents', express.static(path.join(__dirname, 'src/documents'))); // New directory for documents
 console.log(`Serving static images from: ${path.join(__dirname, 'src/images')}`);
