@@ -72,12 +72,12 @@ const upload = multer({ storage }).fields([
 // 1. Transportation forms (single vehicle image)
 // 2. Sport Adventure forms (single activity image)
 const uploadSingle = multer({ storage: storage });
-
+const emailUser = process.env.EMAIL_USER;
+const emailPass = process.env.EMAIL_PASS;
 
 // --- Nodemailer Setup for Sending Emails ---
 // IMPORTANT: Replace with your actual email service credentials and settings
 
-const nodemailer = require('nodemailer');
 
 // Transporter configuration using environment variables
 const transporter = nodemailer.createTransport({
@@ -100,12 +100,10 @@ transporter.verify((error, success) => {
 });
 
 
-const mongoose = require('mongoose');
 
 // Load credentials from .env
 const mongoURI = process.env.MONGODB_URI;
-const emailUser = process.env.EMAIL_USER;
-const emailPass = process.env.EMAIL_PASS;
+
 
 // MongoDB Connection (cleaned - no deprecated options)
 mongoose.connect(mongoURI)
@@ -2961,6 +2959,14 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
         }
         res.status(500).json({ error: 'Failed to update booking status.', details: error.message });
     }
+});
+
+// Serve React build files
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+// Serve index.html for any unknown routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 // --- START SERVER ---

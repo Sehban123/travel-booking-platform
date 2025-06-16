@@ -35,8 +35,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node server.js",
+    "dev": "nodemon Server.js",
+    "build": "cd client && npm install && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
