@@ -19,8 +19,10 @@ app.use(cors({
 
 // --- Serve static files from the 'src/images' directory ---
 // We will also fix these paths below to remove the triple 'src'
-app.use('/images', express.static(path.join(__dirname, 'src/images')));
-app.use('/documents', express.static(path.join(__dirname, 'src/documents'))); // New directory for documents
+app.use('/images', express.static(path.join(__dirname, 'src', 'images')));
+app.use('/documents', express.static(path.join(__dirname, 'src', 'documents')));
+
+
 console.log(`Serving static images from: ${path.join(__dirname, 'src/images')}`);
 console.log(`Serving static documents from: ${path.join(__dirname, 'src/documents')}`);
 // Serve React build files
@@ -2962,24 +2964,17 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
         res.status(500).json({ error: 'Failed to update booking status.', details: error.message });
     }
 });
+app.use(express.static(path.join(__dirname, 'build')));
 
-
-// Serve static files from the React build directory
-app.use(express.static(path.join(__dirname, 'client', 'build')));
-
-// Catch-all route: Send index.html for unmatched routes (React SPA support)
+// Fallback to React frontend
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on port ${PORT}`);
+    console.log(`✅ Server is running on port ${PORT}`);
 });
 
 
-// --- START SERVER ---
-app.listen(5000, () => {
-    console.log("Server is running on port 5000");
-});
