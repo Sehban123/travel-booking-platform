@@ -1,0 +1,78 @@
+/* SuperAdminLogin.css */
+
+.super-admin-login-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Full viewport height */
+    background-color: #f4f7f6; /* Light background */
+    padding: 20px; /* Add some padding */
+}
+
+.login-form-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 400px; /* Max width for the form card */
+    text-align: center; /* Center text inside the card */
+}
+
+.login-form-card h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Align labels and inputs to the left */
+}
+
+.form-group label {
+    display: block; /* Label on its own line */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%; /* Full width of the container */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; /* Include padding and border in element's total width */
+}
+
+.login-form-card button[type="submit"] {
+    width: 100%; /* Full width button */
+    padding: 12px;
+    background-color: #007bff; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.login-form-card button[type="submit"]:hover:not(:disabled) {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.login-form-card button[type="submit"]:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #dc3545; /* Red text for errors */
+    margin-top: 15px;
+    font-size: 14px;
+}

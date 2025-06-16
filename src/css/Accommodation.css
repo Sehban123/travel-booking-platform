@@ -1,0 +1,223 @@
+/* Overall accommodation list */
+.accommodationlist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center; /* Centering the accommodation list */
+}
+
+/* Category styles */
+.accommodation-category {
+  width: 100%;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  text-align: center;
+
+}
+
+.accommodation-category h2 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 2em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Accommodation items container */
+.accommodationitems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between; /* Spread out items */
+}
+
+/* Accommodation card styles */
+.accommodationcard {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: calc(33.33% - 20px);
+  min-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* Use flexbox for layout inside the card */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: flex-start; /* Align items to the left */
+  text-align: left; /* Ensure text is aligned to the left */
+}
+
+.accommodationcard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.accommodationimage {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 10px;
+  background-color: #f0f0f0;
+  display: block;
+}
+
+/* Adding a placeholder image if there's no image present */
+.accommodationimage::before {
+  content: 'No Image Available';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+  font-size: 14px;
+  background-color: #f0f0f0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Accommodation card heading */
+.accommodationcard h3 {
+  color: #333;
+  margin: 15px;
+  font-size: 1.2em;
+  font-weight: 500;
+  text-align: left; /* Ensure heading is left-aligned */
+  text-transform: capitalize;
+}
+
+/* Description paragraph styles */
+.accommodationcard p {
+  color: #666;
+  margin: 5px 15px; /* Adjust margin for left alignment */
+  font-size: 0.9em;
+  text-align: left; /* Ensure paragraph text is left-aligned */
+}
+
+/* Price and facilities container */
+.accommodationcard div {
+  margin: 10px 15px; /* Adjust margin for left alignment */
+  text-align: left; /* Ensure div content is left-aligned */
+}
+
+/* Bold text styles */
+.accommodationcard strong {
+  font-weight: bold;
+  color: #555;
+  display: inline; /* Changed to inline to keep label and value on the same line */
+  margin-right: 5px; /* Add some spacing after the label */
+}
+
+/* Facilities list styles */
+.accommodationcard ul {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0; /* Adjust margin for better spacing */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-start; /* Align facilities list to the left */
+}
+
+.accommodationcard ul li {
+  background-color: #f0f0f0;
+  color: #777;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  transition: background-color 0.3s ease;
+}
+
+.accommodationcard ul li:hover {
+  background-color: #dfe3e8;
+  color: #333;
+}
+
+/* Styling for amenities and facilities displayed inline */
+.accommodationcard div:nth-child(5), /* Select the Amenities div */
+.accommodationcard div:nth-child(6)  /* Select the Facilities div */
+{
+  display: flex;
+  align-items: center; /* Vertically align label and values */
+}
+
+.accommodationcard div:nth-child(5) strong,
+.accommodationcard div:nth-child(6) strong {
+  margin-right: 10px;
+  min-width: 80px; /* Adjust width as needed for alignment */
+  display: inline-block; /* Keep label and values on the same line */
+}
+
+.accommodationcard div:nth-child(5) span,
+.accommodationcard div:nth-child(6) span {
+  margin-right: 5px;
+}
+
+/* Input field styling */
+input[type='text'] {
+  padding: 10px;
+  margin: 20px auto;
+  width: calc(100% - 40px);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  display: block;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input[type='text']:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .accommodationcard {
+      width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .accommodationcard {
+      width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .accommodationlist {
+      padding: 10px;
+  }
+
+  .accommodationcard {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .category h2 {
+      font-size: 1.8em;
+  }
+}
+
+
+/* Book Button */
+.bookButton {
+  margin-top: 1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bookButton:hover {
+  background-color: #2980b9;
+}

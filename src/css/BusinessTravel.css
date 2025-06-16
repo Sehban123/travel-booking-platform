@@ -1,0 +1,129 @@
+/* src/css/BusinessTravel.css */
+
+.business-travel-container {
+    padding: 20px;
+    max-width: 1000px; /* Limit width for readability */
+    margin: 20px auto; /* Center the container */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif; /* Use a common font */
+    color: #333;
+}
+
+.business-travel-container h1 {
+    text-align: center;
+    color: #0056b3; /* A shade of blue */
+    margin-bottom: 30px;
+}
+
+.business-travel-container p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.business-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.feature-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #007bff; /* Highlight color */
+}
+
+.feature-card h3 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    margin-bottom: 0;
+    font-size: 0.95em;
+}
+
+.corporate-inquiry {
+    background-color: #e9ecef; /* Light grey background */
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.corporate-inquiry h2 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.corporate-inquiry p {
+    margin-bottom: 10px;
+}
+
+/* Style for the new inquiry button */
+.inquiry-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.inquiry-button:hover {
+    background-color: #0056b3;
+}
+
+
+.corporate-inquiry a { /* Existing link style - might need adjustment if conflicting with button */
+    color: #007bff;
+    text-decoration: none;
+}
+
+.corporate-inquiry a:hover {
+    text-decoration: underline;
+}
+
+
+.business-links {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.business-links a {
+    margin: 0 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.business-links a:hover {
+    text-decoration: underline;
+}
+
+/* Basic responsiveness for smaller screens */
+@media (max-width: 600px) {
+    .business-travel-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .business-features {
+        grid-template-columns: 1fr; /* Stack features on small screens */
+    }
+
+    .feature-card {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,215 @@
+/* src/components/Admin/css/AdminProviderList.css */
+
+/* General container styling */
+.admin-provider-list {
+    padding: 30px; /* Increased padding */
+    background-color: #eef2f7; /* Softer background color */
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif; /* Use a common sans-serif font */
+    color: #333; /* Default text color */
+}
+
+/* Heading styling */
+.admin-provider-list h2 {
+    color: #1a3e6b; /* Darker blue heading */
+    border-bottom: 3px solid #007bff; /* Thicker blue underline */
+    padding-bottom: 15px; /* Increased padding below heading */
+    margin-bottom: 30px; /* Increased margin below heading */
+    font-size: 2rem; /* Larger heading font size */
+    font-weight: 600; /* Semi-bold font weight */
+}
+
+/* Filter section styling */
+.filter-container {
+    margin-bottom: 30px; /* Increased margin below filter */
+    padding: 20px; /* Increased padding */
+    background-color: #dce4eb; /* Light grey-blue background */
+    border: 1px solid #c3cfda;
+    border-radius: 8px; /* Rounded corners */
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Increased space between items */
+    flex-wrap: wrap;
+}
+
+.filter-container label {
+    font-weight: 700; /* Bold label */
+    color: #2a5a8a; /* Darker blue label color */
+    font-size: 1.1rem; /* Slightly larger label font */
+}
+
+.filter-container input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 15px; /* Increased padding */
+    border: 1px solid #aebcd0; /* Softer border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem;
+    min-width: 200px; /* Ensure input is a reasonable size */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08); /* Inner shadow */
+}
+
+/* Provider list styling */
+.provider-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual provider item styling */
+.provider-item {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #d0d9e6; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 25px; /* Increased padding */
+    margin-bottom: 25px; /* Increased space between items */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s ease-in-out; /* Add a subtle hover effect */
+}
+
+.provider-item:hover {
+     transform: translateY(-5px); /* Lift slightly on hover */
+}
+
+/* Provider summary section styling */
+.provider-summary {
+    margin-bottom: 20px; /* Space below summary */
+    padding-bottom: 20px; /* Padding below summary */
+    border-bottom: 1px solid #e0e6ef; /* Solid separator line */
+}
+
+.provider-summary h3 {
+    color: #0056b3; /* Darker blue for provider name */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem; /* Larger font size */
+    font-weight: 600;
+}
+
+.provider-summary p {
+    margin: 8px 0; /* Increased vertical margin */
+    color: #555; /* Slightly lighter text */
+    word-break: break-word;
+    line-height: 1.6; /* Improved line spacing */
+}
+
+.provider-summary p strong {
+    color: #333; /* Darker color for labels */
+    margin-right: 8px; /* Increased space after label */
+    font-weight: 700; /* Bold labels */
+}
+
+/* Styling for Status badges */
+.provider-summary .status-pending {
+    color: #f0ad4e; /* Orange */
+    font-weight: bold;
+    background-color: #fff3cd; /* Light yellow background */
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.provider-summary .status-approved {
+    color: #5cb85c; /* Green */
+    font-weight: bold;
+    background-color: #dff0d8; /* Light green background */
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.provider-summary .status-rejected {
+    color: #d9534f; /* Red */
+    font-weight: bold;
+    background-color: #f2dede; /* Light red background */
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+
+/* Provider services summary section styling */
+.provider-services-summary {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.provider-services-summary h4 {
+    color: #495057;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem; /* Slightly larger font size */
+    font-weight: 600;
+}
+
+.service-list-summary {
+    list-style: disc;
+    padding-left: 25px; /* Increased indent */
+    margin: 0;
+}
+
+.service-item-summary {
+    margin-bottom: 8px; /* Increased space between summary items */
+    color: #555;
+    word-break: break-word;
+    line-height: 1.5;
+}
+
+.service-item-summary strong {
+    color: #333;
+}
+
+
+/* View Services button styling */
+.view-services-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px; /* Increased padding */
+    border: none;
+    border-radius: 5px; /* Slightly more rounded */
+    cursor: pointer;
+    font-size: 1rem; /* Standard font size */
+    margin-top: 20px; /* Increased margin above button */
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+    text-decoration: none; /* Remove underline if it's an anchor */
+    text-align: center;
+}
+
+.view-services-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.view-services-button:active {
+    background-color: #004085; /* Even darker on active */
+    transform: translateY(0); /* Reset transform on click */
+}
+
+
+/* Messages for no providers or no services */
+.no-providers-message,
+.no-services-message {
+    font-style: italic;
+    color: #6c757d;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    border: 1px dashed #ced4da;
+}
+
+/* Error message styling */
+.error-message {
+    color: #dc3545;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #dc3545;
+    background-color: #f8d7da;
+    border-radius: 5px;
+    text-align: center;
+}
+

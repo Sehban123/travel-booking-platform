@@ -1,0 +1,138 @@
+/* src/components/Admin/css/AdminSummaryDashboard.css */
+
+.admin-summary-dashboard {
+    padding: 30px;
+    background-color: #eef2f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.admin-summary-dashboard h2 {
+    color: #1a3e6b;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center; /* Center the main heading */
+}
+
+.summary-tiles-grid {
+    display: grid;
+    /* Responsive grid: auto-fit columns, min width 250px, max 1fr */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Space between grid items */
+}
+
+.summary-tile {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center; /* Center content within the tile */
+    transition: transform 0.2s ease-in-out; /* Subtle hover effect */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    min-height: 120px; /* Ensure minimum tile height */
+}
+
+.summary-tile:hover {
+    transform: translateY(-5px); /* Lift slightly on hover */
+}
+
+.summary-tile h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #343a40;
+}
+
+.summary-tile .count {
+    font-size: 2.5rem; /* Larger font for the count */
+    font-weight: 700;
+    margin: 5px 0;
+    line-height: 1; /* Adjust line height */
+}
+
+.summary-tile .details {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+/* Specific tile colors/borders */
+.provider-tile { border-left: 5px solid #007bff; } /* Blue */
+.provider-tile .count { color: #007bff; }
+
+.pending-tile { border-left: 5px solid #ffc107; } /* Yellow */
+.pending-tile .count { color: #ffc107; }
+
+.approved-tile { border-left: 5px solid #28a745; } /* Green */
+.approved-tile .count { color: #28a745; }
+
+.rejected-tile { border-left: 5px solid #dc3545; } /* Red */
+.rejected-tile .count { color: #dc3545; }
+
+
+.service-tile { border-left: 5px solid #17a2b8; } /* Cyan */
+.service-tile .count { color: #17a2b8; }
+
+.accommodation-tile { border-left-color: #17a2b8; }
+.accommodation-tile .count { color: #17a2b8; }
+
+.transportation-tile { border-left-color: #6f42c1; } /* Purple */
+.transportation-tile .count { color: #6f42c1; }
+
+.sport-adventure-tile { border-left-color: #fd7e14; } /* Orange */
+.sport-adventure-tile .count { color: #fd7e14; }
+
+
+.booking-tile { border-left: 5px solid #20c997; } /* Teal */
+.booking-tile .count { color: #20c997; }
+
+.accommodation-booking-tile { border-left-color: #20c997; }
+.accommodation-booking-tile .count { color: #20c997; }
+
+.transportation-booking-tile { border-left-color: #e83e8c; } /* Pink */
+.transportation-booking-tile .count { color: #e83e8c; }
+
+.sport-adventure-booking-tile { border-left-color: #6610f2; } /* Indigo */
+.sport-adventure-booking-tile .count { color: #6610f2; }
+
+
+.inquiry-tile { border-left: 5px solid #6c757d; } /* Grey */
+.inquiry-tile .count { color: #6c757d; }
+
+
+/* Messages */
+.loading-message,
+.error-message,
+.info-message {
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.loading-message {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.info-message {
+    background-color: #d1ecf1;
+    color: #17a2b8;
+    border: 1px solid #17a2b8;
+}

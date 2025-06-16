@@ -1,0 +1,125 @@
+/* src/css/BusinessInquiryForm.css */
+
+.business-inquiry-container {
+    padding: 20px;
+    max-width: 700px; /* Adjust max width as needed */
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.business-inquiry-container h2 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.business-inquiry-container p {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.business-inquiry-form .form-group {
+    margin-bottom: 18px;
+}
+
+.business-inquiry-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.business-inquiry-form input[type="text"],
+.business-inquiry-form input[type="tel"],
+.business-inquiry-form input[type="email"],
+.business-inquiry-form input[type="date"],
+.business-inquiry-form input[type="number"],
+.business-inquiry-form select,
+.business-inquiry-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-size: 1em;
+}
+
+.business-inquiry-form input[type="number"] {
+    width: auto; /* Allow number input to be smaller */
+    padding: 10px;
+}
+
+
+.business-inquiry-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.services-checkboxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid for checkboxes */
+    gap: 10px;
+    padding: 10px 0;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+
+.services-checkboxes .checkbox-item {
+    display: flex;
+    align-items: center;
+    padding: 0 10px; /* Add some horizontal padding */
+}
+
+.services-checkboxes input[type="checkbox"] {
+    margin-right: 8px;
+    width: auto; /* Auto width for checkboxes */
+}
+
+.services-checkboxes label {
+    font-weight: normal;
+    margin-bottom: 0; /* Remove bottom margin for labels next to checkboxes */
+    color: #333;
+}
+
+
+.business-inquiry-form button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.business-inquiry-form button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.business-inquiry-form button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #dc3545; /* Red */
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success-message {
+    color: #28a745; /* Green */
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}

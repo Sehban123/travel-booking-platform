@@ -1,0 +1,150 @@
+/* src/css/Admin/AdminList.css */
+.admin-list-container {
+    padding: 10px;
+}
+
+.admin-list-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.filter-controls {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filter-controls label {
+    font-weight: bold;
+    color: #555;
+}
+
+.filter-controls select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+
+.admin-item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-list-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.admin-list-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-item-image {
+    width: 80px; /* Fixed image width */
+    height: 80px; /* Fixed image height */
+    object-fit: cover; /* Crop image to fit */
+    border-radius: 4px;
+    margin-right: 20px;
+    flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.admin-item-info {
+    flex-grow: 1; /* Allow info to take up space */
+    margin-right: 20px;
+}
+
+.admin-item-info h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #007bff;
+    font-size: 1.2em;
+}
+
+.admin-item-info p {
+    margin-bottom: 4px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.view-details-button {
+    padding: 8px 15px;
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.view-details-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.inquiry-item {
+    flex-direction: column; /* Stack inquiry details vertically */
+    align-items: flex-start; /* Align items to the start */
+}
+
+.inquiry-item .admin-item-info {
+    width: 100%; /* Info takes full width */
+    margin-right: 0;
+}
+
+.inquiry-item .admin-item-info p {
+    margin-bottom: 8px; /* More space between paragraphs */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .admin-list-item {
+        flex-direction: column; /* Stack image and info vertically */
+        align-items: flex-start;
+    }
+
+    .admin-item-image {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%; /* Full width image on small screens */
+        height: auto; /* Auto height to maintain aspect ratio */
+        max-height: 150px; /* Limit max height */
+    }
+
+    .admin-item-info {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .view-details-button {
+        width: 100%; /* Full width button */
+        text-align: center;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+

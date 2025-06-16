@@ -1,0 +1,193 @@
+/* src/css/HomePage.css */
+
+/* Main Container */
+.home-page-container {
+    max-width: 1200px; /* Adjust max width as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 3rem 1.5rem; /* Vertical and horizontal padding */
+    font-family: 'Arial', sans-serif; /* Example font */
+    color: #333; /* Default text color */
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    margin-bottom: 4rem; /* Space below hero section */
+}
+
+.hero-title {
+    font-size: 2.8rem; /* Adjust font size */
+    font-weight: bold;
+    color: #1a237e; /* Dark blue color */
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.4rem; /* Adjust font size */
+    color: #555; /* Greyish text color */
+    margin-bottom: 2rem;
+}
+
+.explore-button {
+    display: inline-block; /* Allows padding and margin */
+    background-color: #4caf50; /* Green color */
+    color: white;
+    font-weight: 600;
+    padding: 0.9rem 2rem; /* Adjust padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none; /* Remove underline */
+}
+
+.explore-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Services Section */
+.services-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 2rem; /* Space between cards */
+    margin-bottom: 4rem; /* Space below services section */
+}
+
+.service-card {
+    background-color: #ffffff;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    padding: 2rem; /* Padding inside the card */
+    text-align: center;
+    border: 1px solid #e0e0e0; /* Light border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+}
+
+.service-icon {
+    margin: 0 auto 1rem; /* Center icon and add bottom margin */
+    /* Color is set inline in the component */
+}
+
+.service-title {
+    font-size: 1.8rem; /* Adjust font size */
+    font-weight: 600;
+    color: #333; /* Dark text color */
+    margin-bottom: 0.8rem;
+}
+
+.service-description {
+    font-size: 1rem; /* Adjust font size */
+    color: #555; /* Greyish text color */
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.service-link {
+    font-weight: 600;
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.2s ease;
+    /* Color is set inline in the component */
+}
+
+.service-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+
+/* Become a Service Provider Section */
+.provider-section {
+    text-align: center;
+    background-color: #e3f2fd; /* Light blue background */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem; /* Adjust padding */
+}
+
+.provider-icon {
+    margin: 0 auto 1rem; /* Center icon and add bottom margin */
+    /* Color is set inline in the component */
+}
+
+.provider-title {
+    font-size: 2rem; /* Adjust font size */
+    font-weight: 600;
+    color: #1a237e; /* Dark blue color */
+    margin-bottom: 1rem;
+}
+
+.provider-description {
+    font-size: 1.1rem; /* Adjust font size */
+    color: #333; /* Dark text color */
+    margin-bottom: 2rem;
+}
+
+.provider-button {
+    display: inline-block;
+    background-color: #1a237e; /* Dark blue color */
+    color: white;
+    font-weight: 600;
+    padding: 0.9rem 2rem; /* Adjust padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.provider-button:hover {
+    background-color: #0d47a1; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .explore-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .services-section {
+        gap: 1.5rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-title {
+        font-size: 1.5rem;
+    }
+
+    .service-description {
+        font-size: 0.95rem;
+    }
+
+    .provider-section {
+        padding: 2rem;
+    }
+
+    .provider-title {
+        font-size: 1.8rem;
+    }
+
+    .provider-description {
+        font-size: 1rem;
+    }
+
+    .provider-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,300 @@
+/* src/components/Admin/css/TransportationBookingRequests.css */
+
+/* Container for the entire booking requests section */
+.service-list { /* Using a generic class name for consistency across booking request lists */
+    padding: 30px;
+    background-color: #eef2f7; /* Softer background */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Heading for the section */
+.service-list h2 {
+    color: #1a3e6b; /* Darker blue heading */
+    border-bottom: 3px solid #20c997; /* Teal underline */
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Filter section styling */
+.booking-filter {
+    margin-bottom: 25px; /* Space below filter */
+    padding: 15px 20px; /* Padding */
+    background-color: #d1ecf1; /* Light cyan background */
+    border: 1px solid #bee5eb;
+    border-radius: 8px;
+    display: flex; /* Use flexbox for label and select */
+    align-items: center; /* Vertically align items */
+    gap: 15px; /* Space between label and select */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.booking-filter label {
+    font-weight: 700;
+    color: #0c5460; /* Dark cyan text */
+    font-size: 1em;
+}
+
+.booking-filter select {
+    padding: 8px 12px;
+    border: 1px solid #bee5eb;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #0c5460;
+    background-color: #e0f2f7; /* Lighter cyan background */
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.booking-filter select:focus {
+    border-color: #0c5460;
+    box-shadow: 0 0 0 0.2rem rgba(12, 84, 96, 0.25);
+}
+
+
+/* Individual booking request item styling */
+.service-item { /* Using a generic class name for consistency */
+    background-color: #ffffff;
+    border: 1px solid #dee2e6; /* Standard grey border */
+    border-left: 5px solid; /* Left border color will change based on status */
+    border-radius: 8px;
+    padding: 25px; /* Generous internal padding */
+    margin-bottom: 20px; /* Space between list items */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    word-break: break-word; /* Prevent overflow */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack content vertically */
+    gap: 10px; /* Space between the direct children */
+}
+
+/* Left border color based on status */
+.service-item.status-pending {
+    border-left-color: #ffc107; /* Yellow for Pending */
+}
+
+.service-item.status-approved {
+    border-left-color: #28a745; /* Green for Approved */
+}
+
+.service-item.status-rejected {
+    border-left-color: #dc3545; /* Red for Rejected */
+}
+
+
+/* Styling for details within the item */
+.service-item h3 {
+    color: #1a3e6b; /* Darker blue */
+    margin-top: 0;
+    margin-bottom: 5px; /* Keep a small margin below heading before details start */
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-bottom: 1px dashed #ced4da; /* Separator below heading */
+    padding-bottom: 10px; /* Padding below the separator */
+}
+
+.service-item p {
+    margin: 0; /* Remove default paragraph margin */
+    color: #555;
+    line-height: 1.6; /* Improved line spacing */
+}
+
+.service-item p strong {
+    color: #333;
+    margin-right: 8px;
+    font-weight: 700;
+}
+
+/* Styling for the status text within the item */
+.booking-status {
+    font-weight: bold; /* Make status text bold */
+    margin-top: 10px; /* Space above status */
+    padding-top: 10px;
+    border-top: 1px dashed #ced4da; /* Separator above status */
+}
+
+/* Color the status text based on status */
+.booking-status.status-pending {
+    color: #ffc107; /* Yellow */
+}
+
+.booking-status.status-approved {
+    color: #28a745; /* Green */
+}
+
+.booking-status.status-rejected {
+    color: #dc3545; /* Red */
+}
+
+
+/* Container for action buttons */
+.service-actions {
+    margin-top: 15px; /* Space above actions */
+    padding-top: 15px;
+    border-top: 1px dashed #ced4da; /* Separator above actions */
+    display: flex; /* Use flexbox to align buttons */
+    gap: 15px; /* Space between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+    justify-content: flex-start; /* Align buttons to the start */
+    align-items: center; /* Vertically center buttons */
+}
+
+/* Button styling within the service actions */
+.service-actions button {
+    padding: 8px 16px; /* Padding for buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+}
+
+.service-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Approve button specific styling */
+.service-actions .approve-button {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+
+.service-actions .approve-button:hover:not(:disabled) {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px);
+}
+
+.service-actions .approve-button:active:not(:disabled) {
+    background-color: #1e7e34; /* Even darker on active */
+    transform: translateY(0);
+}
+
+/* Reject button specific styling */
+.service-actions .reject-button {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+
+.service-actions .reject-button:hover:not(:disabled) {
+    background-color: #c82333; /* Darker red on hover */
+     transform: translateY(-2px);
+}
+
+.service-actions .reject-button:active:not(:disabled) {
+    background-color: #bd2130; /* Even darker on active */
+    transform: translateY(0);
+}
+
+
+/* Styling for messages (loading, empty) */
+.service-list-loading,
+.service-list-empty {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-style: italic;
+    background-color: #e9ecef;
+    color: #007bff;
+    border: 1px solid #ced4da;
+}
+
+.service-list-empty {
+    background-color: #fff3cd; /* Light yellow */
+    color: #856404; /* Dark yellow */
+    border-color: #ffeeba;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .service-list {
+        padding: 20px;
+    }
+    .service-list h2 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    .booking-filter {
+        flex-direction: column; /* Stack filter elements vertically */
+        align-items: flex-start; /* Align items to the start */
+        gap: 10px;
+        padding: 10px 15px;
+    }
+    .service-item {
+        padding: 20px;
+        margin-bottom: 15px;
+        gap: 8px;
+    }
+    .service-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+        padding-bottom: 8px;
+    }
+    .service-item p {
+        font-size: 0.95em;
+    }
+    .service-actions {
+        margin-top: 10px;
+        padding-top: 10px;
+        gap: 10px;
+    }
+    .service-actions button {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+     .service-list-loading,
+    .service-list-empty {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-list {
+        padding: 15px;
+    }
+     .service-list h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    .booking-filter {
+         padding: 8px 10px;
+         gap: 8px;
+    }
+     .service-item {
+        padding: 15px;
+        margin-bottom: 10px;
+        gap: 6px;
+    }
+     .service-item h3 {
+        font-size: 1.2rem;
+        padding-bottom: 6px;
+    }
+     .service-item p {
+        font-size: 0.9em;
+    }
+     .service-actions {
+        margin-top: 8px;
+        padding-top: 8px;
+        gap: 8px;
+    }
+     .service-actions button {
+        padding: 5px 10px;
+        font-size: 0.85em;
+     }
+      .service-list-loading,
+    .service-list-empty {
+        padding: 10px;
+        font-size: 1rem;
+    }
+}

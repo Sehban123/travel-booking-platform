@@ -1,0 +1,462 @@
+.accommodationBookingContainer {
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 1000px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.accommodationBookingContainer h2 {
+  color: #0056b3;
+  border-bottom: 3px solid #20c997;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+}
+.accommodationDetailsSection {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.accommodationImageContainer {
+  flex: 1;
+  min-width: 300px;
+  max-width: 50%;
+  position: relative;
+}
+
+.accommodationImage,
+.accommodationImagePlaceholder {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.accommodationImagePlaceholder {
+  background: #e9ecef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6c757d;
+  font-size: 1.1em;
+  font-style: italic;
+}
+
+.accommodationTextDetails {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accommodationTextDetails h3 {
+  color: #007bff;
+  margin: 0 0 15px 0;
+  font-size: 1.3em;
+  font-weight: 600;
+  border-bottom: 1px dashed #ced4da;
+  padding-bottom: 10px;
+}
+
+.accommodationTextDetails p {
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+.accommodationTextDetails p strong {
+  color: #333;
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+.termsAndConditionsSection {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #ced4da;
+}
+
+.termsAndConditionsSection p {
+  margin-bottom: 8px;
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* --- General Form Group and Input Styling --- */
+.form-group {
+    margin-bottom: 15px; /* Spacing between form fields */
+    text-align: left; /* Align labels/inputs to the left */
+}
+
+.form-group label {
+    display: block; /* Make labels appear on their own line */
+    margin-bottom: 8px; /* Space between label and input */
+    font-weight: 600; /* Make labels a bit bolder */
+    color: #333;
+    font-size: 0.95em;
+}
+
+.bookingForm input[type="text"],
+.bookingForm input[type="tel"],
+.bookingForm input[type="email"],
+.bookingForm input[type="date"],
+.bookingForm input[type="number"],
+.bookingForm select, /* Added select for dropdowns */
+.filter-dropdown, /* Explicitly include filter dropdowns */
+.filter-input { /* Explicitly include filter inputs */
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box; /* Include padding/border in element's total width */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  appearance: none; /* Remove default browser styling for select */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff; /* Ensure white background for inputs/selects */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292%22%20height%3D%22292%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069L146%20208%205%2069z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow for select */
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%;
+  background-size: 0.65em auto;
+}
+
+.bookingForm input:focus,
+.bookingForm select:focus,
+.filter-dropdown:focus,
+.filter-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Readonly / Disabled Inputs */
+.bookingForm input[readonly],
+.bookingForm input[disabled],
+.bookingForm select[disabled], /* Added select disabled state */
+.filter-input[disabled],
+.filter-dropdown[disabled] {
+  background-color: #e9ecef;
+  color: #555;
+  cursor: not-allowed;
+  border-color: #ced4da;
+}
+
+/* Specific styling for the room selection dropdown */
+.room-select-dropdown {
+    margin-top: 5px; /* Small margin to separate from label */
+}
+
+
+/* --- Styling for room image preview --- */
+.roomImagePreview {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #ced4da;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text and image to the left */
+    gap: 10px;
+}
+
+.roomImagePreview strong {
+    color: #333;
+    font-size: 1em;
+}
+
+.smallRoomImage {
+    width: 150px; /* Adjusted width for smaller image */
+    height: 120px; /* Decreased height for room image */
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.termsCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 20px 0;
+}
+
+.termsCheckbox label {
+  font-weight: 400;
+  color: #333;
+  font-size: 1em;
+  cursor: pointer;
+}
+.error-message, .success-message {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.error-message {
+  color: #dc3545;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+.success-message {
+  color: #28a745;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.loading-message,
+.info-message {
+  text-align: center;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 5px;
+  font-size: 1.2em;
+  font-style: italic;
+  max-width: 600px;
+}
+
+.loading-message {
+  background: #e9ecef;
+  color: #007bff;
+  border: 1px solid #ced4da;
+}
+
+.info-message {
+  background: #fff3cd;
+  color: #856404;
+  border-color: #ffeeba;
+}
+.bookButton {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+  margin-top: 20px;
+}
+
+.bookButton:hover:not(:disabled) {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.bookButton:active:not(:disabled) {
+  background-color: #1e7e34;
+}
+
+.bookButton:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.nearbyAttractionsContainer.full-width-section {
+  margin-top: 10px;
+  padding-top: 30px;
+  border-top: 1px solid #dee2e6;
+  width: 100%;
+}
+
+.nearbyAttractionsContainer h2 {
+  color: #0056b3;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.attractionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.attractionCard {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.attractionImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.attractionDetails {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.attractionDetails h3 {
+  color: #333;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.attractionDetails p {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* --- NEW: Room Filters Section Styling for AccommodationBooking.js --- */
+.filter-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #e6f7ff; /* Lighter blue for booking page filters */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.filter-section h4 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjust min-width */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Reuse general input/dropdown styling for filter elements */
+/* .filter-dropdown, .filter-input are already targeted by general form-group inputs */
+
+.reset-filters-button {
+    padding: 10px 20px;
+    background-color: #dc3545; /* Red for reset */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+    margin-top: 10px; /* Space from filters-grid */
+    width: auto; /* Allow button to size naturally */
+}
+
+.reset-filters-button:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+.reset-filters-button:active {
+    background-color: #bd2130;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .accommodationDetailsSection {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .accommodationImageContainer {
+    max-width: 100%;
+  }
+
+  .accommodationImage,
+  .accommodationImagePlaceholder {
+    height: 250px;
+  }
+
+  .accommodationTextDetails {
+    padding: 15px;
+  }
+
+  .bookingFormContainer {
+    padding: 15px;
+  }
+
+  .bookButton {
+    padding: 10px 15px;
+    font-size: 1em;
+  }
+
+  .nearbyAttractionsContainer {
+    padding-top: 20px;
+  }
+
+  .attractionsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  /* Responsive adjustment for small room image */
+  .smallRoomImage {
+    width: 120px; /* Adjust as needed for smaller screens */
+    height: 90px; /* Adjust as needed for smaller screens */
+  }
+
+  /* Responsive for new filter section */
+  .filters-grid {
+    grid-template-columns: 1fr; /* Stack filters vertically on smaller screens */
+  }
+  .filter-section .reset-filters-button {
+      width: 100%; /* Full width for reset button in mobile view */
+  }
+}
+
+@media (max-width: 480px) {
+  .accommodationImage,
+  .accommodationImagePlaceholder {
+    height: 200px;
+  }
+
+  .bookingFormContainer {
+    padding: 10px;
+  }
+
+  .attractionsGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .attractionImage {
+    height: 180px;
+  }
+  /* Further responsive adjustment for small room image on very small screens */
+  .smallRoomImage {
+    width: 100px; /* Adjust as needed for very small screens */
+    height: 75px; /* Adjust as needed for very small screens */
+  }
+}

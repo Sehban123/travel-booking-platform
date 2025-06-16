@@ -1,0 +1,342 @@
+/* Styles for the Transportation Form container - Matching .service-form from AccommodationForm.css */
+.service-form {
+    max-width: 800px; /* Adjusted max-width for consistency */
+    margin: 20px auto; /* Center the form and add vertical margin */
+    padding: 30px; /* Add padding inside the form container */
+    background-color: #ffffff; /* White background */
+    border: 1px solid #e0e0e0; /* Subtle border */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    font-family: 'Arial', sans-serif; /* Use a common sans-serif font */
+    color: #333; /* Default text color */
+    line-height: 1.6; /* Improved readability with line height */
+}
+
+/* Style for the form heading - Matching h2 from AccommodationForm.css */
+.service-form h2 {
+    font-size: 1.8rem; /* Larger heading font size */
+    color: #2c3e50; /* Darker heading color */
+    margin-bottom: 25px; /* Space below the heading */
+    text-align: center; /* Center the heading */
+    border-bottom: 2px solid #bdc3c7; /* Separator line */
+    padding-bottom: 10px; /* Space between heading and line */
+}
+
+/* Style for form labels - Matching labels from AccommodationForm.css */
+.service-form form label {
+   display: block; /* Make labels block elements for better layout */
+    margin-bottom: 8px; /* Space below each label */
+    font-weight: bold; /* Make labels bold */
+    color: #555; /* Slightly lighter color for labels */
+    font-size: 0.95rem; /* Slightly smaller font size for labels */
+}
+
+
+/* Style for form input fields, select, and textarea - Matching inputs from AccommodationForm.css */
+.service-form form input[type="text"],
+.service-form form input[type="email"],
+.service-form form input[type="tel"],
+.service-form form input[type="password"],
+.service-form form input[type="number"],
+.service-form form select, /* Added select */
+.service-form form textarea {
+    display: block; /* Make inputs block elements */
+    width: 100%; /* Make inputs take full width */
+    padding: 12px; /* Add padding inside inputs */
+    margin-bottom: 20px; /* Increased space below each input for better separation */
+    border: 1px solid #ccc; /* Default border */
+    border-radius: 6px; /* Rounded corners for inputs */
+    box-sizing: border-box; /* Include padding and border in element's total width */
+    font-size: 1rem; /* Standard font size */
+    color: #333; /* Input text color */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+}
+
+/* Focus state for input fields */
+.service-form form input[type="text"]:focus,
+.service-form form input[type="email"]:focus,
+.service-form form input[type="tel"]:focus,
+.service-form form input[type="password"]:focus,
+.service-form form input[type="number"]:focus,
+.service-form form select:focus,
+.service-form form textarea:focus {
+    border-color: #007bff; /* Highlight border color on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25); /* Add a subtle shadow on focus */
+    outline: none; /* Remove default outline */
+}
+
+
+/* Specific style adjustments for file input */
+.service-form form input[type="file"] {
+     display: block;
+     width: 100%;
+     padding: 12px 0; /* Adjust padding for file input */
+     margin-bottom: 20px; /* Increased space below file input */
+     font-size: 1rem;
+     color: #555;
+     border: none; /* File input typically doesn't have a border */
+     border-radius: 0; /* No border radius */
+     box-shadow: none; /* No shadow */
+}
+
+/* Style for textarea */
+.service-form form textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 120px; /* Slightly increased minimum height */
+}
+
+/* Style for the terms acceptance checkbox container - Matching .terms-checkbox */
+.terms-checkbox {
+    margin-top: 20px; /* Added space above terms checkbox */
+    margin-bottom: 20px; /* Increased space below terms checkbox */
+    display: flex; /* Use flexbox to align checkbox and text */
+    align-items: center; /* Vertically center items */
+    gap: 8px; /* Space between checkbox and label */
+}
+
+/* Style for the checkbox input - Matching checkbox styles */
+.terms-checkbox input[type="checkbox"],
+.checkbox-group input[type="checkbox"] { /* Apply to features checkboxes as well */
+    /* Basic styling */
+    width: 18px; /* Slightly larger */
+    height: 18px; /* Slightly larger */
+    cursor: pointer;
+    /* Optional: Custom appearance */
+    -webkit-appearance: none; /* Remove default browser styles */
+    -moz-appearance: none;
+    appearance: none;
+    border: 1.5px solid #555;
+    border-radius: 4px; /* Slightly more rounded */
+    outline: none;
+    transition: all 0.2s ease-in-out; /* Smooth transitions */
+    position: relative; /* Needed for custom checkmark */
+    flex-shrink: 0; /* Prevent checkbox from shrinking */
+}
+
+/* Style for the custom checkmark */
+.terms-checkbox input[type="checkbox"]::before,
+.checkbox-group input[type="checkbox"]::before { /* Apply to features checkboxes as well */
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px; /* Size of the checkmark */
+    height: 10px; /* Size of the checkmark */
+    transform: translate(-50%, -50%) scale(0); /* Hide checkmark by default */
+    background-color: #007bff; /* Blue checkmark color */
+     /* Checkmark shape - using a simple square for consistency */
+    /* clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%); */
+    border-radius: 2px; /* Match the checkbox border-radius */
+    transition: transform 0.2s ease;
+}
+
+/* Style when checkbox is checked */
+.terms-checkbox input[type="checkbox"]:checked,
+.checkbox-group input[type="checkbox"]:checked { /* Apply to features checkboxes as well */
+    background-color: #007bff; /* Blue background when checked */
+    border-color: #007bff; /* Blue border when checked */
+}
+
+/* Show the checkmark when checked */
+.terms-checkbox input[type="checkbox"]:checked::before,
+.checkbox-group input[type="checkbox"]:checked::before { /* Apply to features checkboxes as well */
+    transform: translate(-50%, -50%) scale(1); /* Show checkmark */
+}
+
+/* Style for the label */
+.terms-checkbox label {
+    font-size: 0.95rem; /* Match label font size */
+    color: #555;
+    cursor: pointer;
+    user-select: none; /* Prevent text selection when clicking label */
+    font-weight: normal; /* Normal weight for checkbox labels */
+}
+
+/* Style for disabled checkbox and label */
+.terms-checkbox input[type="checkbox"]:disabled,
+.checkbox-group input[type="checkbox"]:disabled { /* Apply to features checkboxes as well */
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.terms-checkbox input[type="checkbox"]:disabled + label,
+.checkbox-group input[type="checkbox"]:disabled + label { /* Apply to features checkboxes as well */
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* Style for the submit button - Matching button[type="submit"] from AccommodationForm.css */
+.service-form button[type="submit"] {
+    display: block; /* Make button block element */
+    width: 100%; /* Make button take full width */
+    padding: 12px 20px; /* Padding inside the button */
+    background-color: #28a745; /* Green background color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 6px; /* Rounded corners */
+    font-size: 1.1rem; /* Larger font size */
+    cursor: pointer; /* Indicate clickable */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+    margin-top: 25px; /* Increased space above the button */
+}
+
+/* Hover state for the submit button */
+.service-form button[type="submit"]:hover:not(:disabled) {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Disabled state for the submit button */
+.service-form button[type="submit"]:disabled {
+    background-color: #cccccc; /* Gray background when disabled */
+    cursor: not-allowed; /* Indicate not allowed */
+}
+
+/* Style for loading message - Matching .form-loading */
+.form-loading {
+    text-align: center;
+    color: #007bff; /* Blue color for loading text */
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Styles for the container holding the checkboxes and custom input - Matching .form-group */
+.form-group {
+    margin-bottom: 20px; /* Space below each group */
+    padding: 15px; /* Add some padding inside the group */
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background */
+}
+
+.form-group > strong { /* Target the main label/strong of form-group */
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* Styles for the container holding the individual checkboxes - Matching .checkbox-group */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Space between checkbox items */
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    color: #555;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.95rem; /* Match label font size */
+}
+
+
+/* Styles for the "Add Custom" checkbox label (if applicable) */
+/* Assuming this is a direct label within .form-group */
+.form-group > label {
+     display: flex;
+     align-items: center;
+     margin-bottom: 10px;
+     font-weight: normal;
+     color: #555;
+     cursor: pointer;
+     font-size: 0.95rem; /* Match label font size */
+}
+
+/* Styles for the custom input field (if applicable) */
+.form-group input[type="text"][name^="custom"] {
+    display: block;
+    width: 100%; /* Take full width of parent */
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* Optional: Add some focus style to the custom input */
+.form-group input[type="text"][name^="custom"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+
+/* Styling for the existing image preview */
+.service-form img {
+    display: block; /* Make image a block element */
+    margin-top: 10px; /* Space above the image */
+    margin-bottom: 15px; /* Added space below the image */
+    max-width: 150px; /* Limit max width */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #e0e0e0; /* Subtle border around image */
+    border-radius: 8px; /* Rounded corners for image */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Soft shadow */
+}
+
+/* Styles for displaying read-only fields like IDs */
+.form-field-display {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+}
+
+.form-field-display strong {
+    color: #555;
+    margin-right: 10px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .service-form {
+        padding: 20px; /* Reduce padding on smaller screens */
+        margin: 15px; /* Adjust margin */
+    }
+
+    .service-form h2 {
+        font-size: 1.5rem; /* Adjust heading size */
+        margin-bottom: 20px;
+    }
+
+    .service-form input[type="text"],
+    .service-form input[type="email"],
+    .service-form form input[type="tel"], /* Added tel */
+    .service-form form input[type="password"], /* Added password */
+    .service-form input[type="number"],
+    .service-form select,
+    .service-form textarea,
+    .form-group input[type="text"][name^="custom"] {
+        padding: 10px; /* Reduce input padding */
+        font-size: 0.95rem; /* Adjust input font size */
+        margin-bottom: 15px; /* Adjusted margin */
+    }
+
+     .service-form input[type="file"] {
+         padding: 10px 0; /* Adjust padding for file input on smaller screens */
+         margin-bottom: 15px; /* Adjusted margin */
+     }
+
+
+    .service-form button[type="submit"] {
+        padding: 10px 15px; /* Adjust button padding */
+        font-size: 1rem; /* Adjust button font size */
+        margin-top: 20px; /* Adjusted margin */
+    }
+
+    .checkbox-group {
+        gap: 10px; /* Reduce gap between checkboxes */
+    }
+}
+

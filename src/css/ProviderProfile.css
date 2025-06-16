@@ -1,0 +1,441 @@
+/* src/components/Admin/css/ProviderProfile.css */
+
+
+/* Main Container for the entire provider profile section */
+/* Changed .provider-profile to .profile-container to match JS file */
+.profile-container {
+    padding: 30px;
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
+    margin: 20px auto; /* Center the container with vertical margin */
+    width: 100%; /* Take full width within its parent */
+    max-width: 950px; /* Increased max-width for more spacious layout */
+    font-family: 'Inter', sans-serif; /* Consistent font */
+    color: #333; /* Dark grey text */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    overflow-y: auto; /* Enable scrolling for long forms/details */
+    max-height: 95vh; /* Limit height for responsiveness, allow scrolling */
+}
+
+/* Heading for the section */
+.profile-container h2 {
+    color: #0056b3; /* Dark blue heading */
+    border-bottom: 3px solid #20c997; /* Teal underline */
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 2.2em; /* Slightly larger heading */
+    font-weight: 700;
+    text-align: center;
+}
+
+/* --- Message Styling (Success/Error) --- */
+.profile-message {
+    padding: 15px 20px;
+    margin-bottom: 25px; /* Space below message */
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.profile-message.success {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+}
+
+.profile-message.error {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Styling for the profile details in view mode */
+.profile-view-mode,
+.profile-edit-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Consistent spacing between main sections (basic info, documents) */
+}
+
+.profile-subsection {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: #fcfcfc; /* Slightly off-white background */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.profile-subsection h3 {
+    font-size: 1.6em; /* Slightly larger subsection headings */
+    color: #34495e; /* Darker grey blue */
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.profile-subsection p {
+    margin: 0; /* Remove default paragraph margin */
+    line-height: 1.7; /* Increased line height for readability */
+    color: #555;
+    font-size: 1em;
+    word-break: break-word; /* Prevent long text overflow */
+    display: flex; /* Use flex for label-value alignment */
+    align-items: baseline; /* Align text baselines */
+    flex-wrap: wrap; /* Allow wrapping for long values */
+    padding: 5px 0; /* Small vertical padding for each detail line */
+}
+
+.profile-subsection p strong {
+    color: #333;
+    margin-right: 15px; /* More space between label and value */
+    font-weight: 700;
+    display: inline-block;
+    min-width: 180px; /* Increased min-width for labels to align better */
+    flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+/* Status styling */
+.status-pending { color: #ffc107; /* Yellow */ font-weight: bold; }
+.status-approved { color: #28a745; /* Green */ font-weight: bold; }
+.status-rejected { color: #dc3545; /* Red */ font-weight: bold; }
+.status-paid { color: #007bff; /* Blue */ font-weight: bold; }
+.status-skipped { color: #6c757d; /* Grey */ font-weight: bold; }
+
+/* Styling for the Edit button in view mode */
+/* Updated to affect buttons within .profile-form-actions and .profile-details */
+.profile-form-actions {
+    display: flex;
+    justify-content: center; /* Center buttons */
+    gap: 20px; /* Space between buttons */
+    margin-top: 35px; /* More space above buttons */
+}
+
+.profile-form-actions button,
+.profile-details button { /* Target buttons in both sections */
+    padding: 14px 30px; /* Larger padding for buttons */
+    background-color: #007bff; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 8px; /* More rounded */
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: 600;
+    transition: all 0.3s ease; /* All properties for smooth transitions */
+    align-self: center; /* Center the button */
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+    max-width: 220px; /* Limit button width */
+}
+
+.profile-form-actions button:hover:not(:disabled),
+.profile-details button:hover:not(:disabled) {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 123, 255, 0.35);
+}
+
+.profile-form-actions button:active:not(:disabled),
+.profile-details button:active:not(:disabled) {
+    background-color: #004085; /* Even darker on active */
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.25);
+}
+
+.profile-form-actions button:disabled,
+.profile-details button:disabled {
+    background-color: #a0c8f3;
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Styling for the profile form in edit mode */
+.profile-edit-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between form groups/subsections */
+}
+
+/* Form Groups for labels and inputs */
+.form-group {
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+/* Subsection within the form (e.g., Transportation Details, Documents) */
+.profile-subsection-form {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: #fdfdfd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-top: 20px; /* Space above subsections */
+}
+
+.profile-subsection-form h3 {
+    font-size: 1.6em;
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.profile-edit-mode label { /* Specific for edit mode labels */
+    font-weight: 600;
+    color: #495057;
+    font-size: 1em; /* Slightly larger label font in edit mode */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile-edit-mode input[type="text"],
+.profile-edit-mode input[type="tel"],
+.profile-edit-mode input[type="email"],
+.profile-edit-mode input[type="url"],
+.profile-edit-mode input[type="number"],
+.profile-edit-mode select,
+.profile-edit-mode textarea {
+    padding: 12px 15px; /* Larger padding for inputs */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+}
+
+.profile-edit-mode input:focus,
+.profile-edit-mode select:focus,
+.profile-edit-mode textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.profile-edit-mode textarea {
+    resize: vertical;
+    min-height: 120px; /* Increased min-height for textareas */
+}
+
+/* Styling for read-only/disabled inputs in edit mode */
+.disabled-input {
+    background-color: #e9ecef !important; /* Light grey, override focus styles */
+    color: #555 !important;
+    cursor: not-allowed !important;
+    border-color: #ced4da !important;
+    box-shadow: none !important;
+}
+
+/* Checkbox and Radio group styling within forms */
+.profile-edit-mode .checkbox-group,
+.profile-edit-mode .radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* More space between items */
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    margin-top: 10px;
+}
+
+.profile-edit-mode .checkbox-group label,
+.profile-edit-mode .radio-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    font-size: 0.95em;
+    color: #333;
+    cursor: pointer;
+    gap: 10px; /* Space between checkbox/radio and its label */
+}
+
+.profile-edit-mode .checkbox-group input[type="checkbox"],
+.profile-edit-mode .radio-group input[type="radio"] {
+    width: auto;
+    margin: 0;
+    transform: scale(1.15); /* Slightly larger inputs */
+    cursor: pointer;
+}
+
+/* Document links in display mode */
+.document-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    display: inline-flex; /* Allows image and text to align */
+    align-items: center;
+    gap: 8px; /* Space between thumbnail and text */
+}
+
+.document-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.document-thumbnail {
+    width: 30px; /* Small thumbnail size */
+    height: 30px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    flex-shrink: 0;
+}
+
+/* Loading message */
+.profile-loading {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-style: italic;
+    background-color: #e9ecef;
+    color: #007bff;
+    border: 1px solid #ced4da;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .profile-container { /* Updated from .provider-profile */
+        padding: 20px;
+        margin: 15px auto;
+        max-width: 95%; /* Adjust max-width for smaller screens */
+    }
+    .profile-container h2 { /* Updated from .provider-profile h2 */
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+    .profile-subsection p {
+        font-size: 0.95em;
+        flex-direction: column; /* Stack label and value on small screens */
+        align-items: flex-start;
+        gap: 2px; /* Small gap when stacked */
+    }
+    .profile-subsection p strong {
+         min-width: unset; /* Remove min-width when stacked */
+         margin-right: 0;
+         margin-bottom: 5px; /* Space below label when stacked */
+    }
+    /* Consolidated button styling at higher level */
+    .profile-form-actions {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 15px;
+        margin-top: 25px;
+    }
+    .profile-form-actions button,
+    .profile-details button { /* Apply to both sets of buttons */
+        padding: 12px 25px;
+        font-size: 1em;
+        max-width: 100%; /* Full width when stacked */
+    }
+    .profile-subsection-form {
+        padding: 20px;
+    }
+    .profile-subsection-form h3,
+    .profile-subsection h3 {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+    }
+    .profile-edit-mode label {
+        font-size: 0.9em;
+        gap: 6px;
+    }
+    .profile-edit-mode input[type="text"],
+    .profile-edit-mode input[type="tel"],
+    .profile-edit-mode input[type="email"],
+    .profile-edit-mode input[type="url"],
+    .profile-edit-mode input[type="number"],
+    .profile-edit-mode select,
+    .profile-edit-mode textarea {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+    .profile-edit-mode .checkbox-group,
+    .profile-edit-mode .radio-group {
+        flex-direction: column; /* Stack options vertically */
+        gap: 12px;
+        padding: 10px;
+    }
+    .profile-edit-mode .checkbox-group label,
+    .profile-edit-mode .radio-group label {
+        font-size: 0.9em;
+        gap: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container { /* Updated from .provider-profile */
+        padding: 15px;
+        margin: 10px auto;
+    }
+    .profile-container h2 { /* Updated from .provider-profile h2 */
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+     .profile-details p {
+        font-size: 0.9em;
+        line-height: 1.5;
+    }
+     .profile-details p strong {
+         min-width: unset; /* Ensure no min-width */
+         margin-bottom: 3px;
+     }
+    /* Consolidated button styling at higher level */
+    .profile-form-actions button,
+    .profile-details button { /* Apply to both sets of buttons */
+        padding: 8px 15px;
+        font-size: 0.95em;
+    }
+    .profile-edit-mode label {
+        font-size: 0.85em;
+    }
+     .profile-edit-mode input[type="text"],
+    .profile-edit-mode input[type="tel"],
+    .profile-edit-mode input[type="email"],
+    .profile-edit-mode input[type="url"],
+    .profile-edit-mode input[type="number"],
+    .profile-edit-mode select,
+    .profile-edit-mode textarea {
+        padding: 6px 8px;
+        font-size: 0.9em;
+    }
+    .profile-edit-mode .checkbox-group,
+    .profile-edit-mode .radio-group {
+        gap: 8px;
+        padding: 6px;
+    }
+    .profile-edit-mode .checkbox-group label,
+    .profile-edit-mode .radio-group label {
+        font-size: 0.85em;
+    }
+    .profile-form-actions {
+        gap: 8px;
+        margin-top: 15px;
+    }
+    .profile-form button { /* Specific for the form's submit/cancel buttons */
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+    .profile-subsection-form {
+        padding: 15px;
+    }
+    .profile-subsection-form h3,
+    .profile-subsection h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+}

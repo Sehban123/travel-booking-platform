@@ -1,0 +1,401 @@
+/* src/css/TransportationBooking.css */
+
+/* Main Container */
+.transportationBookingContainer {
+    max-width: 1000px;
+    margin: 2rem auto; /* Center the container with vertical margin */
+    padding: 2.5rem; /* Increased padding for more internal space */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px; /* Consistent rounded corners */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    font-family: 'Segoe UI', sans-serif; /* Clear font */
+    line-height: 1.6; /* Improved readability */
+    color: #333; /* Default text color */
+    display: flex; /* Enable flexbox for main content flow */
+    flex-direction: column; /* Stack sections vertically */
+    gap: 30px; /* Space between the main layout sections (ROW 1 and FORM SECTION) */
+}
+
+/* Heading */
+.transportationBookingContainer h2 {
+    font-size: 2.2rem;
+    color: #2c3e50; /* Darker heading color */
+    margin-bottom: 2rem; /* Increased space below the heading */
+    border-bottom: 2px solid #bdc3c7; /* Separator line */
+    padding-bottom: 1rem; /* Increased space between heading and line */
+    text-align: center;
+}
+
+/* ROW 1: Transportation Details Section (Image and Text side-by-side) */
+.transportDetailsSection {
+    background-color: #fcfcfc; /* Slightly different background for visual separation */
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    display: flex; /* Use flexbox for horizontal layout of image and text */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    overflow: hidden;
+    width: 100%; /* Ensure it takes full width */
+    padding: 20px; /* Internal padding */
+    box-sizing: border-box; /* Include padding/border in width */
+}
+
+.transportationImageContainer {
+    flex: 1; /* Allow image container to grow */
+    min-width: 300px; /* Minimum width for the image part */
+    max-width: 50%; /* Max width for image to not take too much space */
+    margin-right: 20px; /* Space between image and text */
+    /* Removed padding if image is supposed to go edge-to-edge in its container */
+}
+
+.transportationImage {
+    width: 100%; /* Image fills its container width */
+    height: 350px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover without distortion */
+    border-radius: 8px; /* Slightly smaller border-radius for image itself */
+    border: 1px solid #ccc;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.05);
+    display: block;
+}
+
+.transportationImagePlaceholder {
+    width: 100%;
+    height: 350px; /* Fixed height for consistency */
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6c757d;
+    font-size: 1.1em;
+    font-style: italic;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+
+.transportTextDetails { /* Renamed from transportText */
+    flex: 1; /* Allow text details to grow */
+    min-width: 300px; /* Minimum width for the text part */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between detail paragraphs */
+}
+
+.transportTextDetails h3 {
+    color: #34495e; /* Darker blue heading */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: 600;
+    border-bottom: 1px dashed #bdc3c7; /* Separator */
+    padding-bottom: 10px;
+}
+
+.transportTextDetails p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 0; /* Remove default paragraph margin */
+    line-height: 1.6;
+}
+
+.transportTextDetails p strong {
+    color: #2c3e50;
+    margin-right: 8px;
+    font-weight: 700;
+}
+
+/* Terms and Conditions Section */
+.termsAndConditionsSection {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #bdc3c7; /* Separator */
+}
+
+.termsAndConditionsSection p {
+    margin-bottom: 8px; /* Space between term sentences */
+    font-size: 0.95em;
+    color: #555;
+}
+
+.termsAndConditionsSection p:last-child {
+    margin-bottom: 0; /* Remove bottom margin from last term */
+}
+
+
+/* FORM SECTION */
+.transport-bookingFormContainer.full-width-section { /* Added full-width-section class */
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 2.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  width: 100%; /* Ensure it takes full width */
+  box-sizing: border-box; /* Include padding/border in width */
+}
+
+.transport-bookingFormContainer h3 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #bdc3c7;
+  padding-bottom: 0.75rem;
+  text-align: left;
+}
+
+/* Form Styling */
+.transport-bookingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form groups */
+}
+
+.transport-bookingForm .form-group { /* Added class for individual form groups */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Space between label and input */
+    margin-bottom: 0; /* Managed by parent gap */
+}
+
+.transport-bookingForm label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 1rem;
+    display: block;
+    text-align: left;
+}
+
+/* Style for all form inputs and select */
+.transport-bookingForm input[type="text"],
+.transport-bookingForm input[type="tel"],
+.transport-bookingForm input[type="date"],
+.transport-bookingForm input[type="number"],
+.transport-bookingForm input[type="email"], /* Added email input */
+.transport-bookingForm select {
+    padding: 0.8rem; /* Slightly increased padding */
+    border-radius: 4px;
+    border: 1px solid #d3d3d3;
+    font-size: 1rem;
+    background-color: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+    width: 100%; /* Full width within container */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.transport-bookingForm input:focus,
+.transport-bookingForm select:focus {
+    border-color: #4caf50; /* Highlight on focus */
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+/* Style for the calculated price input */
+.transport-bookingForm .calculated-price-input {
+    background-color: #e9ecef; /* Light grey background */
+    color: #555;
+    cursor: not-allowed;
+    border-color: #ced4da;
+    box-shadow: none;
+    font-weight: bold;
+}
+
+
+/* Error Message Styling */
+.error-message {
+    color: #dc3545; /* Red color for errors */
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin-top: 15px; /* Adjusted margin */
+    margin-bottom: 0; /* Remove default margin */
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Success Message Styling */
+.success-message {
+    color: #28a745; /* Green color for success */
+    background-color: #d4edda; /* Light green background */
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    margin-top: 15px; /* Adjusted margin */
+    margin-bottom: 0; /* Remove default margin */
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Loading and Info Message Styling */
+.loading-message,
+.info-message {
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-style: italic;
+    max-width: 600px;
+    background-color: #e9ecef;
+    color: #007bff;
+    border: 1px solid #ced4da;
+}
+
+.info-message {
+     background-color: #fff3cd; /* Light yellow */
+     color: #856404; /* Dark yellow */
+     border-color: #ffeeba;
+}
+
+
+/* Submit Button */
+.transport-bookButton {
+    padding: 0.9rem 2rem; /* Increased padding */
+    background-color: #4caf50; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem; /* Slightly larger font */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+    margin-top: 2rem; /* Increased space above the button */
+    align-self: center; /* Center the button */
+    width: auto; /* Allow button width to adjust to content */
+    min-width: 180px; /* Minimum width for the button */
+}
+
+.transport-bookButton:hover:not(:disabled) {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.transport-bookButton:active:not(:disabled) {
+    background-color: #3b8e41; /* Even darker on active */
+    transform: translateY(0);
+}
+
+.transport-bookButton:disabled {
+    background-color: #cccccc; /* Grey out when disabled */
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .transportationBookingContainer {
+      padding: 1.5rem; /* Reduce padding on smaller screens */
+      margin: 1rem; /* Adjust margin */
+      gap: 25px; /* Slightly reduced gap on smaller screens */
+    }
+
+    .transportationBookingContainer h2 {
+        font-size: 1.8em;
+        margin-bottom: 1.2rem;
+    }
+
+    /* ROW 1 */
+    .transportDetailsSection {
+        flex-direction: column; /* Stack image and text vertically */
+        padding: 15px;
+    }
+    .transportationImageContainer {
+        max-width: 100%; /* Image container takes full width when stacked */
+        min-width: unset; /* Remove min-width constraint */
+        margin-right: 0; /* Remove right margin when stacked */
+        margin-bottom: 20px; /* Add bottom margin instead */
+    }
+    .transportationImage,
+    .transportationImagePlaceholder {
+        height: 250px; /* Adjust image height for smaller screens */
+    }
+    .transportTextDetails {
+        min-width: 100%; /* Text details take full width when stacked */
+    }
+    .transportTextDetails h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    .transportTextDetails p {
+        font-size: 1em;
+    }
+
+    /* FORM SECTION */
+    .transport-bookingFormContainer.full-width-section {
+        padding: 1.5rem;
+    }
+    .transport-bookingFormContainer h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .transport-bookingForm {
+        gap: 12px; /* Slightly reduce gap between form groups */
+    }
+    .transport-bookingForm input,
+    .transport-bookingForm select {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+    }
+    .transport-bookButton {
+        font-size: 1.05rem;
+        padding: 0.7rem 1.2rem;
+        width: 100%; /* Full width button on small screens */
+        align-self: stretch; /* Stretch button */
+        margin-top: 1.5rem;
+        min-width: auto; /* Remove min-width on small screens */
+    }
+    .error-message, .success-message {
+        margin-top: 0.8rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .transportationBookingContainer {
+        padding: 15px;
+        gap: 15px;
+    }
+    .transportationBookingContainer h2 {
+        font-size: 1.6em;
+        margin-bottom: 1rem;
+    }
+
+    /* ROW 1 */
+    .transportationImage,
+    .transportationImagePlaceholder {
+        height: 200px;
+    }
+    .transportTextDetails {
+        gap: 8px;
+    }
+    .transportTextDetails p {
+        font-size: 0.95em;
+    }
+    .termsAndConditionsSection p {
+        font-size: 0.9em;
+    }
+
+    /* FORM SECTION */
+    .transport-bookingFormContainer.full-width-section {
+        padding: 1rem;
+    }
+    .transport-bookingFormContainer h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    .transport-bookingForm {
+        gap: 10px;
+    }
+    .transport-bookingForm input,
+    .transport-bookingForm select {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    .transport-bookButton {
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+        margin-top: 1rem;
+    }
+}

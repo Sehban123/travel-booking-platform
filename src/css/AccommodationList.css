@@ -1,0 +1,170 @@
+/* src/components/Admin/css/AccommodationList.css */
+
+/* Container for the entire accommodation list section */
+.accommodation-list-container { /* Changed main class name for clarity */
+    padding: 30px;
+    background-color: #f8f9fa; /* Lighter background */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Heading for the section */
+.accommodation-list-container h2 {
+    color: #0056b3; /* A standard blue */
+    border-bottom: 3px solid #17a2b8; /* Cyan underline */
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Wrapper for the table to handle horizontal scrolling on small screens */
+.accommodation-table-wrapper {
+    overflow-x: auto; /* Add horizontal scroll if content overflows */
+    width: 100%; /* Ensure wrapper takes full width */
+    /* Optional: Add some margin/padding if table is too close to container edges */
+    padding-bottom: 15px; /* Add padding at the bottom for scrollbar visibility */
+}
+
+/* Table styling */
+.accommodation-table { /* Changed table class */
+    width: 100%; /* Make table take full width of its container */
+    border-collapse: collapse; /* Collapse borders */
+    /* Removed margin-top here, let the container handle spacing */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Subtle shadow for the table */
+    background-color: #ffffff; /* White background for table */
+    border-radius: 8px; /* Rounded corners for the table */
+    overflow: hidden; /* Hide overflow for rounded corners */
+    /* Ensure consistent cell alignment */
+    text-align: left;
+}
+
+.accommodation-table th,
+.accommodation-table td {
+    padding: 12px 15px; /* Consistent padding for cells */
+    border-bottom: 1px solid #dee2e6; /* Bottom border for rows */
+    vertical-align: middle; /* Vertically align cell content to the middle */
+    /* Ensure text doesn't overflow awkwardly */
+    word-break: break-word;
+}
+
+.accommodation-table th {
+    background-color: #007bff; /* Blue background for headers */
+    color: white; /* White text for headers */
+    font-weight: 700;
+    text-transform: uppercase; /* Uppercase headers */
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    /* Ensure headers are not too narrow */
+    white-space: nowrap;
+}
+
+.accommodation-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra striping for rows */
+}
+
+.accommodation-table tbody tr:hover {
+    background-color: #e9ecef; /* Highlight row on hover */
+}
+
+/* Container for action buttons within the table cell */
+.accommodation-actions { /* Changed actions class */
+    display: flex; /* Use flexbox for buttons */
+    gap: 8px; /* Space between buttons */
+    /* Align buttons to the start of the cell */
+    justify-content: flex-start;
+    /* Remove default margin if any */
+    margin: 0;
+}
+
+/* Button styling within the table */
+.accommodation-actions button {
+    padding: 6px 12px; /* Smaller padding for table buttons */
+    border: none;
+    border-radius: 4px; /* Slightly smaller border-radius */
+    cursor: pointer;
+    font-size: 0.85rem; /* Smaller font size */
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+    /* Ensure buttons don't stretch unnecessarily */
+    width: auto;
+    text-align: center;
+}
+
+.accommodation-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Edit button specific styling */
+.accommodation-actions .edit-button { /* Added class */
+    background-color: #ffc107; /* Yellow */
+    color: #333; /* Dark text for contrast */
+}
+
+.accommodation-actions .edit-button:hover:not(:disabled) {
+    background-color: #e0a800; /* Darker yellow */
+    transform: translateY(-1px); /* Subtle lift */
+}
+
+.accommodation-actions .edit-button:active:not(:disabled) {
+    background-color: #cc9500; /* Even darker */
+    transform: translateY(0);
+}
+
+
+/* Delete button specific styling */
+.accommodation-actions .delete-button { /* Added class */
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+
+.accommodation-actions .delete-button:hover:not(:disabled) {
+    background-color: #c82333; /* Darker red */
+     transform: translateY(-1px); /* Subtle lift */
+}
+
+.accommodation-actions .delete-button:active:not(:disabled) {
+    background-color: #bd2130; /* Even darker */
+    transform: translateY(0);
+}
+
+
+/* Styling for messages (loading, empty) */
+/* Targeting these messages specifically when they appear within the main container */
+.accommodation-list-container .service-list-loading,
+.accommodation-list-container .service-list-empty {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.accommodation-list-container .service-list-loading {
+    background-color: #e9ecef;
+    color: #007bff;
+    border: 1px solid #ced4da;
+}
+
+.accommodation-list-container .service-list-empty {
+    background-color: #fff3cd; /* Light yellow */
+    color: #856404; /* Dark yellow */
+    border: 1px solid #ffeeba;
+}
+
+/* Styling for the error message (if not handled by a global component) */
+.error-message {
+    color: #dc3545;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #dc3545;
+    background-color: #f8d7da;
+    border-radius: 5px;
+    text-align: center;
+}

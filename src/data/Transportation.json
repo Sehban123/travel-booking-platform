@@ -1,0 +1,517 @@
+[
+    {
+        "id": "car001",
+        "driver_name": "Rajesh Kumar",
+        "transport_type": "Car",
+        "model": "Maruti Suzuki Swift",
+        "price_per_day": 1800,
+        "rating": "4.2",
+        "image": "/images/swift.jpg",
+        "features": [
+            "Air Conditioning",
+            "Power Steering",
+            "Music System"
+        ],
+        "termsAndConditions": "Driver must have a valid license. Fuel not included."
+    },
+    {
+        "id": "bike002",
+        "driver_name": "Priya Sharma",
+        "transport_type": "Bike",
+        "model": "Honda Activa 6G",
+        "price_per_day": 500,
+        "rating": "4.5",
+        "image": "/images/activa.jpg",
+        "features": [
+            "Automatic Transmission",
+            "Comfortable Seating"
+        ],
+        "termsAndConditions": "Helmet is mandatory for the rider."
+    },
+    {
+        "id": "taxi003",
+        "driver_name": "Suresh Patel",
+        "transport_type": "Taxi",
+        "model": "Toyota Innova Crysta",
+        "price_per_day": 3500,
+        "rating": "4.8",
+        "image": "/images/innova.jpg",
+        "features": [
+            "Air Conditioning",
+            "Spacious Interior",
+            "Professional Driver"
+        ],
+        "termsAndConditions": "Fare based on distance and time. Toll charges extra."
+    },
+    {
+        "id": "car004",
+        "driver_name": "Anita Singh",
+        "transport_type": "Car",
+        "model": "Hyundai i20",
+        "price_per_day": 2200,
+        "rating": "4.0",
+        "image": "/images/i20.jpg",
+        "features": [
+            "Air Conditioning",
+            "Power Windows",
+            "Bluetooth Connectivity"
+        ],
+        "termsAndConditions": "Security deposit required. Return in clean condition."
+    },
+    {
+        "id": "bike005",
+        "driver_name": "Vikram Jadeja",
+        "transport_type": "Bike",
+        "model": "Royal Enfield Classic 350",
+        "price_per_day": 1200,
+        "rating": "4.7",
+        "image": "/images/classic350.jpg",
+        "features": [
+            "Classic Design",
+            "Comfortable Ride"
+        ],
+        "termsAndConditions": "Valid ID required. Damage to the vehicle is the renter's responsibility."
+    },
+    {
+        "id": "taxi006",
+        "driver_name": "Deepika Menon",
+        "transport_type": "Taxi",
+        "model": "Maruti Suzuki Ertiga",
+        "price_per_day": 2800,
+        "rating": "4.3",
+        "image": "/images/ertiga.jpg",
+        "features": [
+            "Air Conditioning",
+            "7 Seater",
+            "Experienced Driver"
+        ],
+        "termsAndConditions": "Night charges may apply. Waiting charges applicable after 15 minutes."
+    },
+    {
+        "id": "car007",
+        "driver_name": "Rahul Verma",
+        "transport_type": "Car",
+        "model": "Tata Nexon",
+        "price_per_day": 2500,
+        "rating": "4.6",
+        "image": "/images/nexon.jpg",
+        "features": [
+            "Sunroof",
+            "Safety Features",
+            "Infotainment System"
+        ],
+        "termsAndConditions": "Limited kilometers per day. Extra charges for exceeding limit."
+    },
+    {
+        "id": "bike008",
+        "driver_name": "Sneha Gupta",
+        "transport_type": "Bike",
+        "model": "Bajaj Pulsar NS200",
+        "price_per_day": 900,
+        "rating": "4.4",
+        "image": "/images/pulsarns200.jpg",
+        "features": [
+            "Sporty Look",
+            "Powerful Engine"
+        ],
+        "termsAndConditions": "Riding gear recommended. No off-road riding allowed."
+    },
+    {
+        "id": "taxi009",
+        "driver_name": "Amit Shah",
+        "transport_type": "Taxi",
+        "model": "Hyundai Xcent",
+        "price_per_day": 2000,
+        "rating": "4.1",
+        "image": "/images/xcent.jpg",
+        "features": [
+            "Air Conditioning",
+            "Compact Size",
+            "Courteous Driver"
+        ],
+        "termsAndConditions": "One-way trips available. Advance booking preferred."
+    },
+    {
+        "id": "car010",
+        "driver_name": "Pooja Patel",
+        "transport_type": "Car",
+        "model": "Honda City",
+        "price_per_day": 2800,
+        "rating": "4.5",
+        "image": "/images/city.jpg",
+        "features": [
+            "Leather Seats",
+            "Automatic Climate Control",
+            "Premium Audio"
+        ],
+        "termsAndConditions": "Minimum 2 days rental. Security deposit refundable upon safe return."
+    },
+    {
+        "id": "bike011",
+        "driver_name": "Kunal Singh",
+        "transport_type": "Bike",
+        "model": "Hero Splendor Plus",
+        "price_per_day": 400,
+        "rating": "4.3",
+        "image": "/images/splendor.jpg",
+        "features": [
+            "Fuel Efficient",
+            "Easy Handling"
+        ],
+        "termsAndConditions": "Carry original ID proof. Return with the same fuel level."
+    },
+    {
+        "id": "taxi012",
+        "driver_name": "Meena Verma",
+        "transport_type": "Taxi",
+        "model": "Tata Indica",
+        "price_per_day": 1800,
+        "rating": "3.9",
+        "image": "/images/indica.jpg",
+        "features": [
+            "Air Conditioning",
+            "Budget Friendly"
+        ],
+        "termsAndConditions": "Fixed rate for city travel. Outstation charges extra per km."
+    },
+    {
+        "id": "car013",
+        "driver_name": "Rohit Sharma",
+        "transport_type": "Car",
+        "model": "Volkswagen Polo",
+        "price_per_day": 2300,
+        "rating": "4.1",
+        "image": "/images/polo.jpg",
+        "features": [
+            "Safety Features",
+            "Good Mileage",
+            "Comfortable Ride"
+        ],
+        "termsAndConditions": "No smoking inside the vehicle. Report any damages immediately."
+    },
+    {
+        "id": "bike014",
+        "driver_name": "Shweta Gupta",
+        "transport_type": "Bike",
+        "model": "Yamaha FZ-S FI",
+        "price_per_day": 800,
+        "rating": "4.6",
+        "image": "/images/fzs.jpg",
+        "features": [
+            "Stylish Design",
+            "Smooth Engine"
+        ],
+        "termsAndConditions": "Rider and pillion helmet compulsory. Follow traffic rules."
+    },
+    {
+        "id": "taxi015",
+        "driver_name": "Rajiv Menon",
+        "transport_type": "Taxi",
+        "model": "Mahindra Xylo",
+        "price_per_day": 3000,
+        "rating": "4.4",
+        "image": "/images/xylo.jpg",
+        "features": [
+            "Air Conditioning",
+            "8 Seater",
+            "Luggage Space"
+        ],
+        "termsAndConditions": "Advance payment required for outstation bookings."
+    },
+    {
+        "id": "car016",
+        "driver_name": "Divya Patel",
+        "transport_type": "Car",
+        "model": "Ford EcoSport",
+        "price_per_day": 2600,
+        "rating": "4.7",
+        "image": "/images/ecosport.jpg",
+        "features": [
+            "Compact SUV",
+            "Infotainment System",
+            "Good Ground Clearance"
+        ],
+        "termsAndConditions": "Parking fees to be paid by the renter."
+    },
+    {
+        "id": "bike017",
+        "driver_name": "Alok Singh",
+        "transport_type": "Bike",
+        "model": "TVS Apache RTR 160",
+        "price_per_day": 700,
+        "rating": "4.2",
+        "image": "/images/apache160.jpg",
+        "features": [
+            "Sporty Performance",
+            "Aggressive Styling"
+        ],
+        "termsAndConditions": "Valid driving license endorsement for motorcycles required."
+    },
+    {
+        "id": "taxi018",
+        "driver_name": "Sunita Verma",
+        "transport_type": "Taxi",
+        "model": "Nissan Sunny",
+        "price_per_day": 2200,
+        "rating": "4.0",
+        "image": "/images/sunny.jpg",
+        "features": [
+            "Air Conditioning",
+            "Comfortable Rear Seats"
+        ],
+        "termsAndConditions": "Waiting time exceeding 30 minutes will be charged."
+    },
+    {
+        "id": "car019",
+        "driver_name": "Vikash Gupta",
+        "transport_type": "Car",
+        "model": "Renault Kwid",
+        "price_per_day": 1600,
+        "rating": "3.8",
+        "image": "/images/kwid.jpg",
+        "features": [
+            "Compact",
+            "Easy to Drive in City"
+        ],
+        "termsAndConditions": "Return with the same amount of fuel as at the start."
+    },
+    {
+        "id": "bike020",
+        "driver_name": "Priyanka Sharma",
+        "transport_type": "Bike",
+        "model": "Suzuki Gixxer SF",
+        "price_per_day": 950,
+        "rating": "4.5",
+        "image": "/images/gixxersf.jpg",
+        "features": [
+            "Full Fairing",
+            "Sporty Riding Position"
+        ],
+        "termsAndConditions": "No racing or stunts allowed. Vehicle inspection before and after rental."
+    },
+    {
+        "id": "taxi021",
+        "driver_name": "Mahesh Patel",
+        "transport_type": "Taxi",
+        "model": "Toyota Etios",
+        "price_per_day": 2500,
+        "rating": "4.3",
+        "image": "/images/etios.jpg",
+        "features": [
+            "Air Conditioning",
+            "Reliable"
+        ],
+        "termsAndConditions": "Outstation per km rate is fixed. Driver allowance may apply."
+    },
+    {
+        "id": "car022",
+        "driver_name": "Kavita Singh",
+        "transport_type": "Car",
+        "model": "Maruti Suzuki Baleno",
+        "price_per_day": 2400,
+        "rating": "4.4",
+        "image": "/images/baleno.jpg",
+        "features": [
+            "Premium Hatchback",
+            "Infotainment System"
+        ],
+        "termsAndConditions": "In case of breakdown, inform the operator immediately."
+    },
+    {
+        "id": "bike023",
+        "driver_name": "Sandeep Jadeja",
+        "transport_type": "Bike",
+        "model": "KTM Duke 200",
+        "price_per_day": 1100,
+        "rating": "4.8",
+        "image": "/images/duke200.jpg",
+        "features": [
+            "Powerful Engine",
+            "Sporty Handling"
+        ],
+        "termsAndConditions": "Riding license for the specific engine capacity required."
+    },
+    {
+        "id": "taxi024",
+        "driver_name": "Ritu Menon",
+        "transport_type": "Taxi",
+        "model": "Honda Amaze",
+        "price_per_day": 2100,
+        "rating": "4.1",
+        "image": "/images/amaze.jpg",
+        "features": [
+            "Air Conditioning",
+            "Compact Sedan"
+        ],
+        "termsAndConditions": "Airport transfer rates are different. Check before booking."
+    },
+    {
+        "id": "car025",
+        "driver_name": "Anil Verma",
+        "transport_type": "Car",
+        "model": "Hyundai Venue",
+        "price_per_day": 2700,
+        "rating": "4.5",
+        "image": "/images/venue.jpg",
+        "features": [
+            "Sub-compact SUV",
+            "Connected Car Features"
+        ],
+        "termsAndConditions": "Tire damage is the responsibility of the renter."
+    },
+    {
+        "id": "bike026",
+        "driver_name": "Neha Gupta",
+        "transport_type": "Bike",
+        "model": "Hero Xpulse 200",
+        "price_per_day": 850,
+        "rating": "4.3",
+        "image": "/images/xpulse200.jpg",
+        "features": [
+            "Adventure Bike",
+            "Good for Off-road"
+        ],
+        "termsAndConditions": "Off-road riding at renter's risk. Follow safety guidelines."
+    },
+    {
+        "id": "taxi027",
+        "driver_name": "Sunil Shah",
+        "transport_type": "Taxi",
+        "model": "Maruti Suzuki Ciaz",
+        "price_per_day": 2600,
+        "rating": "4.6",
+        "image": "/images/ciaz.jpg",
+        "features": [
+            "Air Conditioning",
+            "Spacious Sedan"
+        ],
+        "termsAndConditions": "Long distance discounts available. Inquire at the time of booking."
+    },
+    {
+        "id": "car028",
+        "driver_name": "Shalini Patel",
+        "transport_type": "Car",
+        "model": "Tata Altroz",
+        "price_per_day": 2250,
+        "rating": "4.2",
+        "image": "/images/altroz.jpg",
+        "features": [
+            "Premium Hatchback",
+            "Safety First"
+        ],
+        "termsAndConditions": "Vehicle documents must be carried at all times."
+    },
+    {
+        "id": "bike029",
+        "driver_name": "Manish Singh",
+        "transport_type": "Bike",
+        "model": "Bajaj Avenger Cruise 220",
+        "price_per_day": 1000,
+        "rating": "4.7",
+        "image": "/images/avenger220.jpg",
+        "features": [
+            "Cruiser Bike",
+            "Comfortable for Long Rides"
+        ],
+        "termsAndConditions": "Luggage carriers available on request."
+    },
+    {
+        "id": "taxi030",
+        "driver_name": "Praveen Verma",
+        "transport_type": "Taxi",
+        "model": "Hyundai Aura",
+        "price_per_day": 1900,
+        "rating": "4.0",
+        "image": "/images/aura.jpg",
+        "features": [
+            "Air Conditioning",
+            "Compact Sedan",
+            "Fuel Efficient"
+        ],
+        "termsAndConditions": "One-way or round trip options available."
+    },
+    {
+        "id": "car031",
+        "driver_name": "Geeta Gupta",
+        "transport_type": "Car",
+        "model": "Nissan Magnite",
+        "price_per_day": 2450,
+        "rating": "4.3",
+        "image": "/images/magnite.jpg",
+        "features": [
+            "Compact SUV",
+            "Turbo Engine"
+        ],
+        "termsAndConditions": "Child safety seats available on prior request."
+    },
+    {
+        "id": "bike032",
+        "driver_name": "Surbhi Sharma",
+        "transport_type": "Bike",
+        "model": "Royal Enfield Meteor 350",
+        "price_per_day": 1300,
+        "rating": "4.9",
+        "image": "/images/meteor350.jpg",
+        "features": [
+            "Modern Classic",
+            "Smooth Ride"
+        ],
+        "termsAndConditions": "Long-term rental options available with discounted rates."
+    },
+    {
+        "id": "taxi033",
+        "driver_name": "Karan Patel",
+        "transport_type": "Taxi",
+        "model": "Kia Sonet",
+        "price_per_day": 2900,
+        "rating": "4.5",
+        "image": "/images/sonet.jpg",
+        "features": [
+            "Compact SUV",
+            "Premium Interior"
+        ],
+        "termsAndConditions": "Outstation night driving charges extra."
+    },
+    {
+        "id": "car034",
+        "driver_name": "Rakesh Singh",
+        "transport_type": "Mahindra Thar",
+        "price_per_day": 3800,
+        "rating": "4.7",
+        "image": "/images/thar.jpg",
+        "features": [
+            "Off-road Capability",
+            "Convertible Top"
+        ],
+        "termsAndConditions": "Off-road driving at own risk. Check vehicle thoroughly before hiring."
+    },
+    {
+        "id": "bike035",
+        "driver_name": "Aditi Verma",
+        "transport_type": "Bike",
+        "model": "Benelli Imperiale 400",
+        "price_per_day": 1150,
+        "rating": "4.6",
+        "image": "/images/imperiale400.jpg",
+        "features": [
+            "Retro Classic",
+            "Comfortable for Cruising"
+        ],
+        "termsAndConditions": "Side panniers available on request at an extra charge."
+    },
+    {
+        "id": "taxi036",
+        "driver_name": "Swati Menon",
+        "transport_type": "Taxi",
+        "model": "Skoda Rapid",
+        "price_per_day": 2350,
+        "rating": "4.2",
+        "image": "/images/rapid.jpg",
+        "features": [
+            "Air Conditioning",
+            "Sedan",
+            "Smooth Ride"
+        ],
+        "termsAndConditions": "For outstation trips exceeding 300 km, a driver allowance is mandatory."
+    }
+]

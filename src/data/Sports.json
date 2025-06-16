@@ -1,0 +1,578 @@
+[
+    {
+      "id": "adventure001",
+      "type": "Mountain Sports",
+      "name": "Mountain Biking - Himalayas",
+      "description": "Explore scenic mountain trails on a bike through the Himalayas.",
+      "location": "Manali, Himachal Pradesh",
+      "price": 1800,
+      "rating": "4.7",
+      "image": "/images/adventure/mountainbiking_himalayas.jpg",
+      "termsAndConditions": [
+        "Helmet compulsory.",
+        "Stay on marked trails.",
+        "Follow guide instructions."
+      ],
+      "minimumAge": 12
+    },
+    {
+      "id": "adventure002",
+      "type": "Mountain Sports",
+      "name": "Rock Climbing - Rishikesh",
+      "description": "Challenge yourself on natural rock faces with expert guidance.",
+      "location": "Rishikesh, Uttarakhand",
+      "price": 2200,
+      "rating": "4.6",
+      "image": "/images/adventure/rockclimbing_rishikesh.jpg",
+      "termsAndConditions": [
+        "All safety gear must be worn.",
+        "Climb with certified instructors only.",
+        "Not suitable for heart patients."
+      ],
+      "minimumAge": 16
+    },
+    {
+      "id": "adventure003",
+      "type": "Air Sports",
+      "name": "Paragliding - Kullu Valley",
+      "description": "Soar like a bird over the stunning valleys of Kullu.",
+      "location": "Kullu, Himachal Pradesh",
+      "price": 5500,
+      "rating": "4.9",
+      "image": "/images/adventure/paragliding_kullu.jpg",
+      "termsAndConditions": [
+        "Weather dependent.",
+        "Weight limits apply.",
+        "Follow pilot instructions."
+      ],
+      "minimumAge": 18
+    },
+    {
+      "id": "adventure004",
+      "type": "Trekking",
+      "name": "High Altitude Trek - Ladakh",
+      "description": "High-altitude trek exploring remote landscapes and monasteries.",
+      "location": "Leh, Ladakh",
+      "price": 3000,
+      "rating": "4.8",
+      "image": "/images/adventure/trekking_leh.jpg",
+      "termsAndConditions": [
+        "Acclimatization is crucial.",
+        "Carry essentials.",
+        "Stay with the group."
+      ],
+      "minimumAge": 10
+    },
+    {
+      "id": "adventure005",
+      "type": "Snow Sports",
+      "name": "Skiing - Gulmarg",
+      "description": "Hit the powdery slopes of Gulmarg, a premier skiing destination.",
+      "location": "Gulmarg, Jammu & Kashmir",
+      "price": 7500,
+      "rating": "4.5",
+      "image": "/images/adventure/skiing_gulmarg.jpg",
+      "termsAndConditions": [
+        "Appropriate winter wear required.",
+        "Follow slope rules.",
+        "Lessons recommended for beginners."
+      ],
+      "minimumAge": 8
+    },
+    {
+      "id": "adventure006",
+      "type": "Water Sports",
+      "name": "White Water Rafting - Ganges",
+      "description": "Experience the thrill of navigating challenging rapids on the Ganges.",
+      "location": "Rishikesh, Uttarakhand",
+      "price": 3200,
+      "rating": "4.8",
+      "image": "/images/adventure/rafting_rishikesh.jpg",
+      "termsAndConditions": [
+        "Life jacket must be worn.",
+        "Follow raft guide commands.",
+        "Minimum age and health restrictions apply."
+      ],
+      "minimumAge": 14
+    },
+    {
+      "id": "adventure007",
+      "type": "Water Sports",
+      "name": "Scuba Diving - Andaman",
+      "description": "Discover the vibrant coral reefs and marine life of the Andaman Sea.",
+      "location": "Havelock Island, Andaman Islands",
+      "price": 5000,
+      "rating": "4.5",
+      "image": "/images/adventure/scubadiving_andaman.jpg",
+      "termsAndConditions": [
+        "Certified divers only or DSD course required.",
+        "No flying for 24 hours after diving.",
+        "Medical questionnaire mandatory."
+      ],
+      "minimumAge": 10
+    },
+    {
+      "id": "adventure008",
+      "type": "Water Sports",
+      "name": "Surfing - Varkala",
+      "description": "Catch the perfect waves at the beautiful beaches of Varkala.",
+      "location": "Varkala, Kerala",
+      "price": 2800,
+      "rating": "4.7",
+      "image": "/images/adventure/surfing_varkala.jpg",
+      "termsAndConditions": [
+        "Listen to instructor.",
+        "Surf in designated areas.",
+        "Respect local surf etiquette."
+      ],
+      "minimumAge": 10
+    },
+    {
+      "id": "adventure009",
+      "type": "Air Sports",
+      "name": "Parasailing - Goa Coast",
+      "description": "Enjoy panoramic views of the coast while being towed behind a boat.",
+      "location": "Goa",
+      "price": 3800,
+      "rating": "4.9",
+      "image": "/images/adventure/parasailing_goa.jpg",
+      "termsAndConditions": [
+        "Wear harness and life vest.",
+        "Subject to weather.",
+        "Health restrictions may apply."
+      ],
+      "minimumAge": 16
+    },
+    {
+      "id": "adventure010",
+      "type": "Water Sports",
+      "name": "Jet Skiing - Alleppey",
+      "description": "High-speed fun on the backwaters of Alleppey.",
+      "location": "Alleppey, Kerala",
+      "price": 2700,
+      "rating": "4.7",
+      "image": "/images/adventure/jetskiing_alleppey.jpg",
+      "termsAndConditions": [
+        "Life jacket compulsory.",
+        "Follow operator instructions.",
+        "Stay clear of swimmers."
+      ],
+      "minimumAge": 16
+    },
+     {
+      "id": "adventure011",
+      "type": "Air Sports",
+      "name": "Hot Air Ballooning - Jaipur",
+      "description": "Drift peacefully above the 'Pink City' at sunrise.",
+      "location": "Jaipur, Rajasthan",
+      "price": 6500,
+      "rating": "4.9",
+      "image": "/images/adventure/hotairballoon_jaipur.jpg",
+      "termsAndConditions": [
+        "Flights are weather dependent.",
+        "Minimum height requirements.",
+        "Follow pilot instructions."
+      ],
+      "minimumAge": 6
+    },
+    {
+      "id": "adventure012",
+      "type": "Air Sports",
+      "name": "Skydiving - Mysore",
+      "description": "Experience the ultimate freefall adrenaline rush.",
+      "location": "Mysore, Karnataka",
+      "price": 15000,
+      "rating": "5.0",
+      "image": "/images/adventure/skydiving_mysore.jpg",
+      "termsAndConditions": [
+        "Strict age and health requirements.",
+        "Mandatory training briefing.",
+        "Weather permitting."
+      ],
+      "minimumAge": 18
+    },
+    {
+      "id": "adventure013",
+      "type": "Trekking",
+      "name": "Trek to Dudhsagar Waterfalls",
+      "description": "A scenic trek through the forest to the majestic Dudhsagar waterfalls.",
+      "location": "Goa",
+      "price": 1200,
+      "rating": "4.7",
+      "image": "/images/adventure/trek_dudhsagar.jpg",
+      "termsAndConditions": [
+        "Carry water and snacks.",
+        "Wear appropriate footwear.",
+        "No littering."
+      ],
+      "minimumAge": 8
+    },
+    {
+      "id": "adventure014",
+      "type": "Water Sports",
+      "name": "Kayaking - Backwaters",
+      "description": "Paddle through the calm backwaters and explore coastal life.",
+      "location": "Alleppey, Kerala",
+      "price": 1000,
+      "rating": "4.6",
+      "image": "/images/adventure/kayaking_alleppey.jpg",
+      "termsAndConditions": [
+        "Life jacket provided and must be worn.",
+        "Stay with the group/guide.",
+        "Listen to safety briefing."
+      ],
+      "minimumAge": 8
+    },
+    {
+      "id": "adventure015",
+      "type": "Other Adventures",
+      "name": "Bungee Jumping - Rishikesh",
+      "description": "Take the plunge from India's highest bungee jumping spot.",
+      "location": "Rishikesh, Uttarakhand",
+      "price": 4000,
+      "rating": "4.9",
+      "image": "/images/adventure/bungeejumping_rishikesh.jpg",
+      "termsAndConditions": [
+        "Strict age, weight, and health criteria.",
+        "Follow all safety instructions.",
+        "Sign waiver."
+      ],
+      "minimumAge": 18
+    },
+     {
+      "id": "adventure016",
+      "type": "Other Adventures",
+      "name": "Caving - Meghalaya",
+      "description": "Explore the ancient and mysterious caves of Meghalaya.",
+      "location": "Meghalaya",
+      "price": 2500,
+      "rating": "4.7",
+      "image": "/images/adventure/caving_meghalaya.jpg",
+      "termsAndConditions": [
+        "Wear appropriate gear.",
+        "Stay with your guide.",
+        "Do not disturb cave formations."
+      ],
+      "minimumAge": 14
+    },
+    {
+      "id": "adventure017",
+      "type": "Air Sports",
+      "name": "Paragliding - Bir Billing",
+      "description": "Experience the famous long flights of Bir Billing.",
+      "location": "Bir Billing, Himachal Pradesh",
+      "price": 4000,
+      "rating": "4.8",
+      "image": "/images/adventure/paragliding_birbilling.jpg",
+      "termsAndConditions": [
+        "Weather dependent.",
+        "Listen to pilot.",
+        "Weight and health restrictions."
+      ],
+      "minimumAge": 16
+    },
+    {
+      "id": "adventure018",
+      "type": "Water Sports",
+      "name": "Canyoning - Kolad",
+      "description": "Descend waterfalls and navigate gorges using various techniques.",
+      "location": "Kolad, Maharashtra",
+      "price": 3500,
+      "rating": "4.6",
+      "image": "/images/adventure/canyoning_kolad.jpg",
+      "termsAndConditions": [
+        "Wear safety equipment.",
+        "Follow guide instructions strictly.",
+        "Good physical fitness required."
+      ],
+      "minimumAge": 16
+    },
+     {
+      "id": "adventure019",
+      "type": "Trekking",
+      "name": "Trek to Valley of Flowers",
+      "description": "Walk through a vibrant, high-altitude Himalayan meadow.",
+      "location": "Uttarakhand",
+      "price": 2800,
+      "rating": "4.9",
+      "image": "/images/adventure/trek_valleyofflowers.jpg",
+      "termsAndConditions": [
+        "Best time July-September.",
+        "Permits required.",
+        "Respect flora and fauna."
+      ],
+      "minimumAge": 10
+    },
+     {
+      "id": "adventure020",
+      "type": "Water Sports",
+      "name": "River Rafting - Beas",
+      "description": "Thrilling rapids and scenic beauty on the Beas River.",
+      "location": "Manali, Himachal Pradesh",
+      "price": 1500,
+      "rating": "4.5",
+      "image": "/images/adventure/rafting_manali.jpg",
+      "termsAndConditions": [
+        "Life vest compulsory.",
+        "Follow guide.",
+        "Check water levels."
+      ],
+      "minimumAge": 10
+    },
+     {
+      "id": "adventure021",
+      "type": "Water Sports",
+      "name": "Snorkeling - Andaman",
+      "description": "Explore shallow coral reefs and marine life without scuba gear.",
+      "location": "Andaman Islands",
+      "price": 1000,
+      "rating": "4.6",
+      "image": "/images/adventure/snorkeling_andaman.jpg",
+      "termsAndConditions": [
+        "Use provided gear.",
+        "Do not touch marine life.",
+        "Stay with the guide."
+      ],
+      "minimumAge": 6
+    },
+    {
+      "id": "adventure022",
+      "type": "Other Adventures",
+      "name": "Zip-lining - Kolar",
+      "description": "Hurtle across valleys or forests on a wire rope.",
+      "location": "Kolar, Karnataka",
+      "price": 800,
+      "rating": "4.7",
+      "image": "/images/adventure/ziplining_kolar.jpg",
+      "termsAndConditions": [
+        "Wear harness correctly.",
+        "Follow safety brief.",
+        "Weight restrictions apply."
+      ],
+      "minimumAge": 10
+    },
+     {
+      "id": "adventure023",
+      "type": "Land Sports",
+      "name": "ATV Ride - Lonavala",
+      "description": "Ride an All-Terrain Vehicle on challenging tracks.",
+      "location": "Lonavala, Maharashtra",
+      "price": 1800,
+      "rating": "4.5",
+      "image": "/images/adventure/atv_lonavala.jpg",
+      "termsAndConditions": [
+        "Helmet compulsory.",
+        "Follow track rules.",
+        "Driving license may be required for certain tracks."
+      ],
+      "minimumAge": 16
+    },
+     {
+      "id": "adventure024",
+      "type": "Other Adventures",
+      "name": "Camping - Spiti Valley",
+      "description": "Overnight camping experience in the wilderness.",
+      "location": "Spiti Valley, Himachal Pradesh",
+      "price": 4000,
+      "rating": "4.8",
+      "image": "/images/adventure/camping_spiti.jpg",
+      "termsAndConditions": [
+        "Carry warm clothing.",
+        "Follow 'Leave No Trace' principles.",
+        "Listen to camp guide."
+      ],
+      "minimumAge": 6
+    },
+    {
+      "id": "adventure025",
+      "type": "Trekking",
+      "name": "Trek to Nanda Devi Base Camp",
+      "description": "Classic trek to the base camp of Nanda Devi.",
+      "location": "Uttarakhand",
+      "price": 4500,
+      "rating": "4.7",
+      "image": "/images/adventure/trekking_nandadevi.jpg",
+      "termsAndConditions": [
+        "Requires good fitness.",
+        "Guide mandatory.",
+        "Respect protected area rules."
+      ],
+      "minimumAge": 14
+    },
+    {
+      "id": "adventure026",
+      "type": "Water Sports",
+      "name": "Scuba Diving - Goa",
+      "description": "Discover the underwater world off the coast of Goa.",
+      "location": "Goa",
+      "price": 4800,
+      "rating": "4.5",
+      "image": "/images/adventure/scubadiving_goa.jpg",
+      "termsAndConditions": [
+        "Medical checks.",
+        "Follow dive master.",
+        "No solo diving."
+      ],
+      "minimumAge": 10
+    },
+    {
+      "id": "adventure027",
+      "type": "Air Sports",
+      "name": "Paragliding - Sohna",
+      "description": "Tandem paragliding with stunning views near Delhi.",
+      "location": "Sohna, Haryana",
+      "price": 3000,
+      "rating": "4.6",
+      "image": "/images/adventure/paragliding_sohna.jpg",
+      "termsAndConditions": [
+        "Weather dependent.",
+        "Weight limits.",
+        "Listen to pilot."
+      ],
+      "minimumAge": 16
+    },
+     {
+      "id": "adventure028",
+      "type": "Water Sports",
+      "name": "Surfing - Pondicherry",
+      "description": "Learn to surf at the beginner-friendly beaches.",
+      "location": "Pondicherry",
+      "price": 2000,
+      "rating": "4.7",
+      "image": "/images/adventure/surfing_pondicherry.jpg",
+      "termsAndConditions": [
+        "Beginner lessons available.",
+        "Use leash.",
+        "Know ocean safety."
+      ],
+      "minimumAge": 8
+    },
+    {
+      "id": "adventure029",
+      "type": "Air Sports",
+      "name": "Hot Air Ballooning - Lonavala",
+      "description": "Scenic balloon ride over the Deccan Plateau.",
+      "location": "Lonavala, Maharashtra",
+      "price": 7000,
+      "rating": "4.8",
+      "image": "/images/adventure/hotairballoon_lonavala.jpg",
+      "termsAndConditions": [
+        "Flights are weather dependent.",
+        "Minimum height.",
+        "Follow crew instructions."
+      ],
+      "minimumAge": 6
+    },
+     {
+      "id": "adventure030",
+      "type": "Trekking",
+      "name": "Trek - Munnar",
+      "description": "Moderate trek through the Western Ghats.",
+      "location": "Munnar, Kerala",
+      "price": 1800,
+      "rating": "4.6",
+      "image": "/images/adventure/trekking_munnar.jpg",
+      "termsAndConditions": [
+        "Carry water.",
+        "Wear comfortable shoes.",
+        "Stay on trail."
+      ],
+      "minimumAge": 8
+    },
+    {
+      "id": "adventure031",
+      "type": "Water Sports",
+      "name": "White Water Rafting - Teesta",
+      "description": "Exciting rafting experience on the Teesta River.",
+      "location": "Sikkim",
+      "price": 2500,
+      "rating": "4.7",
+      "image": "/images/adventure/rafting_teesta.jpg",
+      "termsAndConditions": [
+        "Life jacket mandatory.",
+        "Follow guide commands.",
+        "Health check."
+      ],
+      "minimumAge": 12
+    },
+    {
+      "id": "adventure032",
+      "type": "Water Sports",
+      "name": "Canyoning - Coorg",
+      "description": "Explore hidden waterfalls and rock pools.",
+      "location": "Coorg, Karnataka",
+      "price": 3800,
+      "rating": "4.5",
+      "image": "/images/adventure/canyoning_coorg.jpg",
+      "termsAndConditions": [
+        "Requires physical fitness.",
+        "Safety gear provided.",
+        "Guided tours only."
+      ],
+      "minimumAge": 16
+    },
+     {
+      "id": "adventure033",
+      "type": "Mountain Sports",
+      "name": "Mountain Biking - Mussoorie",
+      "description": "Downhill biking on purpose-built trails.",
+      "location": "Mussoorie, Uttarakhand",
+      "price": 2000,
+      "rating": "4.6",
+      "image": "/images/adventure/mountainbiking_mussoorie.jpg",
+      "termsAndConditions": [
+        "Full protective gear required.",
+        "Check bike condition.",
+        "Know trail difficulty."
+      ],
+      "minimumAge": 14
+    },
+     {
+      "id": "adventure034",
+      "type": "Water Sports",
+      "name": "Kayaking - Gokarna",
+      "description": "Sea kayaking along the coastline.",
+      "location": "Gokarna, Karnataka",
+      "price": 1500,
+      "rating": "4.7",
+      "image": "/images/adventure/kayaking_gokarna.jpg",
+      "termsAndConditions": [
+        "Life jacket compulsory.",
+        "Stay near the shore.",
+        "Ideal in calm waters."
+      ],
+      "minimumAge": 10
+    },
+    {
+      "id": "adventure035",
+      "type": "Other Adventures",
+      "name": "Zip-lining - Neemrana",
+      "description": "Longest zip-line experience in the region.",
+      "location": "Neemrana, Rajasthan",
+      "price": 1200,
+      "rating": "4.8",
+      "image": "/images/adventure/ziplining_neemrana.jpg",
+      "termsAndConditions": [
+        "Follow safety instructions.",
+        "Harness check.",
+        "Weight restrictions apply."
+      ],
+      "minimumAge": 10
+    },
+    {
+      "id": "adventure036",
+      "type": "Air Sports",
+      "name": "Skydiving - Pondicherry",
+      "description": "Tandem skydive over scenic landscapes.",
+      "location": "Pondicherry",
+      "price": 18000,
+      "rating": "5.0",
+      "image": "/images/adventure/skydiving_pondicherry.jpg",
+      "termsAndConditions": [
+        "Strict age/weight/health criteria.",
+        "Mandatory training.",
+        "Weather permitting."
+      ],
+      "minimumAge": 18
+    }
+  ]

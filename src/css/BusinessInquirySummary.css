@@ -1,0 +1,125 @@
+/* src/css/BusinessInquirySummary.css */
+.summary-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.summary-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.inquiry-details, .relevant-options {
+    margin-bottom: 30px;
+}
+
+.inquiry-details h3, .relevant-options h3 {
+    color: #007bff;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.inquiry-details p {
+    margin-bottom: 8px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.inquiry-details strong {
+    color: #333;
+}
+
+.options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.option-item {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.option-image {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.option-info {
+    flex-grow: 1;
+}
+
+.option-info h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.option-info p {
+    margin-bottom: 4px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.back-button {
+    display: block;
+    width: auto; /* Adjust width */
+    margin: 20px auto 0; /* Center button */
+    padding: 10px 20px;
+    background-color: #6c757d; /* Grey color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #5a6268; /* Darker grey */
+}
+
+.error-message {
+    color: #dc3545; /* Red color */
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .option-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .option-image {
+        width: 100%;
+        height: auto;
+        max-height: 120px;
+    }
+
+    .option-info {
+        width: 100%;
+    }
+}

@@ -1,0 +1,27 @@
+/* src/css/Admin/AdminDashboard.css */
+.admin-dashboard-container {
+    display: flex;
+    min-height: calc(100vh - 60px); /* Adjust based on your navbar height */
+    background-color: #f4f7f6; /* Light background for the dashboard */
+}
+
+.admin-main-content {
+    flex-grow: 1; /* Take up remaining space */
+    padding: 20px;
+    background-color: #fff; /* White background for the content area */
+    margin: 20px; /* Add some margin around the content */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Enable scrolling if content overflows */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .admin-dashboard-container {
+        flex-direction: column; /* Stack sidebar and content vertically */
+    }
+
+    .admin-main-content {
+        margin: 10px; /* Smaller margin on small screens */
+    }
+}

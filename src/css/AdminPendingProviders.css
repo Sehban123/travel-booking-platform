@@ -1,0 +1,161 @@
+/* src/components/Admin/css/AdminPendingProviders.css */
+
+/* Container for the entire pending providers section */
+.admin-pending-providers {
+    padding: 30px;
+    background-color: #eef2f7; /* Softer background */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Heading for the section */
+.admin-pending-providers h2 {
+    color: #1a3e6b; /* Darker blue heading */
+    border-bottom: 3px solid #ffc107; /* Yellow underline to match 'Pending' status */
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Styling for the message box (success/error) */
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.message.success {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green */
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24; /* Dark red */
+    border: 1px solid #f5c6cb;
+}
+
+
+/* List container for pending providers */
+.pending-provider-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual pending provider item styling */
+.pending-provider-item {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #ffecb3; /* Light yellow border to indicate pending */
+    border-left: 5px solid #ffc107; /* Solid yellow left border */
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
+}
+
+.pending-provider-item:hover {
+     transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+/* Styling for text within the item */
+.pending-provider-item h3 {
+    color: #343a40; /* Dark grey */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.pending-provider-item p {
+    margin: 8px 0;
+    color: #555;
+    word-break: break-word;
+    line-height: 1.6;
+}
+
+.pending-provider-item p strong {
+    color: #333;
+    margin-right: 8px;
+    font-weight: 700;
+}
+
+/* Container for action buttons */
+.actions {
+    margin-top: 20px;
+    display: flex; /* Use flexbox to align buttons */
+    gap: 15px; /* Space between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+}
+
+/* Approve button styling */
+.approve-button {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+}
+
+.approve-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px);
+}
+
+.approve-button:active {
+    background-color: #1e7e34; /* Even darker on active */
+    transform: translateY(0);
+}
+
+/* Reject button styling */
+.reject-button {
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+}
+
+.reject-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+     transform: translateY(-2px);
+}
+
+.reject-button:active {
+    background-color: #bd2130; /* Even darker on active */
+    transform: translateY(0);
+}
+
+/* Styling for the "No pending applications" message */
+.admin-pending-providers > p { /* Target the paragraph directly under the main container */
+    font-style: italic;
+    color: #6c757d;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    border: 1px dashed #ced4da;
+}
+
+/* Basic styling for loading message (if not already in a global style) */
+.admin-pending-providers > div:first-child { /* Target the first div which is likely the loading message */
+    text-align: center;
+    font-size: 1.2rem;
+    color: #007bff;
+}

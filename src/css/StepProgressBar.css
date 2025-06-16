@@ -1,0 +1,64 @@
+.step-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.step-label {
+  margin-top: 8px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.step-line {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  width: 100%;
+  height: 4px;
+  background-color: #ccc;
+  z-index: 0;
+}
+
+.step-item.completed .step-circle {
+  background-color: #28a745;
+}
+
+.step-item.active .step-circle {
+  background-color: #007bff;
+}
+
+.step-item.completed .step-line,
+.step-item.active .step-line {
+  background-color: #28a745;
+}
+
+.checkmark {
+  font-size: 1.2rem;
+}

@@ -1,0 +1,142 @@
+[
+    {
+      "accommodationID": "BH101",
+      "accommodationType": "Hotels",
+      "accommodationName": "Grand Business Suites",
+      "ownerName": "Business Stay Group",
+      "pricePerNight": 7500,
+      "numberOfBeds": 1,
+      "guestsAllowed": 1,
+      "amenities": [
+        "High-Speed Wi-Fi",
+        "Desk and Ergonomic Chair",
+        "In-room Coffee/Tea Maker",
+        "Iron and Ironing Board",
+        "Hair Dryer",
+        "Premium Bedding",
+        "Blackout Curtains",
+        "Mini-fridge"
+      ],
+      "facilities": [
+        "Business Center (Printing, Scanning, Fax)",
+        "Meeting Rooms / Conference Facilities",
+        "Express Check-in/Check-out",
+        "Fitness Center",
+        "Restaurant and Bar",
+        "Laundry/Dry Cleaning Service",
+        "Airport Shuttle Service",
+        "Executive Lounge Access (Optional)",
+        "Food/Catering",
+        "Event Resource Procurement",
+        "Conference Hall Booking"
+      ],
+      "rating": 4.5,
+      "address": "123 Business District Ave, Bandra Kurla Complex, Mumbai, Maharashtra",
+      "image": "/images/business_hotel_grand_suites.jpg",
+      "roomType": "Executive Suite",
+      "termsAndConditions": "Standard business stay terms apply. Cancellation policy: 24 hours prior to check-in for full refund.",
+      "nearbyLocations": "Convention Center (0.5 km), Financial District (1 km), Airport (15 km)"
+    },
+    {
+      "accommodationID": "BR205",
+      "accommodationType": "Resorts",
+      "accommodationName": "Coastal Business Retreat",
+      "ownerName": "Ocean View Properties",
+      "pricePerNight": 6000,
+      "numberOfBeds": 1,
+      "guestsAllowed": 2,
+      "amenities": [
+        "High-Speed Wi-Fi",
+        "Workstation",
+        "Ocean View Balcony",
+        "Coffee/Tea Facilities",
+        "Mini-bar",
+        "Comfortable Seating Area"
+      ],
+      "facilities": [
+        "Conference Hall",
+        "Team Building Activities",
+        "Spa and Wellness Center",
+        "Multiple Dining Options",
+        "Airport Transfers",
+        "Concierge Service",
+        "Food/Catering",
+        "Open Ground Booking",
+        "Event Resource Procurement",
+        "Conference Hall Booking",
+        "Sightseeing"
+      ],
+      "rating": 4.2,
+      "address": "456 Beachfront Road, Goa",
+      "image": "/images/business_resort_coastal_retreat.jpg",
+      "roomType": "Luxury Suite",
+      "termsAndConditions": "Resort business package terms. Group booking discounts available.",
+      "nearbyLocations": "Tech Park (10 km), City Center (20 km)"
+    },
+    {
+      "accommodationID": "BHS310",
+      "accommodationType": "Homestays",
+      "accommodationName": "The Urban Professional Homestay",
+      "ownerName": "Local Hosts",
+      "pricePerNight": 3500,
+      "numberOfBeds": 1,
+      "guestsAllowed": 1,
+      "amenities": [
+        "Reliable Wi-Fi",
+        "Dedicated Workspace",
+        "Kitchen Access",
+        "Laundry Facilities",
+        "Quiet Environment"
+      ],
+      "facilities": [
+        "Shared Lounge Area",
+        "Parking",
+        "Local Guidance",
+        "Breakfast Included",
+        "Food/Catering (limited)",
+        "Sightseeing (arranged)"
+      ],
+      "rating": 4.7,
+      "address": "789 Downtown Street, Koramangala, Bangalore, Karnataka",
+      "image": "/images/business_homestay_urban_professional.jpg",
+      "roomType": "Private Room",
+      "termsAndConditions": "Homestay rules apply. Respect quiet hours.",
+      "nearbyLocations": "Co-working Space (0.2 km), Public Transport (0.1 km)"
+    },
+      {
+      "accommodationID": "BV401",
+      "accommodationType": "Villas",
+      "accommodationName": "Executive Pool Villa",
+      "ownerName": "Luxury Villa Rentals",
+      "pricePerNight": 15000,
+      "numberOfBeds": 3,
+      "guestsAllowed": 6,
+      "amenities": [
+        "Private Pool",
+        "High-Speed Wi-Fi",
+        "Meeting Area",
+        "Fully Equipped Kitchen",
+        "En-suite Bathrooms",
+        "Air Conditioning"
+      ],
+      "facilities": [
+        "Private Chef (Optional)",
+        "Concierge Service",
+        "Daily Cleaning",
+        "Secure Parking",
+        "Outdoor Seating Area",
+        "Food/Catering",
+        "Community Hall Booking (nearby)",
+        "Open Ground Booking (nearby)",
+        "Event Resource Procurement",
+        "Sightseeing (arranged)"
+      ],
+      "rating": 4.9,
+      "address": "101 Hillside Drive, Lonavala, Maharashtra",
+      "image": "/images/business_villa_executive_pool.jpg",
+      "roomType": "Entire Villa With Private Pool",
+      "termsAndConditions": "Villa rental agreement terms. Minimum stay may apply.",
+      "nearbyLocations": "Business Park (5 km), Golf Course (3 km)"
+    }
+  ]
+  

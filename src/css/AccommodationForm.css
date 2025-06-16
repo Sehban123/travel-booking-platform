@@ -1,0 +1,357 @@
+/* General form container styling */
+.service-form {
+    max-width: 900px; /* Adjusted max width to accommodate more content */
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Heading styling */
+.service-form h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #bdc3c7;
+    padding-bottom: 10px;
+}
+
+/* Step-specific heading */
+.service-form h3 {
+    font-size: 1.5rem;
+    color: #007bff; /* Blue for step headings */
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #a0d9ff;
+}
+
+/* Styling for form labels */
+.service-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Styling for all input fields (text, number, select, textarea) */
+.service-form input[type="text"],
+.service-form input[type="number"],
+.service-form select,
+.service-form textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Focus state for input fields */
+.service-form input[type="text"]:focus,
+.service-form input[type="number"]:focus,
+.service-form select:focus,
+.service-form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Styling for textarea */
+.service-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Styling for the file input */
+.service-form input[type="file"] {
+     display: block;
+     width: 100%;
+     padding: 12px 0;
+     margin-bottom: 15px;
+     font-size: 1rem;
+     color: #555;
+}
+
+/* General button styling */
+.service-form button {
+    padding: 12px 20px;
+    background-color: #007bff; /* Primary blue for navigation */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.service-form button:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.service-form button:active:not(:disabled) {
+    background-color: #004085;
+    transform: translateY(0);
+}
+
+.service-form button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Submit button specific style (overrides general button) */
+.service-form button[type="submit"] {
+    background-color: #28a745; /* Green for submit */
+    margin-top: 20px;
+    width: 100%;
+}
+
+.service-form button[type="submit"]:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+/* Disabled state for the submit button */
+.service-form button[type="submit"]:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Styling for the loading message */
+.form-loading {
+    text-align: center;
+    color: #007bff;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Styles for the container holding the checkboxes and custom input (from previous snippet) */
+.form-group {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.form-group > label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Styles for the container holding the individual checkboxes (from previous snippet) */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    color: #555;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #555;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.checkbox-group input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 10px;
+    height: 10px;
+    background-color: #007bff;
+    border-radius: 2px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.checkbox-group input[type="checkbox"]:checked::before {
+    opacity: 1;
+}
+
+.checkbox-group input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Removed custom amenity/facility inputs for overall accommodation (they are now per room) */
+/* Old styles for custom inputs are no longer needed as they are handled dynamically per room */
+
+
+/* Styling for the existing image preview */
+.service-form img {
+    display: block;
+    margin-top: 10px;
+    max-width: 150px;
+    height: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Multi-step Form Specific Styles */
+.form-step {
+    display: none; /* Hide all steps by default */
+}
+
+.form-step.active {
+    display: block; /* Show active step */
+}
+
+.form-navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 15px; /* Space between buttons */
+}
+
+.form-navigation-buttons button {
+    flex: 1; /* Make buttons take equal width */
+    padding: 12px 20px;
+    font-size: 1.1rem;
+}
+
+/* Room Card Styling (for Step 2) */
+.room-card {
+    background-color: #f0f8ff; /* Light blue background for room cards */
+    border: 1px solid #cceeff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px; /* Space between room cards */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.room-card h4 {
+    font-size: 1.3rem;
+    color: #0056b3; /* Darker blue for room sub-headings */
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #91d2f7;
+    text-align: center;
+}
+
+/* Actions within room card (e.g., remove button) */
+.room-actions {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.room-actions .remove-room-button {
+    background-color: #dc3545; /* Red for remove button */
+}
+
+.room-actions .remove-room-button:hover:not(:disabled) {
+    background-color: #c82333;
+}
+
+/* Add another room button */
+.add-room-button {
+    background-color: #17a2b8; /* Cyan for add room button */
+    display: block; /* Make it a block element */
+    width: 100%; /* Full width */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.add-room-button:hover:not(:disabled) {
+    background-color: #138496;
+}
+
+/* Specific styling for room checkboxes (amenities/facilities) */
+.room-checkbox-group {
+    background-color: #e9f5ff; /* Lighter background for room checkboxes */
+    border: 1px solid #b3e0ff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .service-form {
+        padding: 20px;
+        margin: 15px;
+        max-width: 100%; /* Allow form to take full width */
+    }
+
+    .service-form h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .service-form h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .service-form input[type="text"],
+    .service-form input[type="number"],
+    .service-form select,
+    .service-form textarea,
+    .form-group input[type="text"][name^="custom"] {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .service-form button {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+
+    .form-navigation-buttons {
+        flex-direction: column; /* Stack navigation buttons on small screens */
+        gap: 10px;
+    }
+
+    .form-navigation-buttons button {
+        width: 100%; /* Full width for stacked buttons */
+    }
+
+    .checkbox-group {
+        gap: 10px;
+    }
+
+    .room-card {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .room-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .add-room-button {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+}

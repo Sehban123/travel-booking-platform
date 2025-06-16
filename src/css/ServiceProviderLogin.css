@@ -1,0 +1,736 @@
+/* src/components/Admin/css/ServiceProviderLogin.css */
+
+/* Base Styles & Typography */
+
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Full viewport height */
+  background-color: #f0f2f5;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Main Container for the Form */
+.service-provider-login-container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  /* Softer, larger shadow */
+  width: 100%;
+  max-width: 750px;
+  /* Increased max-width for more spacious layout */
+  text-align: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+  /* Enable scrolling for long forms */
+  max-height: 95vh;
+  /* Adjust height for responsiveness */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  /* Space between switcher and form area */
+}
+
+/* Form Switcher (Login/Sign Up) */
+.form-switcher {
+  display: flex;
+  margin-bottom: 20px;
+  /* Reduced margin, as container has gap */
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  /* More rounded corners */
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.form-switcher button {
+  flex-grow: 1;
+  padding: 15px 25px;
+  /* More generous padding */
+  border: none;
+  background-color: transparent;
+  color: #4a4a4a;
+  /* Darker text for inactive */
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+.form-switcher button:hover:not(.active) {
+  background-color: #e6f0ff;
+  /* Light blue on hover */
+  color: #0056b3;
+}
+
+.form-switcher button.active {
+  background-color: #007bff;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: inset 0 0 15px rgba(0, 123, 255, 0.2);
+  /* Subtle inner shadow */
+}
+
+.form-switcher button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form Area */
+.form-area h2 {
+  font-size: 2rem;
+  /* Larger heading */
+  color: #333333;
+  margin-top: 0;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eeeeee;
+  font-weight: 700;
+}
+
+.form-area form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Consistent spacing */
+}
+
+/* Input Styles */
+.form-area input[type="text"],
+.form-area input[type="email"],
+.form-area input[type="tel"],
+.form-area input[type="url"],
+.form-area input[type="number"],
+.form-area input[type="date"],
+.form-area input[type="password"],
+.form-area select,
+.form-area textarea {
+  width: 100%;
+  padding: 14px 18px;
+  /* Generous padding */
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fcfcfc;
+}
+
+.form-area input:focus,
+.form-area select:focus,
+.form-area textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  outline: none;
+  background-color: #ffffff;
+}
+
+textarea {
+  min-height: 120px;
+  /* Taller textarea */
+  resize: vertical;
+}
+
+/* Labels */
+.form-area label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  /* Space between label and input */
+  font-weight: 600;
+  color: #555555;
+  font-size: 0.98rem;
+}
+
+/* File Input Custom Styling */
+.file-upload-label {
+  display: block;
+  /* Changed from inline-block to block for better layout */
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 10px;
+  /* Spacing from previous elements */
+  text-align: center;
+  /* Center the text in the button */
+  width: 100%;
+  /* Ensure it takes full width of parent */
+  box-sizing: border-box;
+  /* Include padding in width */
+}
+
+.file-upload-label:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.file-name {
+  display: block;
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  /* Added margin-bottom for spacing */
+  text-align: left;
+  padding-left: 5px;
+}
+
+/* Password Input with Toggle */
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password-input-container input {
+  padding-right: 50px;
+  /* Space for icon */
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #777;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+  z-index: 2;
+  /* Ensure it's above the input */
+}
+
+.password-toggle-icon:hover {
+  color: #333;
+}
+
+/* Multi-step Form Sections */
+.form-step {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 30px;
+  /* More padding for content */
+  margin-top: 25px;
+  background-color: #fdfdfd;
+  text-align: left;
+  min-height: 350px;
+  /* Ensure sufficient height for content */
+  box-sizing: border-box;
+  /* Crucial: Include padding in element's total width/height */
+  width: 100%;
+  /* Ensure it takes full width of its parent */
+  display: flex !important;
+  flex-direction: column;
+  gap: 18px;
+  visibility: visible !important;
+opacity: 1 !important;
+
+  /* Spacing between elements within a step */
+
+}
+
+.form-step h3 {
+  font-size: 1.7rem;
+  color: #007bff;
+  margin-top: 0;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-step h4 {
+  /* For sub-headings within service type sections */
+  font-size: 1.3rem;
+  color: #4a4a4a;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Radio and Checkbox Group Styling */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow wrapping */
+  gap: 25px;
+  /* Increased space between items */
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  /* Padding for the group container */
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  justify-content: flex-start;
+  /* Align to the start */
+  align-items: center;
+}
+
+.radio-group label,
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  color: #333;
+  margin-bottom: 0;
+  cursor: pointer;
+  user-select: none;
+  /* Prevent text selection on label click */
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+  /* Space between input and label text */
+  cursor: pointer;
+  transform: scale(1.1);
+  /* Slightly larger checkboxes/radios */
+  accent-color: #007bff;
+  /* Custom color for checked state */
+}
+
+.inline-other-input {
+  margin-left: 15px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95em;
+  width: 180px;
+  /* Adjusted width */
+}
+
+/* Declaration and Consent */
+.declaration-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 25px;
+  text-align: left;
+}
+
+.declaration-consent input[type="checkbox"] {
+  width: auto;
+  margin-top: 5px;
+  /* Align checkbox vertically with text */
+  cursor: pointer;
+  flex-shrink: 0;
+  transform: scale(1.1);
+  accent-color: #28a745;
+  /* Green for terms checkbox */
+}
+
+.declaration-consent label {
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: normal;
+  display: inline;
+}
+
+.declaration-consent a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.declaration-consent a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.form-area button[type="submit"],
+.form-area button[type="button"] {
+  background: linear-gradient(145deg, #007bff, #0056b3);
+  /* Blue gradient for primary actions */
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 25px;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.form-area button[type="submit"]:hover:not(:disabled),
+.form-area button[type="button"]:hover:not(:disabled) {
+  background: linear-gradient(145deg, #0056b3, #003f7f);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.form-area button[type="submit"]:active:not(:disabled),
+.form-area button[type="button"]:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+}
+
+.form-area button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+/* Navigation buttons container */
+.form-navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 25px;
+  /* Increased space between buttons */
+}
+
+.form-navigation-buttons button {
+  flex: 1;
+  background: #6c757d;
+  /* Grey for navigation buttons */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-navigation-buttons button:hover:not(:disabled) {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Message styles */
+.message {
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  text-align: center;
+  word-break: break-word;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Password Input with Toggle Icon (Emoji/Text Placeholder) */
+/* (Styles already defined under .password-input-container and .password-toggle-icon) */
+
+/* --- Progress Bar Styling --- */
+.progress-bar-container {
+  width: 100%;
+  margin-bottom: 35px;
+  padding: 20px 0;
+  /* More vertical padding */
+  background-color: #e9ecef;
+  border-radius: 12px;
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  /* Use flex for the container of steps */
+  justify-content: space-around;
+  /* Distribute space evenly */
+  align-items: center;
+  position: relative;
+  /* For the progress line */
+}
+
+.progress-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 6px;
+  /* Thicker line */
+  background-color: #ced4da;
+  /* Background color of the line */
+  transform: translateY(-50%);
+  z-index: 1;
+  margin: 0 50px;
+  /* Adjust based on step circle size and desired spacing */
+  border-radius: 3px;
+  /* Rounded ends for the line */
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #28a745;
+  /* Green fill */
+  width: 0%;
+  /* Controlled by JS */
+  transition: width 0.4s ease-in-out;
+  border-radius: 3px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  /* Ensure steps are above the line */
+  transition: transform 0.2s ease-in-out;
+}
+
+.step-number {
+  width: 48px;
+  /* Larger circles */
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ced4da;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  border: 4px solid #ffffff;
+  /* Thicker white border */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.step-label {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #6c757d;
+  font-weight: 600;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* Active step styling */
+.step.active .step-number {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.step.active .step-label {
+  color: #007bff;
+}
+
+/* Completed step styling */
+.step.completed .step-number {
+  background-color: #28a745;
+  /* Green for completed */
+  border-color: #28a745;
+  font-size: 1.4em;
+  /* Larger checkmark */
+}
+
+.step.completed .step-label {
+  color: #28a745;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .service-provider-login-container {
+    padding: 25px;
+    max-width: 95%;
+    margin: 1rem auto;
+    /* Center with margin */
+    gap: 20px;
+  }
+
+  .form-area h2 {
+    font-size: 1.7rem;
+    margin-bottom: 25px;
+  }
+
+  .form-switcher button {
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+
+  .form-area input,
+  .form-area select,
+  .form-area textarea,
+  .form-area button {
+    font-size: 0.95rem;
+    padding: 12px 15px;
+  }
+
+  .form-step {
+    padding: 20px;
+    min-height: auto;
+    /* Allow height to adjust */
+  }
+
+  .form-step h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .form-step h4 {
+    font-size: 1.2rem;
+  }
+
+  .radio-group,
+  .checkbox-group {
+    flex-direction: column;
+    /* Stack vertically */
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .form-navigation-buttons {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  /* Progress bar adjustments */
+  .progress-bar-container {
+    padding: 15px 0;
+  }
+
+  .progress-line {
+    margin: 0 25px;
+    /* Adjust line margin */
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1em;
+    border-width: 3px;
+  }
+
+  .step-label {
+    font-size: 0.8em;
+  }
+
+  .declaration-consent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .declaration-consent input[type="checkbox"] {
+    margin-top: 2px;
+    /* Adjust for better alignment */
+  }
+}
+
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 1rem;
+    align-items: flex-start;
+    /* Align to top on very small screens if content is long */
+  }
+
+  .service-provider-login-container {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+  }
+
+  .form-area h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .form-switcher {
+    border-radius: 8px;
+  }
+
+  .form-switcher button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  .form-area input,
+  .form-area select,
+  .form-area textarea,
+  .form-area button {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+  .form-step {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .form-step h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .form-step h4 {
+    font-size: 1.1rem;
+  }
+
+  .radio-group,
+  .checkbox-group {
+    gap: 10px;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .radio-group input[type="radio"],
+  .checkbox-group input[type="checkbox"] {
+    transform: scale(1);
+  }
+
+  .file-upload-label {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
+
+  /* Progress bar adjustments for very small screens */
+  .progress-bar-container {
+    padding: 10px 0;
+    margin-bottom: 25px;
+  }
+
+  .progress-line {
+    margin: 0 18px;
+    height: 4px;
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9em;
+    border-width: 2px;
+  }
+
+  .step-label {
+    font-size: 0.65em;
+    margin-top: 5px;
+  }
+
+  .message {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
