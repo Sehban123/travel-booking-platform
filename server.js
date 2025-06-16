@@ -6,8 +6,6 @@ const nodemailer = require("nodemailer");
 const crypto = require('crypto'); // Needed for password generation and OTP
 const multer = require("multer"); // Import multer
 const fs = require('fs'); // Import fs for file operations (like deleting old images)
-// const bcrypt = require('bcrypt'); // bcrypt is NOT used for Super Admin as per instruction
-// const { type } = require("os"); // Assuming this import is needed elsewhere based on previous code
 require('dotenv').config(); // Load .env
 const app = express();
 app.use(express.json());
@@ -22,10 +20,10 @@ app.use(cors({
 app.use('/images', express.static(path.join(__dirname, 'src', 'images')));
 app.use('/documents', express.static(path.join(__dirname, 'src', 'documents')));
 
+console.log(`Serving static images from: ${path.join(__dirname, 'src/images')}`); // <-- NOTE: console.log itself still has 'src/images'
+console.log(`Serving static documents from: ${path.join(__dirname, 'src/documents')}`); // <-- NOTE: console.log itself still has 'src/documents'
 
-console.log(`Serving static images from: ${path.join(__dirname, 'src/images')}`);
-console.log(`Serving static documents from: ${path.join(__dirname, 'src/documents')}`);
-// Serve React build files
+
 
 // --- Multer Setup for Image Uploads ---
 const storage = multer.diskStorage({
@@ -2964,6 +2962,7 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
         res.status(500).json({ error: 'Failed to update booking status.', details: error.message });
     }
 });
+// Serve React build files
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('*', (req, res) => {
