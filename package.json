@@ -34,10 +34,11 @@
     "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
+  "main": "Server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node Server.js",
     "dev": "nodemon Server.js",
-    "build": "cd client && npm install && npm run build",
+    "build": "",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
