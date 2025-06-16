@@ -7,7 +7,7 @@ const crypto = require('crypto'); // Needed for password generation and OTP
 const multer = require("multer"); // Import multer
 const fs = require('fs'); // Import fs for file operations (like deleting old images)
 // const bcrypt = require('bcrypt'); // bcrypt is NOT used for Super Admin as per instruction
-const { type } = require("os"); // Assuming this import is needed elsewhere based on previous code
+// const { type } = require("os"); // Assuming this import is needed elsewhere based on previous code
 require('dotenv').config(); // Load .env
 const app = express();
 app.use(express.json());
@@ -24,11 +24,7 @@ app.use('/documents', express.static(path.join(__dirname, 'src/documents'))); //
 console.log(`Serving static images from: ${path.join(__dirname, 'src/images')}`);
 console.log(`Serving static documents from: ${path.join(__dirname, 'src/documents')}`);
 // Serve React build files
-app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 // --- Multer Setup for Image Uploads ---
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -2967,6 +2963,20 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
     }
 });
 
+
+// Serve static files from the React build directory
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+// Catch-all route: Send index.html for unmatched routes (React SPA support)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
+
+// Start server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`✅ Server is running on port ${PORT}`);
+});
 
 
 // --- START SERVER ---
