@@ -36,8 +36,8 @@
   },
   "main": "Server.js",
   "scripts": {
-    "start": "node src/Server.js", 
-    "dev": "nodemon Server.js", 
+    "start": "node src/Server.js",
+    "dev": "nodemon src/Server.js", 
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
