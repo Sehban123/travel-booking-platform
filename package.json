@@ -34,7 +34,7 @@
     "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
-  "main": "Server.js",
+  "main": "server.js",
 "scripts": {
   "start": "node server.js",
   "build": "react-scripts build",
