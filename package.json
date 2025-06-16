@@ -36,9 +36,9 @@
   },
   "main": "Server.js",
   "scripts": {
-    "start": "node Server.js",
-    "dev": "nodemon Server.js",
-"build": "react-scripts build",
+    "start": "node src/Server.js", // <-- CHANGED THIS LINE
+    "dev": "nodemon Server.js", // You might also want to change this to "nodemon src/Server.js" for local dev
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
