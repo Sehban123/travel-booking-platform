@@ -38,7 +38,7 @@
   "scripts": {
     "start": "node Server.js",
     "dev": "nodemon Server.js",
-    "build": "",
+"build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

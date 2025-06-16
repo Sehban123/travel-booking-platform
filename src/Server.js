@@ -22,7 +22,12 @@ app.use('/images', express.static(path.join(__dirname, 'src/images')));
 app.use('/documents', express.static(path.join(__dirname, 'src/documents'))); // New directory for documents
 console.log(`Serving static images from: ${path.join(__dirname, 'src/images')}`);
 console.log(`Serving static documents from: ${path.join(__dirname, 'src/documents')}`);
+// Serve React build files
+app.use(express.static(path.join(__dirname, 'build')));
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 // --- Multer Setup for Image Uploads ---
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -2961,13 +2966,7 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
     }
 });
 
-// Serve React build files
-app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-// Serve index.html for any unknown routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
 
 // --- START SERVER ---
 app.listen(5000, () => {
