@@ -2964,12 +2964,12 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
         res.status(500).json({ error: 'Failed to update booking status.', details: error.message });
     }
 });
-app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.static(path.join(__dirname, 'build')));
 
-// Fallback to React frontend
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// // Fallback to React frontend
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 
 // Start server
 const PORT = process.env.PORT || 5000;
