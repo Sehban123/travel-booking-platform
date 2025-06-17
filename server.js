@@ -411,7 +411,7 @@ const BusinessInquiry = mongoose.model("BusinessInquiry", businessInquirySchema)
 // --- GENERAL BOOKING ENDPOINTS (Likely for User Side) ---
 // Keeping these as they might be used by other parts of the application
 // 🔹 Route for Accommodation Bookings - UPDATED for RoomId
-app.post("/api/accommodation-bookings", async (req, res) => {
+app.post("/accommodation-bookings", async (req, res) => {
     console.log("Backend received POST request for accommodation booking:", req.body);
     try {
         const bookingData = req.body;
@@ -445,7 +445,7 @@ app.post("/api/accommodation-bookings", async (req, res) => {
 
 
 // 🔹 Route for Transportation Bookings
-app.post("/api/transportation-bookings", async (req, res) => {
+app.post("/transportation-bookings", async (req, res) => {
     console.log("Backend received POST request for transportation booking:", req.body);
     try {
         const bookingData = req.body;
@@ -474,7 +474,7 @@ app.post("/api/transportation-bookings", async (req, res) => {
 
 
 // 🔹 Route for Sport Adventure Bookings
-app.post("/api/sport-adventure-bookings", async (req, res) => {
+app.post("/sport-adventure-bookings", async (req, res) => {
     console.log("Backend received POST request for sport adventure booking:", req.body);
     try {
         const bookingData = req.body;
@@ -507,7 +507,7 @@ app.post("/api/sport-adventure-bookings", async (req, res) => {
 
 
 // 🔹 Business Inquiry Submission
-app.post("/api/business-inquiries", async (req, res) => {
+app.post("/business-inquiries", async (req, res) => {
     console.log("Backend received POST request for business inquiry:", req.body);
     try {
         const inquiryData = req.body;
@@ -545,7 +545,7 @@ app.post("/api/business-inquiries", async (req, res) => {
 
 
 // 🔹 Route to GET all Accommodations - UPDATED (Populate rooms)
-app.get("/api/accommodations", async (req, res) => {
+app.get("/accommodations", async (req, res) => {
     try {
         const accommodations = await Accommodation.find().populate('rooms');
         res.status(200).json(accommodations);
@@ -557,7 +557,7 @@ app.get("/api/accommodations", async (req, res) => {
 
 
 // 🔹 Route to GET all Transportation items
-app.get("/api/transportations", async (req, res) => {
+app.get("/transportations", async (req, res) => {
     console.log("Backend received GET request for all flat transportation items");
     try {
         const transportations = await Transportation.find();
@@ -571,8 +571,8 @@ app.get("/api/transportations", async (req, res) => {
 
 
 // 🔹 Route to GET all Sport Adventures
-app.get("/api/sports-adventures", async (req, res) => {
-    console.log("Backend received GET request for /api/sports-adventures");
+app.get("/sports-adventures", async (req, res) => {
+    console.log("Backend received GET request for /sports-adventures");
     try {
         const adventures = await SportAdventure.find();
         console.log(`Found ${adventures.length} sport adventures.`);
@@ -643,7 +643,7 @@ app.get('/admin/summary-counts', async (req, res) => {
 // --- END NEW ADMIN SUMMARY ENDPOINTS ---
 
 // --- NEW ENDPOINT: Get Pending Service Provider Applications (For Admin) ---
-app.get('/api/admin/pending-providers', async (req, res) => {
+app.get('/admin/pending-providers', async (req, res) => {
     console.log("Backend received GET request for pending service provider applications (Admin)");
     try {
         // Find all service providers with status 'Pending'
@@ -661,7 +661,7 @@ app.get('/api/admin/pending-providers', async (req, res) => {
 
 
 // --- NEW ENDPOINT: Approve Service Provider Application (For Admin) - UPDATED with timestamp ---
-app.post('/api/admin/providers/:providerId/approve', async (req, res) => {
+app.post('/admin/providers/:providerId/approve', async (req, res) => {
     console.log(`Backend received POST request to approve provider application for ID: ${req.params.providerId}`);
     const providerId = req.params.providerId;
 
@@ -756,7 +756,7 @@ The Travel Booking Platform Team
 // --- END NEW ENDPOINT ---
 
 // --- NEW ENDPOINT: Reject Service Provider Application (For Admin) - UPDATED with timestamp ---
-app.post('/api/admin/providers/:providerId/reject', async (req, res) => {
+app.post('/admin/providers/:providerId/reject', async (req, res) => {
     console.log(`Backend received POST request to reject provider application for ID: ${req.params.providerId}`);
     const providerId = req.params.providerId;
 
@@ -827,7 +827,7 @@ The [Your Website Name] Team
 // --- NEW ENDPOINT: Get All Service Providers with Populated Services (For Admin) ---
 // This endpoint is fine as is, it now includes the 'status' field implicitly.
 // We might want a separate endpoint for *only* pending providers for the new admin view.
-app.get('/api/admin/service-providers', async (req, res) => {
+app.get('/admin/service-providers', async (req, res) => {
     console.log("Backend received GET request for all service providers with services (Admin)");
     try {
         // Find all service providers
@@ -863,7 +863,7 @@ app.get('/api/admin/service-providers', async (req, res) => {
 
 
 // --- NEW ENDPOINT: Send OTP for Super Admin Password Change ---
-app.post('/api/admin/:adminId/send-otp-password-change', async (req, res) => {
+app.post('/admin/:adminId/send-otp-password-change', async (req, res) => {
     console.log(`Backend received POST request to send OTP for password change for admin ID: ${req.params.adminId}`);
     const adminId = req.params.adminId;
     const { currentPassword } = req.body; // Only need current password to verify identity
@@ -938,7 +938,7 @@ The [Your Website Name] Team
 
 
 // --- NEW ENDPOINT: Verify OTP and Change Super Admin Password ---
-app.put('/api/admin/:adminId/verify-otp-and-change-password', async (req, res) => {
+app.put('/admin/:adminId/verify-otp-and-change-password', async (req, res) => {
     console.log(`Backend received PUT request to verify OTP and change password for admin ID: ${req.params.adminId}`);
     const adminId = req.params.adminId; // Correctly access adminId from params
     const { otp, newPassword } = req.body; // Expect OTP and new password
@@ -1002,7 +1002,7 @@ app.put('/api/admin/:adminId/verify-otp-and-change-password', async (req, res) =
     }
 });
 // --- NEW: Admin Get Single Service Provider Application Details ---
-app.get('/api/admin/service-provider-applications/:id', async (req, res) => {
+app.get('/admin/service-provider-applications/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const application = await ServiceProvider.findById(id).select('-password'); // Exclude password
@@ -1019,7 +1019,7 @@ app.get('/api/admin/service-provider-applications/:id', async (req, res) => {
     }
 });
 // --- Super Admin Login Route ---
-app.post('/api/admin/login', async (req, res) => {
+app.post('/admin/login', async (req, res) => {
     console.log("Backend received POST request for Super Admin login");
     const { email, password } = req.body;
 
@@ -1071,7 +1071,7 @@ app.post('/api/admin/login', async (req, res) => {
 
 
 // 🔹 Get All Business Inquiries (Likely for Admin)
-app.get("/api/business-inquiries", async (req, res) => {
+app.get("/business-inquiries", async (req, res) => {
     console.log("Backend received GET request for all business inquiries");
     try {
         const inquiries = await BusinessInquiry.find();
@@ -1086,7 +1086,7 @@ app.get("/api/business-inquiries", async (req, res) => {
 // ======================= SERVICE PROVIDER ====================================================================
 
 // --- Service Provider Login Endpoint - MODIFIED (Check status) ---
-app.post('/api/provider/login', async (req, res) => {
+app.post('/provider/login', async (req, res) => {
     console.log("Backend received POST request for Service Provider login");
     const { email, password } = req.body;
     if (!email || !password) { return res.status(400).json({ error: 'Email and password are required.' }); }
@@ -1131,7 +1131,7 @@ app.post('/api/provider/login', async (req, res) => {
 });
 
 // --- Endpoint for Service Provider Applications (Signup) - MODIFIED ---
-app.post('/api/become-provider', upload, async (req, res) => {
+app.post('/become-provider', upload, async (req, res) => {
     try {
         console.log("Backend received POST request for 'Become a Provider' application");
         console.log("Request body (from multer):", req.body);
@@ -1255,7 +1255,7 @@ app.post('/api/become-provider', upload, async (req, res) => {
 
 
 // 🔹 Route for a Provider to Add New Transportation - Add status check
-app.post("/api/provider/:providerId/transportations", uploadSingle.single('image'), async (req, res) => {
+app.post("/provider/:providerId/transportations", uploadSingle.single('image'), async (req, res) => {
     console.log(`Backend received POST request for adding transportation for provider ${req.params.providerId}`);
     const providerId = req.params.providerId;
     const transportationData = req.body;
@@ -1365,7 +1365,7 @@ app.post("/api/provider/:providerId/transportations", uploadSingle.single('image
 
 
 // 🔹 Route for a Provider to Get Their Transportation - MODIFIED (Removed status check for Admin view)
-app.get("/api/provider/:providerId/transportations", async (req, res) => {
+app.get("/provider/:providerId/transportations", async (req, res) => {
     console.log(`Backend received GET request for provider ${req.params.providerId}'s transportations`);
     const providerId = req.params.providerId;
 
@@ -1400,7 +1400,7 @@ app.get("/api/provider/:providerId/transportations", async (req, res) => {
 
 
 // 🔹 Route to UPDATE an Accommodation by ID - UPDATED FOR MULTI-ROOM
-app.put("/api/accommodations/:id", upload, async (req, res) => {
+app.put("/accommodations/:id", upload, async (req, res) => {
     console.log(`Backend received PUT request for accommodation ID: ${req.params.id}`);
     const accommodationId = req.params.id;
     const { rooms, ...updateData } = req.body; // Destructure rooms from body
@@ -1606,7 +1606,7 @@ app.put("/api/accommodations/:id", upload, async (req, res) => {
 });
 
 // 🔹 Route to DELETE an Accommodation by ID - UPDATED FOR MULTI-ROOM
-app.delete("/api/accommodations/:id", async (req, res) => {
+app.delete("/accommodations/:id", async (req, res) => {
     console.log(`Backend received DELETE request for accommodation ID: ${req.params.id}`);
     try {
         const accommodationId = req.params.id;
@@ -1669,7 +1669,7 @@ app.delete("/api/accommodations/:id", async (req, res) => {
 });
 
 // 🔹 Route to get bookings for a specific Accommodation ID (Likely for User Side or Admin) - UPDATED for RoomId
-app.get("/api/accommodations/:id/bookings", async (req, res) => {
+app.get("/accommodations/:id/bookings", async (req, res) => {
     console.log(`Backend received GET request for bookings for accommodation ID: ${req.params.id}`);
     try {
         const accommodationId = req.params.id;
@@ -1691,7 +1691,7 @@ app.get("/api/accommodations/:id/bookings", async (req, res) => {
 });
 
 // 🔹 Route to GET a single Accommodation by ID - UPDATED (Populate rooms)
-app.get("/api/accommodations/:id", async (req, res) => {
+app.get("/accommodations/:id", async (req, res) => {
     try {
         const accommodation = await Accommodation.findById(req.params.id).populate('rooms');
         if (!accommodation) return res.status(404).json({ message: "Accommodation not found" });
@@ -1705,7 +1705,7 @@ app.get("/api/accommodations/:id", async (req, res) => {
     }
 });
 // 🔹 Route to UPDATE a Transportation item by ID - Add status check
-app.put("/api/transportation/:id", uploadSingle.single('image'), async (req, res) => {
+app.put("/transportation/:id", uploadSingle.single('image'), async (req, res) => {
     console.log(`Backend received PUT request for transportation ID: ${req.params.id}`);
     const imageFile = req.file;
     try {
@@ -1807,7 +1807,7 @@ app.put("/api/transportation/:id", uploadSingle.single('image'), async (req, res
     }
 });
 // 🔹 Route to DELETE a Transportation item by ID - Add status check
-app.delete("/api/transportation/:id", async (req, res) => {
+app.delete("/transportation/:id", async (req, res) => {
     console.log(`Backend received DELETE request for transportation ID: ${req.params.id}`);
     try {
         const transportationId = req.params.id;
@@ -1857,7 +1857,7 @@ app.delete("/api/transportation/:id", async (req, res) => {
 
 
 // 🔹 Route to GET a single Transportation item by its Mongoose _id
-app.get("/api/transportation/:id", async (req, res) => {
+app.get("/transportation/:id", async (req, res) => {
     console.log(`Backend received GET request for flat transportation item ID: ${req.params.id}`);
     try {
         const transportationItemId = req.params.id;
@@ -1883,7 +1883,7 @@ app.get("/api/transportation/:id", async (req, res) => {
     }
 });
 // 🔹 Route for a Provider to Add New Sport Adventure - Add status check
-app.post("/api/provider/:providerId/sports-adventures", uploadSingle.single('image'), async (req, res) => {
+app.post("/provider/:providerId/sports-adventures", uploadSingle.single('image'), async (req, res) => {
     console.log(`Backend received POST request for adding sport adventure for provider ${req.params.providerId}`);
     const providerId = req.params.providerId;
     const adventureData = req.body;
@@ -1993,7 +1993,7 @@ app.post("/api/provider/:providerId/sports-adventures", uploadSingle.single('ima
 });
 
 // 🔹 Route for a Provider to Get Their Sport Adventures - MODIFIED (Removed status check for Admin view)
-app.get("/api/provider/:providerId/sports-adventures", async (req, res) => {
+app.get("/provider/:providerId/sports-adventures", async (req, res) => {
     console.log(`Backend received GET request for provider ${req.params.providerId}'s sport adventures`);
     const providerId = req.params.providerId;
 
@@ -2028,7 +2028,7 @@ app.get("/api/provider/:providerId/sports-adventures", async (req, res) => {
 
 
 // 🔹 Route to UPDATE a Sport Adventure by ID - Add status check
-app.put("/api/sports-adventures/:id", uploadSingle.single('image'), async (req, res) => {
+app.put("/sports-adventures/:id", uploadSingle.single('image'), async (req, res) => {
     console.log(`Backend received PUT request for sport adventure ID: ${req.params.id}`);
     const imageFile = req.file;
     try {
@@ -2130,7 +2130,7 @@ app.put("/api/sports-adventures/:id", uploadSingle.single('image'), async (req, 
 });
 
 // 🔹 Route to DELETE a Sport Adventure by ID - Add status check
-app.delete("/api/sports-adventures/:id", async (req, res) => {
+app.delete("/sports-adventures/:id", async (req, res) => {
     console.log(`Backend received DELETE request for sport adventure ID: ${req.params.id}`);
     try {
         const adventureId = req.params.id;
@@ -2179,7 +2179,7 @@ app.delete("/api/sports-adventures/:id", async (req, res) => {
 });
 
 // --- NEW ENDPOINT: Get Single Sport Adventure by ID (Public) ---
-app.get("/api/sports-adventures/:id", async (req, res) => {
+app.get("/sports-adventures/:id", async (req, res) => {
     console.log(`Backend received GET request for single Sport Adventure ID: ${req.params.id}`);
     const adventureId = req.params.id;
 
@@ -2206,7 +2206,7 @@ app.get("/api/sports-adventures/:id", async (req, res) => {
 // --- ENDPOINTS FOR BOOKING REQUESTS (FOR PROVIDERS) ---
 
 // Endpoint for Provider Booking Requests - Add status check
-app.get('/api/provider/:providerId/booking-requests', async (req, res) => {
+app.get('/provider/:providerId/booking-requests', async (req, res) => {
     console.log(`Backend received GET request for booking requests for provider ID: ${req.params.providerId}`);
     const providerId = req.params.providerId;
 
@@ -2253,7 +2253,7 @@ app.get('/api/provider/:providerId/booking-requests', async (req, res) => {
 });
 
 // Endpoint to Update Booking Status - Add status check AND timestamps
-app.put('/api/bookings/:bookingId/status', async (req, res) => {
+app.put('/bookings/:bookingId/status', async (req, res) => {
     console.log(`Backend received PUT request to update status for booking ID: ${req.params.bookingId}`);
     const bookingId = req.params.bookingId;
     const { status, providerId } = req.body;
@@ -2430,7 +2430,7 @@ The [Your Website Name] Team
 });
 
 // ✅ Get All Bookings for a Specific Sport Adventure
-app.get("/api/sports-adventures/:adventureId/bookings", async (req, res) => {
+app.get("/sports-adventures/:adventureId/bookings", async (req, res) => {
     const { adventureId } = req.params;
 
     try {
@@ -2442,7 +2442,7 @@ app.get("/api/sports-adventures/:adventureId/bookings", async (req, res) => {
     }
 });
 // GET Provider Profile by ID - No change needed, it already excludes password
-app.get('/api/providers/:providerId', async (req, res) => {
+app.get('/providers/:providerId', async (req, res) => {
     console.log(`Backend received GET request for single provider ID: ${req.params.providerId}`);
     const providerId = req.params.providerId;
 
@@ -2472,7 +2472,7 @@ app.get('/api/providers/:providerId', async (req, res) => {
 });
 
 // --- NEW SERVICE PROVIDER ENDPOINT: Request OTP for Password Change ---
-app.post("/api/providers/:providerId/send-otp-password-change", async (req, res) => {
+app.post("/providers/:providerId/send-otp-password-change", async (req, res) => {
     console.log(`Backend received POST request to send OTP for password change for provider ID: ${req.params.providerId}`);
     const { currentPassword, newPassword } = req.body;
     const providerId = req.params.providerId;
@@ -2552,7 +2552,7 @@ app.post("/api/providers/:providerId/send-otp-password-change", async (req, res)
 });
 
 // --- NEW SERVICE PROVIDER ENDPOINT: Verify OTP and Change Password ---
-app.put("/api/providers/:providerId/verify-otp-and-change-password", async (req, res) => {
+app.put("/providers/:providerId/verify-otp-and-change-password", async (req, res) => {
     console.log(`Backend received PUT request to verify OTP and change password for provider ID: ${req.params.providerId}`);
     const { otp, newPassword } = req.body;
     const providerId = req.params.providerId;
@@ -2620,7 +2620,7 @@ app.put("/api/providers/:providerId/verify-otp-and-change-password", async (req,
 
 // --- NEW ENDPOINT: Get Single Service Provider by ID ---
 // This endpoint will be used by the Service Provider Dashboard to fetch their own details.
-app.get('/api/providers/:providerId', async (req, res) => {
+app.get('/providers/:providerId', async (req, res) => {
     console.log(`Backend received GET request for single provider ID: ${req.params.providerId}`);
     const providerId = req.params.providerId;
 
@@ -2652,7 +2652,7 @@ app.get('/api/providers/:providerId', async (req, res) => {
 
 
 // 🔹 Route for a Provider to Add a New Accommodation - UPDATED FOR MULTI-ROOM
-app.post("/api/provider/:providerId/accommodations", upload, async (req, res) => {
+app.post("/provider/:providerId/accommodations", upload, async (req, res) => {
     console.log(`Backend received POST request for adding accommodation for provider ${req.params.providerId}`);
     const providerId = req.params.providerId;
     const { rooms, ...accommodationData } = req.body;
@@ -2770,7 +2770,7 @@ app.post("/api/provider/:providerId/accommodations", upload, async (req, res) =>
 });
 
 // 🔹 Route for a Provider to Get Their Accommodations - MODIFIED (Populate rooms)
-app.get("/api/provider/:providerId/accommodations", async (req, res) => {
+app.get("/provider/:providerId/accommodations", async (req, res) => {
     console.log(`Backend received GET request for provider ${req.params.providerId}'s accommodations`);
     const providerId = req.params.providerId;
 
@@ -2800,7 +2800,7 @@ app.get("/api/provider/:providerId/accommodations", async (req, res) => {
 });
 
 
-app.put('/api/providers/:id', upload, async (req, res) => {
+app.put('/providers/:id', upload, async (req, res) => {
     console.log(`Backend received PUT request for provider profile ID: ${req.params.id}`);
     const providerId = req.params.id; // Get ID from URL parameter
 
@@ -2888,7 +2888,7 @@ app.put('/api/providers/:id', upload, async (req, res) => {
     }
 });
 // --- NEW ENDPOINT: Update Accommodation Booking Status ---
-app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
+app.put('/accommodation-bookings/:id/status', async (req, res) => {
     console.log(`Backend received PUT request to update accommodation booking status for ID: ${req.params.id}`);
     const bookingId = req.params.id;
     const { status } = req.body; // Expecting 'Approved' or 'Rejected'
@@ -3016,7 +3016,7 @@ function startExpressServer() {
     app.use((req, res, next) => {
         const indexPath = path.join(buildPath, 'index.html');
         // Only serve index.html for GET requests that are not API calls and if the file exists
-        if (req.method === 'GET' && fs.existsSync(indexPath) && !req.url.startsWith('/api')) {
+        if (req.method === 'GET' && fs.existsSync(indexPath) && !req.url.startsWith('')) {
             console.log(`➡️ Serving index.html for: ${req.url} from ${indexPath}`);
             res.sendFile(indexPath);
         } else {
