@@ -100,7 +100,7 @@ const ChangePassword = ({ providerId, onSuccess, onError, loading, setLoading, s
         try {
             // Call the backend endpoint to verify OTP and change password
             // EXPECTED BACKEND ENDPOINT: PUT /api/providers/:providerId/verify-otp-and-change-password
-            const response = await axios.put(`${API_URL}/providers/${providerId}/verify-otp-and-change-password`, {
+            const response = await axios.put(`${API_URL}/api/providers/${providerId}/verify-otp-and-change-password`, {
                 otp: otp,
                 newPassword: formData.newPassword // Send the new password again
             });

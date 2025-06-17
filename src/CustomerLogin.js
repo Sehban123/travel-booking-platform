@@ -90,7 +90,7 @@ const CustomerLogin = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post(`${API_URL}/customer/login`, {
+            const response = await axios.post(`${API_URL}/api/customer/login`, {
                 email: formData.email,
                 password: formData.password
             });

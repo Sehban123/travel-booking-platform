@@ -248,13 +248,13 @@ const ServiceProviderLoginPage = () => {
             }
             // Append multiple service photos
             signupData.servicePhotos.forEach((file) => {
-formData.append('servicePhotos', file);
+                formData.append('servicePhotos', file);
             });
 
             console.log('Sending signup data:', Object.fromEntries(formData.entries()));
 
             // CHANGE THE ENDPOINT HERE TO THE MULTER-ENABLED ONE
-            const response = await axios.post(`${API_URL}/become-provider`, formData, {
+            const response = await axios.post(`${API_URL}/api/become-provider`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
