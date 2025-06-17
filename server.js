@@ -17,13 +17,13 @@ app.use(cors({
 
 // --- Serve static files from the 'src/images' directory ---
 // We will also fix these paths below to remove the triple 'src'
-app.use('/images', express.static(path.join(__dirname, 'src', 'images')));
-app.use('/documents', express.static(path.join(__dirname, 'src', 'documents')));
+// app.use('/images', express.static(path.join(__dirname, 'src', 'images')));
+// app.use('/documents', express.static(path.join(__dirname, 'src', 'documents')));
 
-console.log(`Serving static images from: ${path.join(__dirname, 'src/images')}`); // <-- NOTE: console.log itself still has 'src/images'
-console.log(`Serving static documents from: ${path.join(__dirname, 'src/documents')}`); // <-- NOTE: console.log itself still has 'src/documents'
-// Serve React build files
-app.use(express.static(path.join(__dirname, 'build')));
+// console.log(`Serving static images from: ${path.join(__dirname, 'src/images')}`); // <-- NOTE: console.log itself still has 'src/images'
+// console.log(`Serving static documents from: ${path.join(__dirname, 'src/documents')}`); // <-- NOTE: console.log itself still has 'src/documents'
+// // Serve React build files
+// app.use(express.static(path.join(__dirname, 'build')));
 
 
 
@@ -89,8 +89,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true, // true for port 465, false for 587
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env.emailUser,
+        pass: process.env.emailPass,
     },
 });
 
@@ -2965,16 +2965,63 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
     }
 });
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// --- Function to start the server and serve React build files ---
+function startExpressServer() {
+    console.log(`Current working directory (on Render): ${__dirname}`); // Log __dirname
 
+    // Serve static images and documents
+    const imagesPath = path.join(__dirname, 'src', 'images');
+    const documentsPath = path.join(__dirname, 'src', 'documents');
 
+    console.log(`Attempting to serve static images from: ${imagesPath}`);
+    console.log(`Attempting to serve static documents from: ${documentsPath}`);
 
-// Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`✅ Server is running on port ${PORT}`);
-});
+    // Check if directories exist before serving
+    if (!fs.existsSync(imagesPath)) {
+        console.warn(`WARNING: Images directory does not exist: ${imagesPath}`);
+    }
+    if (!fs.existsSync(documentsPath)) {
+        console.warn(`WARNING: Documents directory does not exist: ${documentsPath}`);
+    }
+
+    app.use('/images', express.static(imagesPath));
+    app.use('/documents', express.static(documentsPath));
+
+    // Serve React build files
+    const buildPath = path.join(__dirname, 'build');
+    console.log(`Attempting to serve React build from: ${buildPath}`);
+
+    if (!fs.existsSync(buildPath)) {
+        console.error(`ERROR: React build directory does not exist: ${buildPath}. Did 'npm run build' complete successfully?`);
+        // If build folder doesn't exist, exit or handle gracefully
+        // For now, we'll let it try, but this is a common point of failure.
+    }
+
+    app.use(express.static(buildPath));
+
+    // Fallback to React frontend for any unmatched routes
+    // Changed '/*' to '*' for broader compatibility, though both are generally fine.
+    app.get('*', (req, res) => {
+        console.log(`Serving index.html for request: ${req.url}`);
+        res.sendFile(path.join(buildPath, 'index.html'));
+    });
+
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => {
+        console.log(`✅ Server is running on port ${PORT}`);
+    });
+}
+
+// --- Check if this file is being run directly ---
+if (require.main === module) {
+    // If it's the main module, start the server
+    console.log("server.js is being run as the main module. Starting server...");
+    startExpressServer();
+} else {
+    // If it's being 'required' as a module, export the app instance
+    console.log("server.js is being required as a module. Exporting app instance.");
+    module.exports = app;
+}
+
 
 
