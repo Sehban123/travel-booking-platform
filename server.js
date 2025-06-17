@@ -61,7 +61,6 @@ const upload = multer({ storage }).fields([
 
 const uploadSingle = multer({ storage: storage });
 
-const uploadSingle = multer({ storage: storage }); // This was the one undefined
 
 // NEW: Multer instance for single file uploads.
 // This 'uploadSingle' instance is used for:
