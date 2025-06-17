@@ -69,19 +69,17 @@ const upload = multer({ storage }).fields([
     { name: 'roomImages', maxCount: 20 } // ✅ Add this for room-specific images
 ]);
 
-
+const uploadSingle = multer({ storage: storage }); // This was the one undefined
 
 // NEW: Multer instance for single file uploads.
 // This 'uploadSingle' instance is used for:
 // 1. Transportation forms (single vehicle image)
 // 2. Sport Adventure forms (single activity image)
-const uploadSingle = multer({ storage: storage });
-const emailUser = process.env.EMAIL_USER;
-const emailPass = process.env.EMAIL_PASS;
+const emailUser = process.env.EMAIL_USER; // This is correct
+const emailPass = process.env.EMAIL_PASS; // This is correct
 
 // --- Nodemailer Setup for Sending Emails ---
 // IMPORTANT: Replace with your actual email service credentials and settings
-
 
 // Transporter configuration using environment variables
 const transporter = nodemailer.createTransport({
@@ -89,10 +87,26 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true, // true for port 465, false for 587
     auth: {
-        user: process.env.emailUser,
-        pass: process.env.emailPass,
+        // Use the constants you defined, or directly use the correct environment variable names
+        user: emailUser, // FIXED: Changed from process.env.emailUser to emailUser (constant)
+        pass: emailPass, // FIXED: Changed from process.env.emailPass to emailPass (constant)
+        // Alternative (if you prefer not to use the constants):
+        // user: process.env.EMAIL_USER,
+        // pass: process.env.EMAIL_PASS,
     },
 });
+
+// Optional: Verify transporter
+transporter.verify((error, success) => {
+    if (error) {
+        console.error("❌ Nodemailer connection error:", error);
+    } else {
+        console.log("✅ Nodemailer is ready to send emails");
+    }
+});
+
+// ... rest of your server.js code ...
+
 
 // Optional: Verify transporter
 transporter.verify((error, success) => {
@@ -2970,11 +2984,11 @@ function startExpressServer() {
     console.log(`Current working directory (on Render): ${__dirname}`); // Log __dirname
 
     // Serve static images and documents
-    const imagesPath = path.join(__dirname, 'src', 'images');
-    const documentsPath = path.join(__dirname, 'src', 'documents');
+    app.use('/images', express.static(imagesPath)); // `imagesPath` is defined as path.join(__dirname, 'src', 'images')
+    app.use('/documents', express.static(documentsPath)); // `documentsPath` is defined as path.join(__dirname, 'src', 'documents')
 
-    console.log(`Attempting to serve static images from: ${imagesPath}`);
-    console.log(`Attempting to serve static documents from: ${documentsPath}`);
+    console.log(`Attempting to serve static images from: ${path.join(__dirname, 'src', 'images')}`); // FIXED
+    console.log(`Attempting to serve static documents from: ${path.join(__dirname, 'src', 'documents')}`); // FIXED
 
     // Check if directories exist before serving
     if (!fs.existsSync(imagesPath)) {
