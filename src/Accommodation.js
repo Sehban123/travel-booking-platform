@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './css/Accommodation.css';
 
-const API_URL = "https://travel-booking-backend.onrender.com/api"; // Define API URL (base URL of your server)
+const API_URL = "https://travel-booking-backend.onrender.com"; // Define API URL (base URL of your server)
 
 const Accommodation = () => {
   const [searchQuery, setSearchQuery] = useState('');
