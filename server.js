@@ -2969,18 +2969,19 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
 });
 
 
+// ... (Your startExpressServer function as you provided it, it's good now) ...
 function startExpressServer() {
     console.log(`Current working directory (on Render): ${__dirname}`);
 
-    // Directories based on your structure
-    const imagesPath = path.join(__dirname, 'images');
-    const documentsPath = path.join(__dirname, 'documents');
-    const buildPath = path.join(__dirname, 'build'); // FIXED ✅
+    const imagesPath = path.join(__dirname, 'src', 'images'); // Path to images folder
+    const documentsPath = path.join(__dirname, 'src', 'documents'); // Path to documents folder
+    const buildPath = path.join(__dirname, 'build'); // Path to React build folder
 
     console.log(`Attempting to serve static images from: ${imagesPath}`);
     console.log(`Attempting to serve static documents from: ${documentsPath}`);
     console.log(`Attempting to serve React build from: ${buildPath}`);
 
+    // Conditional warnings/errors for local debugging if folders are missing
     if (!fs.existsSync(imagesPath)) {
         console.warn(`⚠️ WARNING: Images directory does not exist at: ${imagesPath}`);
     }
@@ -2988,25 +2989,28 @@ function startExpressServer() {
         console.warn(`⚠️ WARNING: Documents directory does not exist at: ${documentsPath}`);
     }
     if (!fs.existsSync(buildPath)) {
-        console.error(`❌ ERROR: React build directory does not exist at: ${buildPath}. Did you run 'npm run build'?`);
+        console.error(`❌ ERROR: React build directory does not exist at: ${buildPath}. Did you run 'npm run build' in the root?`);
     }
 
+    // Serve static directories first
     app.use('/images', express.static(imagesPath));
     app.use('/documents', express.static(documentsPath));
+
+    // Serve the React build directory (this handles all static assets like JS, CSS, images within build)
     app.use(express.static(buildPath));
 
-    const indexPath = path.join(buildPath, 'index.html');
-    if (fs.existsSync(indexPath)) {
-        app.get('*', (req, res) => {
-            console.log(`➡️ Serving index.html for: ${req.url}`);
+    // Fallback to React frontend's index.html for any unhandled routes.
+    // This MUST come AFTER all API routes and other static file serving middleware.
+    app.use((req, res, next) => {
+        const indexPath = path.join(buildPath, 'index.html');
+        // Only serve index.html for GET requests that are not API calls and if the file exists
+        if (req.method === 'GET' && fs.existsSync(indexPath) && !req.url.startsWith('/api')) {
+            console.log(`➡️ Serving index.html for: ${req.url} from ${indexPath}`);
             res.sendFile(indexPath);
-        });
-    } else {
-        console.error(`❌ ERROR: index.html not found at: ${indexPath}`);
-        app.use((req, res) => {
-            res.status(404).send('React frontend not found.');
-        });
-    }
+        } else {
+            next(); // Let other handlers or 404 catch it
+        }
+    });
 
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
@@ -3014,15 +3018,12 @@ function startExpressServer() {
     });
 }
 
-
-
-
-
 // --- Check if this file is being run directly ---
 if (require.main === module) {
     console.log("server.js is being run as the main module. Starting server...");
     startExpressServer();
 } else {
     console.log("server.js is being required as a module. Exporting app instance.");
-    module.exports = app;
-}
+    module.exports = app; // FIXED: Added this line
+} // FIXED: Added this closing brace for the else block
+  module.exports = app;
