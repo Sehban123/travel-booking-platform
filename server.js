@@ -2981,54 +2981,48 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
 
 // --- Function to start the server and serve React build files ---
 function startExpressServer() {
-    console.log(`Current working directory (on Render): ${__dirname}`); // Log __dirname
+    console.log(`Current working directory (on Render): ${__dirname}`);
 
-    // Serve static images and documents
-    // --- FIX START: Define imagesPath and documentsPath BEFORE they are used ---
+    // ✅ Define static paths
     const imagesPath = path.join(__dirname, 'src', 'images');
     const documentsPath = path.join(__dirname, 'src', 'documents');
-    // --- FIX END ---
+    const buildPath = path.join(__dirname, 'build');
 
-    console.log(`Attempting to serve static images from: ${imagesPath}`); // Now uses the defined variable
-    console.log(`Attempting to serve static documents from: ${documentsPath}`); // Now uses the defined variable
+    // ✅ Log and mount static file directories
+    console.log(`Attempting to serve static images from: ${imagesPath}`);
+    console.log(`Attempting to serve static documents from: ${documentsPath}`);
 
-    // Check if directories exist before serving
     if (!fs.existsSync(imagesPath)) {
-        console.warn(`WARNING: Images directory does not exist: ${imagesPath}`);
+        console.warn(`⚠️ WARNING: Images directory does not exist at: ${imagesPath}`);
     }
     if (!fs.existsSync(documentsPath)) {
-        console.warn(`WARNING: Documents directory does not exist: ${documentsPath}`);
+        console.warn(`⚠️ WARNING: Documents directory does not exist at: ${documentsPath}`);
     }
 
-    // --- FIX START: Only keep one set of app.use for static files ---
     app.use('/images', express.static(imagesPath));
     app.use('/documents', express.static(documentsPath));
-    // --- FIX END ---
 
-    // Serve React build files
-    const buildPath = path.join(__dirname, 'build');
+    // ✅ Serve React frontend (build)
     console.log(`Attempting to serve React build from: ${buildPath}`);
-
     if (!fs.existsSync(buildPath)) {
-        console.error(`ERROR: React build directory does not exist: ${buildPath}. Did 'npm run build' complete successfully?`);
-        // If build folder doesn't exist, exit or handle gracefully
-        // For now, we'll let it try, but this is a common point of failure.
+        console.error(`❌ ERROR: React build directory does not exist at: ${buildPath}. Did you run 'npm run build'?`);
     }
 
     app.use(express.static(buildPath));
 
-    // Fallback to React frontend for any unmatched routes
-    // Changed '/*' to '*' for broader compatibility, though both are generally fine.
+    // ✅ Handle all other routes with React frontend
     app.get('*', (req, res) => {
-        console.log(`Serving index.html for request: ${req.url}`);
+        console.log(`➡️  Serving index.html for request: ${req.url}`);
         res.sendFile(path.join(buildPath, 'index.html'));
     });
 
+    // ✅ Start the server
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
         console.log(`✅ Server is running on port ${PORT}`);
     });
 }
+
 
 // --- Check if this file is being run directly ---
 if (require.main === module) {
