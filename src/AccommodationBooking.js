@@ -317,7 +317,7 @@ const AccommodationBooking = () => {
                 total_price: bookingDetails.total_price // Use calculated total price
             };
 
-            const response = await axios.post(`${API_URL}/api/bookings/accommodation`, bookingPayload);
+            const response = await axios.post(`${API_URL}/api/accommodation-bookings`, bookingPayload);
             setSuccessMessage('Booking confirmed! Thank you.');
             // Optionally clear form or navigate
             setBookingDetails({
