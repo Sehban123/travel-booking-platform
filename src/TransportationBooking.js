@@ -5,7 +5,7 @@ import axios from 'axios';
 import './css/TransportationBooking.css'; // Make sure this CSS file exists
 
 // Define API URL (base URL of your server) - Make sure this matches your server's address
-const API_URL = 'https://travel-booking-backend.onrender.com'; // Changed to base URL
+const API_URL = 'https://travel-booking-backend.onrender.com/api'; // Changed to base URL
 
 // Configure axios globally in App.js. Removed axios.defaults.withCredentials = true here.
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 import './css/AccommodationList.css';
 
 // Define API URL (base URL of your server)
-const API_URL = "https://travel-booking-backend.onrender.com";
+const API_URL = "https://travel-booking-backend.onrender.com/api";
  // Assuming this is the API URL for provider actions // Assuming this is the API URL for provider actions
 
 // This component is intended for the Service Provider's dashboard
