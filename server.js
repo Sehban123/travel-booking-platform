@@ -2999,11 +2999,9 @@ function startExpressServer() {
     app.use((req, res, next) => {
         const indexPath = path.join(buildPath, 'index.html');
         if (req.method === 'GET' && fs.existsSync(indexPath) && !req.url.startsWith('/api')) {
-            console.log(`➡️ Serving index.html for: ${req.url} from ${indexPath}`);
-            res.sendFile(indexPath);
-        } else {
-            next(); // Forward to other handlers
+            return res.sendFile(indexPath);
         }
+        next(); // in case it should 404
     });
 
     const PORT = process.env.PORT || 5000;
