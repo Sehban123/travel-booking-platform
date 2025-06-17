@@ -2969,6 +2969,16 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
 });
 
 function startExpressServer() {
+    // 🔹 Route to GET all Accommodations - UPDATED (Populate rooms)
+    app.get("/api/accommodations", async (req, res) => {
+        try {
+            const accommodations = await Accommodation.find().populate('rooms');
+            res.status(200).json(accommodations);
+        } catch (error) {
+            console.error("Error fetching accommodations:", error);
+            res.status(500).json({ error: "Internal Server Error" });
+        }
+    });
     // With "Start Command" changed on Render, __dirname is the project root
     console.log(`Current working directory (on Render): ${__dirname}`);
 
@@ -2996,13 +3006,16 @@ function startExpressServer() {
     app.use(express.static(buildPath));
 
     // Fallback to React index.html
-    app.use((req, res, next) => {
-        const indexPath = path.join(buildPath, 'index.html');
-        if (req.method === 'GET' && fs.existsSync(indexPath) && !req.url.startsWith('/api')) {
-            return res.sendFile(indexPath);
+    app.get('*', (req, res, next) => {
+        if (req.method === 'GET' && !req.url.startsWith('/api')) {
+            const indexPath = path.join(buildPath, 'index.html');
+            if (fs.existsSync(indexPath)) {
+                return res.sendFile(indexPath);
+            }
         }
-        next(); // in case it should 404
+        next(); // let 404 or error handlers handle the rest
     });
+
 
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
