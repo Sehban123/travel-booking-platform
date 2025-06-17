@@ -22,6 +22,8 @@ app.use('/documents', express.static(path.join(__dirname, 'src', 'documents')));
 
 console.log(`Serving static images from: ${path.join(__dirname, 'src/images')}`); // <-- NOTE: console.log itself still has 'src/images'
 console.log(`Serving static documents from: ${path.join(__dirname, 'src/documents')}`); // <-- NOTE: console.log itself still has 'src/documents'
+// Serve React build files
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 
@@ -2962,12 +2964,11 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
         res.status(500).json({ error: 'Failed to update booking status.', details: error.message });
     }
 });
-// Serve React build files
-app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
 
 
 // Start server
