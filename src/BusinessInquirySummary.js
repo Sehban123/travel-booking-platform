@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/BusinessInquirySummary.css'; // Make sure this CSS file exists
-const API_URL = 'https://travel-booking-backend.onrender.com';
+const API_URL = 'https://travel-booking-platform.onrender.com';
 const BusinessInquirySummary = ({ inquiryData, onBackToForm }) => {
     const [accommodations, setAccommodations] = useState([]);
     const [transportations, setTransportations] = useState([]);

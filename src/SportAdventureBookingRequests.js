@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'; // Import useEffect
 import axios from 'axios';
 
-const API_URL = 'https://travel-booking-backend.onrender.com'; // Define API URL
+const API_URL = 'https://travel-booking-platform.onrender.com'; // Define API URL
 
 // FIX: Added providerId to the props
 const SportAdventureBookingRequests = ({ providerId, bookingRequests, onAction, onError, loading, setLoading, setMessage }) => {

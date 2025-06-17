@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/AdminDetails.css'; // Common details styles
 
-const API_URL = 'https://travel-booking-backend.onrender.com';
+const API_URL = 'https://travel-booking-platform.onrender.com';
 const AdminSportAdventureDetails = ({ adventureId, onBackToList }) => {
   const [adventure, setAdventure] = useState(null);
   const [bookings, setBookings] = useState([]); // State for bookings
@@ -21,7 +21,7 @@ const AdminSportAdventureDetails = ({ adventureId, onBackToList }) => {
         setAdventure(advResponse.data);
 
         // Fetch bookings for this adventure
-        const bookingsResponse = await axios.get(`https://travel-booking-backend.onrender.com/api/sports-adventures/${adventureId}/bookings`);
+        const bookingsResponse = await axios.get(`${API_URL}/api/sports-adventures/${adventureId}/bookings`);
         setBookings(bookingsResponse.data);
 
       } catch (error) {

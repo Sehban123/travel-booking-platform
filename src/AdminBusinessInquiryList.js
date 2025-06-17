@@ -4,7 +4,7 @@ import axios from 'axios';
 import './css/AdminList.css'; // Common list styles
 import './css/AdminDetails.css'; // Common details styles (for inquiry item display)
 
-const API_URL = 'https://travel-booking-backend.onrender.com';
+const API_URL = 'https://travel-booking-platform.onrender.com';
 const AdminBusinessInquiryList = () => {
   const [inquiries, setInquiries] = useState([]);
   const [loading, setLoading] = useState(true);

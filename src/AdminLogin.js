@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './css/AdminLogin.css';
 
-const API_URL = "https://travel-booking-backend.onrender.com";
+const API_URL = "https://travel-booking-platform.onrender.com";
 const AdminLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

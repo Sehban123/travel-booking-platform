@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/AdminDetails.css'; // Common details styles
-const API_URL = 'https://travel-booking-backend.onrender.com';
+const API_URL = 'https://travel-booking-platform.onrender.com';
 const AdminTransportationDetails = ({ transportationId, onBackToList }) => {
     // transportationId here is the _id of the specific FLAT Transportation document
     const [transportItem, setTransportItem] = useState(null);
@@ -25,7 +25,7 @@ const AdminTransportationDetails = ({ transportationId, onBackToList }) => {
 
                 // --- Fetch bookings for this SPECIFIC TRANSPORT ITEM ---
                 console.log("AdminTransportationDetails: Attempting to fetch bookings for item ID:", transportationId);
-                const bookingsResponse = await axios.get(`https://travel-booking-backend.onrender.com/api/transportation/${transportationId}/bookings`);
+                const bookingsResponse = await axios.get(`${API_URL}/api/transportation/${transportationId}/bookings`);
 
                 // --- FIX: Check if bookingsResponse.data is an array before setting state ---
                 if (Array.isArray(bookingsResponse.data)) {

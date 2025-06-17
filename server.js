@@ -5013,7 +5013,7 @@ The [Your Website Name] Team
 }
 
 function registerAdminRoutes(app) {
-    app.get('/admin/summary-counts', async (req, res) => {
+    app.get('/api/admin/summary-counts', async (req, res) => {
         console.log("Backend received GET request for admin summary counts");
         try {
             const providerCounts = await ServiceProvider.aggregate([

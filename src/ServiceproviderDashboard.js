@@ -18,7 +18,7 @@ import SportAdventureBookingRequests from './SportAdventureBookingRequests';
 
 import './css/ProviderDashboard.css'; // Import the CSS for styling
 
-const API_URL = 'https://travel-booking-backend.onrender.com'; // Base URL for your backend API
+const API_URL = 'https://travel-booking-platform.onrender.com'; // Base URL for your backend API
 
 const ServiceProviderDashboard = () => {
     // Get providerId from the URL parameters

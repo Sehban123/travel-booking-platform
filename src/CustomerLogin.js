@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // For example, in public/index.html: <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 import './css/CustomerLogin.css'; // Reusing the AuthForm.css for consistent styling
 
-const API_URL = 'https://travel-booking-backend.onrender.com'; // Base URL for your backend API
+const API_URL = 'https://travel-booking-platform.onrender.com'; // Base URL for your backend API
 
 // Configure axios to send cookies with every request
 axios.defaults.withCredentials = true;

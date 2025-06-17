@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './css/SportsAdventure.css';
 
-const API_URL = 'https://travel-booking-backend.onrender.com';
+const API_URL = 'https://travel-booking-platform.onrender.com';
 
 const SportsAdventure = () => {
   const [searchQuery, setSearchQuery] = useState('');

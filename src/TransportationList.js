@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const API_URL = 'https://travel-booking-backend.onrender.com'; // Define API URL
+const API_URL = 'https://travel-booking-platform.onrender.com${API_URL}'; // Define API URL
 
 const TransportationList = ({ providerId, transportations, onEdit, onDeleteSuccess, onError, loading, setLoading, setMessage }) => {
 

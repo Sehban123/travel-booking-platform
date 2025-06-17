@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './css/BusinessInquiryForm.css'; // Make sure this CSS file exists
 import BusinessInquirySummary from './BusinessInquirySummary'; // Import the new summary component
+const API_URL = 'https://travel-booking-platform.onrender.com';
 
 const eventTypes = [
     'Marketing Event', 'Company Meeting', 'Recreation/Team Outing',
@@ -85,7 +86,7 @@ const BusinessInquiryForm = () => {
             // send the existing formData as is. The backend will ignore
             // the 'location' field unless you add it to the schema.
             // The filtering based on location will happen on the frontend summary page.
-            const response = await axios.post('https://travel-booking-backend.onrender.com/api/business-inquiries', formData);
+            const response = await axios.post(`${API_URL}/api/business-inquiries`, formData);
 
             if (response.data && response.data.message) {
                 setSubmitStatus('success');

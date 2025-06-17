@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom'; // Import useParams and useNavigate
 
 import './css/AdminProviderServices.css';
-const API_URL = "https://travel-booking-backend.onrender.com"; // Base URL for your backend API
+const API_URL = "https://travel-booking-platform.onrender.com"; // Base URL for your backend API
 const AdminProviderServices = () => {
     // Get the providerId from the URL parameters
     const { providerId } = useParams();

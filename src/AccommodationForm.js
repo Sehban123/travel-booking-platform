@@ -3,7 +3,7 @@ import axios from 'axios';
 import './css/AccommodationForm.css'
 
 // Define API URL (base URL of your server)
-const API_URL = "https://travel-booking-backend.onrender.com";
+const API_URL = "https://travel-booking-platform.onrender.com";
 
 // Define allowed room types (should match backend)
 const allowedRoomTypes = {
