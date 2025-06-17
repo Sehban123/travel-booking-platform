@@ -2969,19 +2969,15 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
 });
 
 function startExpressServer() {
-    console.log(`Current working directory (on Render): ${__dirname}`); // This will correctly show /opt/render/project/src
+    console.log(`Current working directory (on Render): ${__dirname}`);
 
-    // CORRECTED PATHS:
-    // If __dirname is /opt/render/project/src
-    // then images are in /opt/render/project/src/images
-    // and build is in /opt/render/project/build (one level up from src)
-    const imagesPath = path.join(__dirname, 'images'); // FIXED
-    const documentsPath = path.join(__dirname, 'documents'); // FIXED
-    const buildPath = path.join(__dirname, '..', 'build'); // FIXED: Go up one level (from src to project root) then into build
+    const imagesPath = path.join(__dirname, 'images');
+    const documentsPath = path.join(__dirname, 'documents');
+    const buildPath = path.join(__dirname, '..', 'build');
 
     console.log(`Attempting to serve static images from: ${imagesPath}`);
     console.log(`Attempting to serve static documents from: ${documentsPath}`);
-    console.log(`Attempting to serve React build from: ${buildPath}`); // New log for build path
+    console.log(`Attempting to serve React build from: ${buildPath}`);
 
     if (!fs.existsSync(imagesPath)) {
         console.warn(`⚠️ WARNING: Images directory does not exist at: ${imagesPath}`);
@@ -2997,17 +2993,26 @@ function startExpressServer() {
     app.use('/documents', express.static(documentsPath));
     app.use(express.static(buildPath));
 
-    // Handle all other routes with React frontend
-    app.get('*', (req, res) => {
-        console.log(`➡️  Serving index.html for request: ${req.url}`);
-        res.sendFile(path.join(buildPath, 'index.html'));
-    });
+    const indexPath = path.join(buildPath, 'index.html');
+
+    if (fs.existsSync(indexPath)) {
+        app.get('*', (req, res) => {
+            console.log(`➡️  Serving index.html for request: ${req.url}`);
+            res.sendFile(indexPath);
+        });
+    } else {
+        console.warn(`⚠️ index.html not found at: ${indexPath}`);
+        app.use((req, res) => {
+            res.status(404).send('React frontend not found. Did you build the frontend?');
+        });
+    }
 
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
         console.log(`✅ Server is running on port ${PORT}`);
     });
 }
+
 
 
 // --- Check if this file is being run directly ---
