@@ -100,14 +100,6 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-// Optional: Verify transporter
-transporter.verify((error, success) => {
-    if (error) {
-        console.error("❌ Nodemailer connection error:", error);
-    } else {
-        console.log("✅ Nodemailer is ready to send emails");
-    }
-});
 
 
 // Optional: Verify transporter
@@ -596,7 +588,7 @@ app.get("/api/sports-adventures", async (req, res) => {
 // ======================= ADMIN ROUTES =======================
 // --- NEW ADMIN SUMMARY ENDPOINTS (COUNTS) ---
 // Get counts for all data categories
-app.get('/api/admin/summary-counts', async (req, res) => {
+app.get('/admin/summary-counts', async (req, res) => {
     console.log("Backend received GET request for admin summary counts");
     try {
         const providerCounts = await ServiceProvider.aggregate([
@@ -2982,19 +2974,26 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
 });
 
 
-// ... (Your startExpressServer function as you provided it, it's good now) ...
+// =====================================================================
+// === START SERVER FUNCTION (MUST BE AT THE END AFTER ALL ROUTES) ===
+// =====================================================================
 function startExpressServer() {
+    // This assumes "Start Command" on Render is "node server.js" (project root)
     console.log(`Current working directory (on Render): ${__dirname}`);
 
-    const imagesPath = path.join(__dirname, 'src', 'images'); // Path to images folder
-    const documentsPath = path.join(__dirname, 'src', 'documents'); // Path to documents folder
+    // Paths to static assets and React build folder
+    // Since __dirname is now the project root (due to Render Start Command change)
+    // src/images and src/documents are relative to the root.
+    // build is also relative to the root.
+    const imagesPath = path.join(__dirname, 'src', 'images'); // Path to src/images folder
+    const documentsPath = path.join(__dirname, 'src', 'documents'); // Path to src/documents folder
     const buildPath = path.join(__dirname, 'build'); // Path to React build folder
 
     console.log(`Attempting to serve static images from: ${imagesPath}`);
     console.log(`Attempting to serve static documents from: ${documentsPath}`);
     console.log(`Attempting to serve React build from: ${buildPath}`);
 
-    // Conditional warnings/errors for local debugging if folders are missing
+    // Check if directories exist (for debugging/warnings)
     if (!fs.existsSync(imagesPath)) {
         console.warn(`⚠️ WARNING: Images directory does not exist at: ${imagesPath}`);
     }
@@ -3009,10 +3008,10 @@ function startExpressServer() {
     app.use('/images', express.static(imagesPath));
     app.use('/documents', express.static(documentsPath));
 
-    // Serve the React build directory (this handles all static assets like JS, CSS, images within build)
+    // Serve the React build directory (this handles /static/js, /static/css, etc.)
     app.use(express.static(buildPath));
 
-    // Fallback to React frontend's index.html for any unhandled routes.
+    // Fallback to React frontend's index.html for any unhandled GET routes.
     // This MUST come AFTER all API routes and other static file serving middleware.
     app.use((req, res, next) => {
         const indexPath = path.join(buildPath, 'index.html');
