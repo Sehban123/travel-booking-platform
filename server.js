@@ -2984,11 +2984,13 @@ function startExpressServer() {
     console.log(`Current working directory (on Render): ${__dirname}`); // Log __dirname
 
     // Serve static images and documents
-    app.use('/images', express.static(imagesPath)); // `imagesPath` is defined as path.join(__dirname, 'src', 'images')
-    app.use('/documents', express.static(documentsPath)); // `documentsPath` is defined as path.join(__dirname, 'src', 'documents')
+    // --- FIX START: Define imagesPath and documentsPath BEFORE they are used ---
+    const imagesPath = path.join(__dirname, 'src', 'images');
+    const documentsPath = path.join(__dirname, 'src', 'documents');
+    // --- FIX END ---
 
-    console.log(`Attempting to serve static images from: ${path.join(__dirname, 'src', 'images')}`); // FIXED
-    console.log(`Attempting to serve static documents from: ${path.join(__dirname, 'src', 'documents')}`); // FIXED
+    console.log(`Attempting to serve static images from: ${imagesPath}`); // Now uses the defined variable
+    console.log(`Attempting to serve static documents from: ${documentsPath}`); // Now uses the defined variable
 
     // Check if directories exist before serving
     if (!fs.existsSync(imagesPath)) {
@@ -2998,8 +3000,10 @@ function startExpressServer() {
         console.warn(`WARNING: Documents directory does not exist: ${documentsPath}`);
     }
 
+    // --- FIX START: Only keep one set of app.use for static files ---
     app.use('/images', express.static(imagesPath));
     app.use('/documents', express.static(documentsPath));
+    // --- FIX END ---
 
     // Serve React build files
     const buildPath = path.join(__dirname, 'build');
