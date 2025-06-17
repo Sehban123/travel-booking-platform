@@ -5553,19 +5553,18 @@ function startExpressServer() {
     // 🔽 Serve Static Folders
     app.use('/images', express.static(imagesPath));
     app.use('/documents', express.static(documentsPath));
-    app.use(express.static(buildPath)); // For static React assets like JS/CSS
+     app.use(express.static(buildPath));
 
-    // 🔽 React Fallback for client-side routing (non-API GET requests)
+    // React fallback handler
     app.use((req, res, next) => {
         const indexPath = path.join(buildPath, 'index.html');
         if (req.method === 'GET' && fs.existsSync(indexPath) && !req.url.startsWith('/api')) {
             console.log(`➡️ Serving index.html for: ${req.url} from ${indexPath}`);
             return res.sendFile(indexPath);
         }
-        next(); // Let error handlers handle it (e.g., 404 for API)
+        next(); // For unmatched API routes or other errors
     });
 
-    // Start Express server
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
         console.log(`✅ Server is running on port ${PORT}`);

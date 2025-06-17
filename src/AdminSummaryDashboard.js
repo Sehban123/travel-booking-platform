@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/AdminSummaryDashboard.css'; // Create this CSS file
 
-const API_URL = "https://travel-booking-backend.onrender.com/api";
+const API_URL = "https://travel-booking-backend.onrender.com";
 
 const AdminSummaryDashboard = () => {
     const [summaryData, setSummaryData] = useState(null);
@@ -16,7 +16,7 @@ const AdminSummaryDashboard = () => {
                 setLoading(true);
                 setError(null);
                 // Fetch summary counts from the new backend endpoint
-                const response = await axios.get(`${API_URL}/admin/summary-counts`);
+                const response = await axios.get(`${API_URL}/api/admin/summary-counts`);
                 setSummaryData(response.data);
                 console.log("Fetched admin summary data:", response.data);
             } catch (err) {

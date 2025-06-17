@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/BusinessInquirySummary.css'; // Make sure this CSS file exists
-
+const API_URL = 'https://travel-booking-backend.onrender.com';
 const BusinessInquirySummary = ({ inquiryData, onBackToForm }) => {
     const [accommodations, setAccommodations] = useState([]);
     const [transportations, setTransportations] = useState([]);
@@ -15,12 +15,12 @@ const BusinessInquirySummary = ({ inquiryData, onBackToForm }) => {
             setError('');
             try {
                 // Fetch all accommodations
-                const accResponse = await axios.get('https://travel-booking-backend.onrender.com/api/accommodations');
+                const accResponse = await axios.get(`${API_URL}/api/accommodations`);
                 const allAccommodations = accResponse.data;
                 console.log("Fetched all accommodations:", allAccommodations);
 
                 // Fetch all transportation options (assuming a flat list endpoint)
-                const transResponse = await axios.get('https://travel-booking-backend.onrender.com/api/transportations');
+                const transResponse = await axios.get(`${API_URL}/api/transportations`);
                 const allTransportations = transResponse.data;
                  console.log("Fetched all transportations:", allTransportations);
 

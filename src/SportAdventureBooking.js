@@ -5,7 +5,7 @@ import axios from 'axios';
 import './css/SportAdventureBooking.css'; // Make sure this CSS file exists
 
 // Configure axios globally in App.js. Removed axios.defaults.withCredentials = true here.
-const API_URL = 'https://travel-booking-backend.onrender.com/api'; // Ensure this matches your server's address
+const API_URL = 'https://travel-booking-backend.onrender.com'; // Ensure this matches your server's address
 
 const SportAdventureBooking = () => {
     // activityId from useParams is the MongoDB _id of the SportAdventure document

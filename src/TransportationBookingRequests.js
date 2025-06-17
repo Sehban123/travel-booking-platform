@@ -4,7 +4,7 @@ import axios from 'axios'; // Assuming axios is used for API calls
 import './css/TransportationBookingRequests.css';
 
 // Define API URL (base URL of your server)
-const API_URL = 'https://travel-booking-backend.onrender.com/api'; // Ensure this matches your backend API URL
+const API_URL = 'https://travel-booking-backend.onrender.com'; // Ensure this matches your backend API URL
 
 // This component is intended for the Service Provider's dashboard
 // to list and manage their Transportation booking requests.

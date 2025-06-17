@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const API_URL = 'https://travel-booking-backend.onrender.com/api'; // Define API URL
+const API_URL = 'https://travel-booking-backend.onrender.com'; // Define API URL
 
 const TransportationList = ({ providerId, transportations, onEdit, onDeleteSuccess, onError, loading, setLoading, setMessage }) => {
 
@@ -16,7 +16,7 @@ const TransportationList = ({ providerId, transportations, onEdit, onDeleteSucce
                 // EXPECTED BACKEND ENDPOINT: DELETE /api/transportation/:id (Requires providerId in body for auth)
                  // Or DELETE /api/provider/:providerId/transportations/:id
                  // Using the general endpoint but sending providerId in body for authorization check on backend
-                await axios.delete(`${API_URL}/transportation/${transportationId}`, { data: { providerId: providerId } });
+                await axios.delete(`${API_URL}/api/transportation/${transportationId}`, { data: { providerId: providerId } });
                 console.log('Transportation deleted successfully:', transportationId);
                 setMessage('Transportation deleted successfully!'); // Set success message
                 onDeleteSuccess(); // Notify parent to refresh the list

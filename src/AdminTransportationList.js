@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/AdminList.css'; // Common list styles
-
+const API_URL = 'https://travel-booking-backend.onrender.com';
 const AdminTransportationList = ({ onShowDetails }) => {
     // State to hold the flat list of individual transport items from the backend
     const [transportations, setTransportations] = useState([]);
@@ -23,7 +23,7 @@ const AdminTransportationList = ({ onShowDetails }) => {
             setError(''); // Clear previous errors
             try {
                 // Fetch the flat list of transportation items
-                const response = await axios.get('https://travel-booking-backend.onrender.com/api/transportations');
+                const response = await axios.get(`${API_URL}/api/transportations`);
 
                 // response.data is already the flat array of items - use it directly
                 const flatItems = response.data;

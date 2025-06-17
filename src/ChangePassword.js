@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API_URL = "https://travel-booking-backend.onrender.com/api";
+const API_URL = "https://travel-booking-backend.onrender.com";
 
 const ChangePassword = ({ providerId, onSuccess, onError, loading, setLoading, setMessage }) => {
     // State for password form data
@@ -57,7 +57,7 @@ const ChangePassword = ({ providerId, onSuccess, onError, loading, setLoading, s
         try {
             // Call the backend endpoint to send OTP
             // EXPECTED BACKEND ENDPOINT: POST /api/providers/:providerId/send-otp-password-change
-            const response = await axios.post(`${API_URL}/providers/${providerId}/send-otp-password-change`, {
+            const response = await axios.post(`${API_URL}/api/providers/${providerId}/send-otp-password-change`, {
                 currentPassword: formData.currentPassword,
                 newPassword: formData.newPassword // Send new password for backend validation
             });

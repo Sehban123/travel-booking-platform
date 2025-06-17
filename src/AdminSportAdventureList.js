@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/AdminList.css'; // Common list styles
-
+const API_URL = 'https://travel-booking-backend.onrender.com';
 const AdminSportAdventureList = ({ onShowDetails }) => {
   const [adventures, setAdventures] = useState([]);
   const [filteredAdventures, setFilteredAdventures] = useState([]);
@@ -16,7 +16,7 @@ const AdminSportAdventureList = ({ onShowDetails }) => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get('https://travel-booking-backend.onrender.com/api/sports-adventures');
+        const response = await axios.get(`${API_URL}/api/sports-adventures`);
         setAdventures(response.data);
         setFilteredAdventures(response.data); // Initially show all
       } catch (error) {

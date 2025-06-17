@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './css/AdminLogin.css';
 
-const API_URL = "https://travel-booking-backend.onrender.com/api";
+const API_URL = "https://travel-booking-backend.onrender.com";
 const AdminLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -19,7 +19,7 @@ const AdminLogin = () => {
         setError(null);
 
         try {
-            const response = await axios.post(`${API_URL}/admin/login`, {
+            const response = await axios.post(`${API_URL}/api/admin/login`, {
                 email,
                 password,
             });

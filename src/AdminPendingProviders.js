@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/AdminPendingProviders.css';
 
-const API_URL = "https://travel-booking-backend.onrender.com/api";
+const API_URL = "https://travel-booking-backend.onrender.com";
 const AdminPendingProviders = () => {
     const [pendingProviders, setPendingProviders] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ const AdminPendingProviders = () => {
             setLoading(true);
             setError(null); // Clear previous errors
             setMessage(''); // Clear previous messages
-            const response = await axios.get(`${API_URL}/admin/pending-providers`);
+            const response = await axios.get(`${API_URL}/api/admin/pending-providers`);
             setPendingProviders(response.data);
             console.log("Fetched pending providers:", response.data);
         } catch (err) {
@@ -38,7 +38,7 @@ const AdminPendingProviders = () => {
         setLoading(true); // Disable buttons
         try {
             console.log(`Approving provider with ID: ${providerId}`);
-            const response = await axios.post(`${API_URL}/admin/providers/${providerId}/approve`);
+            const response = await axios.post(`${API_URL}/api/admin/providers/${providerId}/approve`);
             setMessage(response.data.message || 'Provider approved successfully!');
             // Refresh the list after approval
             fetchPendingProviders();
@@ -56,7 +56,7 @@ const AdminPendingProviders = () => {
         setMessage(''); // Clear previous messages
         setLoading(true); // Disable buttons
         try {
-            const response = await axios.post(`${API_URL}/admin/providers/${providerId}/reject`);
+            const response = await axios.post(`${API_URL}/api/admin/providers/${providerId}/reject`);
             setMessage(response.data.message || 'Provider rejected successfully!');
             // Refresh the list after rejection
             fetchPendingProviders();

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom'; // Import useParams and useNavigate
 
 import './css/AdminProviderServices.css';
-const API_URL = "https://travel-booking-backend.onrender.com/api"; // Base URL for your backend API
+const API_URL = "https://travel-booking-backend.onrender.com"; // Base URL for your backend API
 const AdminProviderServices = () => {
     // Get the providerId from the URL parameters
     const { providerId } = useParams();
@@ -30,7 +30,7 @@ const AdminProviderServices = () => {
                 setError(null); // Clear previous errors
 
                 // 1. Fetch provider details
-                const providerResponse = await axios.get(`${API_URL}/providers/${providerId}`);
+                const providerResponse = await axios.get(`${API_URL}/api/providers/${providerId}`);
                 setProvider(providerResponse.data);
                 console.log("AdminProviderServices: Fetched provider details:", providerResponse.data); // Log fetched provider data
 
@@ -47,7 +47,7 @@ const AdminProviderServices = () => {
                 // Fetch Accommodations for this provider
                 // The backend GET /api/provider/:providerId/accommodations still checks provider.serviceType === 'Accommodation'
                 // This needs to be removed or bypassed for the Admin role in the backend.
-                const accResponse = await axios.get(`${API_URL}/provider/${providerId}/accommodations`).catch(err => {
+                const accResponse = await axios.get(`${API_URL}/api/provider/${providerId}/accommodations`).catch(err => {
                     console.warn(`AdminProviderServices: Could not fetch accommodations for provider ${providerId}. Backend might be restricting by serviceType.`, err);
                     return { data: [] }; // Return empty array on error to prevent breaking
                 });
@@ -58,7 +58,7 @@ const AdminProviderServices = () => {
                 // Fetch Transportation for this provider
                 // The backend GET /api/provider/:providerId/transportations still checks provider.serviceType === 'Transportation'
                 // This needs to be removed or bypassed for the Admin role in the backend.
-                 const transResponse = await axios.get(`${API_URL}/provider/${providerId}/transportations`).catch(err => {
+                 const transResponse = await axios.get(`${API_URL}/api/provider/${providerId}/transportations`).catch(err => {
                      console.warn(`AdminProviderServices: Could not fetch transportations for provider ${providerId}. Backend might be restricting by serviceType.`, err);
                      return { data: [] }; // Return empty array on error
                  });
@@ -69,7 +69,7 @@ const AdminProviderServices = () => {
                 // Fetch Sport Adventures for this provider
                 // The backend GET /api/provider/:providerId/sports-adventures still checks provider.serviceType === 'Sport Adventure'
                 // This needs to be removed or bypassed for the Admin role in the backend.
-                 const sportResponse = await axios.get(`${API_URL}/provider/${providerId}/sports-adventures`).catch(err => {
+                 const sportResponse = await axios.get(`${API_URL}/api/provider/${providerId}/sports-adventures`).catch(err => {
                      console.warn(`AdminProviderServices: Could not fetch sport adventures for provider ${providerId}. Backend might be restricting by serviceType.`, err);
                      return { data: [] }; // Return empty array on error
                  });

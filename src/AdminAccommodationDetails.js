@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/AdminDetails.css'; // Common details styles
 
-const API_URL = "https://travel-booking-backend.onrender.com/api"; // Ensure this matches your server's base URL
+const API_URL = "https://travel-booking-backend.onrender.com"; // Ensure this matches your server's base URL
 
 const AdminAccommodationDetails = ({ accommodationId, onBackToList }) => {
   const [accommodation, setAccommodation] = useState(null);

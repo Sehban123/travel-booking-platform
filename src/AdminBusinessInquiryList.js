@@ -4,7 +4,7 @@ import axios from 'axios';
 import './css/AdminList.css'; // Common list styles
 import './css/AdminDetails.css'; // Common details styles (for inquiry item display)
 
-
+const API_URL = 'https://travel-booking-backend.onrender.com';
 const AdminBusinessInquiryList = () => {
   const [inquiries, setInquiries] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ const AdminBusinessInquiryList = () => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get('https://travel-booking-backend.onrender.com/api/business-inquiries');
+        const response = await axios.get(`${API_URL}/api/business-inquiries`);
         // Sort inquiries by date, newest first
         const sortedInquiries = response.data.sort((a, b) => new Date(b.inquiryDate) - new Date(a.inquiryDate));
         setInquiries(sortedInquiries);

@@ -18,7 +18,7 @@ import SportAdventureBookingRequests from './SportAdventureBookingRequests';
 
 import './css/ProviderDashboard.css'; // Import the CSS for styling
 
-const API_URL = 'https://travel-booking-backend.onrender.com/api'; // Base URL for your backend API
+const API_URL = 'https://travel-booking-backend.onrender.com'; // Base URL for your backend API
 
 const ServiceProviderDashboard = () => {
     // Get providerId from the URL parameters
@@ -89,7 +89,7 @@ const ServiceProviderDashboard = () => {
                 console.log(`ServiceProviderDashboard: Fetching provider details for ID: ${providerId}`);
                 // Fetch provider details using the ID from the URL
                 // Ensure your backend endpoint is correct: /api/providers/:providerId
-                const response = await axios.get(`${API_URL}/providers/${providerId}`);
+                const response = await axios.get(`${API_URL}/api/providers/${providerId}`);
                 setProvider(response.data); // Set the fetched provider data
                 setMessage('Provider details loaded successfully.');
 
@@ -138,11 +138,11 @@ const ServiceProviderDashboard = () => {
             let updatedServices = [];
             let servicesEndpoint = '';
             if (serviceType === 'Accommodation') {
-                servicesEndpoint = `${API_URL}/provider/${providerId}/accommodations`;
+                servicesEndpoint = `${API_URL}/api/provider/${providerId}/accommodations`;
             } else if (serviceType === 'Transportation') {
-                servicesEndpoint = `${API_URL}/provider/${providerId}/transportations`;
+                servicesEndpoint = `${API_URL}/api/provider/${providerId}/transportations`;
             } else if (serviceType === 'Sport Adventure') {
-                servicesEndpoint = `${API_URL}/provider/${providerId}/sports-adventures`;
+                servicesEndpoint = `${API_URL}/api/provider/${providerId}/sports-adventures`;
             }
 
             if (servicesEndpoint) {
@@ -169,7 +169,7 @@ const ServiceProviderDashboard = () => {
             setError(null);
             setMessage('');
             console.log(`ServiceProviderDashboard: Refetching booking requests for provider: ${providerId}`);
-            const response = await axios.get(`${API_URL}/provider/${providerId}/booking-requests`);
+            const response = await axios.get(`${API_URL}/api/provider/${providerId}/booking-requests`);
             setBookingRequests(response.data);
         } catch (err) {
             console.error("ServiceProviderDashboard: Error refetching booking requests:", err);
@@ -233,7 +233,7 @@ const ServiceProviderDashboard = () => {
         setMessage('Profile updated successfully!');
         // Refetch provider details to show updated info
         try {
-            const providerResponse = await axios.get(`${API_URL}/providers/${providerId}`);
+            const providerResponse = await axios.get(`${API_URL}/api/providers/${providerId}`);
             setProvider(providerResponse.data);
         } catch (err) {
             console.error("Error refetching provider details after update:", err);
@@ -257,7 +257,7 @@ const ServiceProviderDashboard = () => {
         setLoading(true); // Start loading
 
         try {
-            const response = await axios.put(`${API_URL}/bookings/${bookingId}/status`, {
+            const response = await axios.put(`${API_URL}/api/bookings/${bookingId}/status`, {
                 status: action,
                 providerId: providerId // Include the providerId in the request body
             });

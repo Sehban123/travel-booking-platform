@@ -3,7 +3,7 @@ import './css/ServiceProviderLogin.css'; // Assuming you have this CSS file for 
 import { useNavigate } from 'react-router-dom'; // ONLY useNavigate is needed here
 import axios from 'axios'; // Import axios for API calls
 
-const API_URL = 'https://travel-booking-backend.onrender.com/api'; // Define API URL
+const API_URL = 'https://travel-booking-backend.onrender.com'; // Define API URL
 
 // --- Static Options for Checkboxes/Dropdowns (kept for reference, not used in signup steps) ---
 const ROOM_TYPES = ['Single', 'Double', 'Suite', 'Dormitory', 'Family Room', 'Deluxe', 'Standard'];
@@ -100,7 +100,7 @@ const ServiceProviderLoginPage = () => {
 
         try {
             console.log('Attempting Service Provider Login:', loginData);
-            const response = await axios.post(`${API_URL}/provider/login`, loginData);
+            const response = await axios.post(`${API_URL}/api/provider/login`, loginData);
             console.log('Full Login response data:', response.data);
 
             const providerId = response.data.providerId;

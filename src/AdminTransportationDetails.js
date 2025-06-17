@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/AdminDetails.css'; // Common details styles
-
+const API_URL = 'https://travel-booking-backend.onrender.com';
 const AdminTransportationDetails = ({ transportationId, onBackToList }) => {
     // transportationId here is the _id of the specific FLAT Transportation document
     const [transportItem, setTransportItem] = useState(null);
@@ -18,7 +18,7 @@ const AdminTransportationDetails = ({ transportationId, onBackToList }) => {
             try {
                 // --- Fetch the specific flat transportation item by its _id ---
                 console.log("AdminTransportationDetails: Attempting to fetch item with ID:", transportationId);
-                const itemResponse = await axios.get(`https://travel-booking-backend.onrender.com/api/transportation/${transportationId}`);
+                const itemResponse = await axios.get(`${API_URL}/api/transportation/${transportationId}`);
                 setTransportItem(itemResponse.data);
                 console.log("AdminTransportationDetails: Fetched item data:", itemResponse.data);
 

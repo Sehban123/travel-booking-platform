@@ -4,7 +4,7 @@ import axios from 'axios'; // Assuming axios is used for API calls
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './css/AdminProviderList.css'; // Import the CSS file
 
-const API_URL = "https://travel-booking-backend.onrender.com/api"; // Base URL for your backend API
+const API_URL = "https://travel-booking-backend.onrender.com"; // Base URL for your backend API
 
 const AdminProviderList = () => {
     const navigate = useNavigate(); // Initialize useNavigate hook
@@ -24,7 +24,7 @@ const AdminProviderList = () => {
                 // IMPORTANT: Ensure your backend endpoint '/admin/service-providers'
                 // populates the 'services' field (e.g., .populate('services'))
                 // and the 'phoneNumber' field is correctly named.
-                const response = await axios.get(`${API_URL}/admin/service-providers`);
+                const response = await axios.get(`${API_URL}/api/admin/service-providers`);
                 setAllProviders(response.data);
                 setFilteredProviders(response.data); // Initially, filtered list is the full list
                 console.log("Fetched providers with services:", response.data); // Log fetched data

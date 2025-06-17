@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/AdminList.css'; // Common list styles
+const API_URL = "https://travel-booking-backend.onrender.com"; // Ensure this matches your server's address
 
 const AdminAccommodationList = ({ onShowDetails }) => {
   const [accommodations, setAccommodations] = useState([]);
@@ -16,7 +17,7 @@ const AdminAccommodationList = ({ onShowDetails }) => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get('https://travel-booking-backend.onrender.com/api/accommodations');
+        const response = await axios.get(`${API_URL}/api/accommodations`);
         setAccommodations(response.data);
         setFilteredAccommodations(response.data); // Initially show all
       } catch (error) {
