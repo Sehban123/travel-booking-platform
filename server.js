@@ -10,10 +10,23 @@ require('dotenv').config(); // Load .env
 const app = express();
 app.use(express.json());
 
+const allowedOrigins = [
+  'http://localhost:3000',                          // for local dev
+  'https://travel-booking-platform.onrender.com'   // production frontend
+];
+
 app.use(cors({
-    origin: 'http://localhost:3000',  // ✅ Exact origin of your React frontend
-    credentials: true                 // ✅ Allow credentials (cookies, authorization headers)
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like curl or postman)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed for this origin: ' + origin));
+    }
+  },
+  credentials: true
 }));
+
 
 // --- Serve static files from the 'src/images' directory ---
 // We will also fix these paths below to remove the triple 'src'
