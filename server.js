@@ -26,48 +26,40 @@ app.use(cors({
 // app.use(express.static(path.join(__dirname, 'build')));
 
 
-
 // --- Multer Setup for Image Uploads ---
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         let uploadPath;
-        // Determine destination based on fieldname or general upload type
-        // 'image' field for main accommodation image
-        // 'roomImages' for individual room images (frontend sends as roomImages[0], roomImages[1], etc.)
-        // 'servicePhotos' for provider's main service photo (if not already handled)
+        // CORRECTED PATHS: If server.js runs from /opt/render/project/src/,
+        // then images and documents are directly in that directory.
         if (file.fieldname === 'image' || file.fieldname.startsWith('roomImages') || file.fieldname === 'servicePhotos') {
-            uploadPath = path.join(__dirname, 'src', 'images');
+            uploadPath = path.join(__dirname, 'images'); // FIXED: Removed 'src' here
         } else if (['aadharPanCard', 'businessRegistrationCertificate', 'bankAccountDetails', 'gstNumber'].includes(file.fieldname)) {
-            uploadPath = path.join(__dirname, 'src', 'documents');
+            uploadPath = path.join(__dirname, 'documents'); // FIXED: Removed 'src' here
         } else {
-            // Log the unexpected fieldname for debugging
             console.error(`Multer Destination Error: Unexpected fieldname received: "${file.fieldname}". Original filename: "${file.originalname}"`);
             return cb(new Error(`Multer Error: Unexpected fieldname "${file.fieldname}".`), false);
         }
 
-        // Create the directory if it doesn't exist
         fs.mkdirSync(uploadPath, { recursive: true });
         cb(null, uploadPath);
     },
     filename: function (req, file, cb) {
-        // Use a unique filename to prevent collisions
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
 });
 
-// Configure Multer to accept multiple files with specific field names
-// This 'upload' instance is used for:
-// 1. Accommodation forms (main image + room images)
-// 2. Service Provider signup forms (servicePhotos, aadharPanCard, etc.)
 const upload = multer({ storage }).fields([
     { name: 'aadharPanCard', maxCount: 1 },
     { name: 'businessRegistrationCertificate', maxCount: 1 },
     { name: 'bankAccountDetails', maxCount: 1 },
     { name: 'gstNumber', maxCount: 1 },
     { name: 'servicePhotos', maxCount: 5 },
-    { name: 'image', maxCount: 1 }, // ✅ Add this for main accommodation image
-    { name: 'roomImages', maxCount: 20 } // ✅ Add this for room-specific images
+    { name: 'image', maxCount: 1 },
+    { name: 'roomImages', maxCount: 20 }
 ]);
+
+const uploadSingle = multer({ storage: storage });
 
 const uploadSingle = multer({ storage: storage }); // This was the one undefined
 
@@ -104,8 +96,6 @@ transporter.verify((error, success) => {
         console.log("✅ Nodemailer is ready to send emails");
     }
 });
-
-// ... rest of your server.js code ...
 
 
 // Optional: Verify transporter
@@ -2979,18 +2969,20 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
     }
 });
 
-// --- Function to start the server and serve React build files ---
 function startExpressServer() {
-    console.log(`Current working directory (on Render): ${__dirname}`);
+    console.log(`Current working directory (on Render): ${__dirname}`); // This will correctly show /opt/render/project/src
 
-    // ✅ Define static paths
-    const imagesPath = path.join(__dirname, 'src', 'images');
-    const documentsPath = path.join(__dirname, 'src', 'documents');
-    const buildPath = path.join(__dirname, 'build');
+    // CORRECTED PATHS:
+    // If __dirname is /opt/render/project/src
+    // then images are in /opt/render/project/src/images
+    // and build is in /opt/render/project/build (one level up from src)
+    const imagesPath = path.join(__dirname, 'images'); // FIXED
+    const documentsPath = path.join(__dirname, 'documents'); // FIXED
+    const buildPath = path.join(__dirname, '..', 'build'); // FIXED: Go up one level (from src to project root) then into build
 
-    // ✅ Log and mount static file directories
     console.log(`Attempting to serve static images from: ${imagesPath}`);
     console.log(`Attempting to serve static documents from: ${documentsPath}`);
+    console.log(`Attempting to serve React build from: ${buildPath}`); // New log for build path
 
     if (!fs.existsSync(imagesPath)) {
         console.warn(`⚠️ WARNING: Images directory does not exist at: ${imagesPath}`);
@@ -2998,25 +2990,20 @@ function startExpressServer() {
     if (!fs.existsSync(documentsPath)) {
         console.warn(`⚠️ WARNING: Documents directory does not exist at: ${documentsPath}`);
     }
+    if (!fs.existsSync(buildPath)) {
+        console.error(`❌ ERROR: React build directory does not exist at: ${buildPath}. Did you run 'npm run build' in the root?`);
+    }
 
     app.use('/images', express.static(imagesPath));
     app.use('/documents', express.static(documentsPath));
-
-    // ✅ Serve React frontend (build)
-    console.log(`Attempting to serve React build from: ${buildPath}`);
-    if (!fs.existsSync(buildPath)) {
-        console.error(`❌ ERROR: React build directory does not exist at: ${buildPath}. Did you run 'npm run build'?`);
-    }
-
     app.use(express.static(buildPath));
 
-    // ✅ Handle all other routes with React frontend
+    // Handle all other routes with React frontend
     app.get('*', (req, res) => {
         console.log(`➡️  Serving index.html for request: ${req.url}`);
         res.sendFile(path.join(buildPath, 'index.html'));
     });
 
-    // ✅ Start the server
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
         console.log(`✅ Server is running on port ${PORT}`);
@@ -3026,14 +3013,9 @@ function startExpressServer() {
 
 // --- Check if this file is being run directly ---
 if (require.main === module) {
-    // If it's the main module, start the server
     console.log("server.js is being run as the main module. Starting server...");
     startExpressServer();
 } else {
-    // If it's being 'required' as a module, export the app instance
     console.log("server.js is being required as a module. Exporting app instance.");
     module.exports = app;
 }
-
-
-
