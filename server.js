@@ -2969,11 +2969,12 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
 });
 
 function startExpressServer() {
+    // With "Start Command" changed on Render, __dirname is the project root
     console.log(`Current working directory (on Render): ${__dirname}`);
 
-    const imagesPath = path.join(__dirname, 'images');
-    const documentsPath = path.join(__dirname, 'documents');
-    const buildPath = path.join(__dirname, '..', 'build');
+    const imagesPath = path.join(__dirname, 'src', 'images');
+    const documentsPath = path.join(__dirname, 'src', 'documents');
+    const buildPath = path.join(__dirname, 'build');
 
     console.log(`Attempting to serve static images from: ${imagesPath}`);
     console.log(`Attempting to serve static documents from: ${documentsPath}`);
@@ -2989,31 +2990,27 @@ function startExpressServer() {
         console.error(`❌ ERROR: React build directory does not exist at: ${buildPath}. Did you run 'npm run build' in the root?`);
     }
 
+    // Serve static folders
     app.use('/images', express.static(imagesPath));
     app.use('/documents', express.static(documentsPath));
     app.use(express.static(buildPath));
 
-    const indexPath = path.join(buildPath, 'index.html');
-
-    const pathToBuild = path.join(__dirname, '..', 'build'); // One level up
-    if (fs.existsSync(pathToBuild)) {
-        app.use(express.static(pathToBuild));
-        app.get('*', (req, res) => {
-            res.sendFile(path.join(pathToBuild, 'index.html'));
-        });
-    } else {
-        console.warn(`⚠️ index.html not found at: ${indexPath}`);
-        app.use((req, res) => {
-            res.status(404).send('React frontend not found. Did you build the frontend?');
-        });
-    }
+    // Fallback to React index.html
+    app.use((req, res, next) => {
+        const indexPath = path.join(buildPath, 'index.html');
+        if (req.method === 'GET' && fs.existsSync(indexPath) && !req.url.startsWith('/api')) {
+            console.log(`➡️ Serving index.html for: ${req.url} from ${indexPath}`);
+            res.sendFile(indexPath);
+        } else {
+            next(); // Forward to other handlers
+        }
+    });
 
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
         console.log(`✅ Server is running on port ${PORT}`);
     });
 }
-
 
 
 // --- Check if this file is being run directly ---
