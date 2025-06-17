@@ -2968,12 +2968,14 @@ app.put('/api/accommodation-bookings/:id/status', async (req, res) => {
     }
 });
 
+
 function startExpressServer() {
     console.log(`Current working directory (on Render): ${__dirname}`);
 
+    // Directories based on your structure
     const imagesPath = path.join(__dirname, 'images');
     const documentsPath = path.join(__dirname, 'documents');
-    const buildPath = path.join(__dirname, '..', 'build');
+    const buildPath = path.join(__dirname, 'build'); // FIXED ✅
 
     console.log(`Attempting to serve static images from: ${imagesPath}`);
     console.log(`Attempting to serve static documents from: ${documentsPath}`);
@@ -2986,7 +2988,7 @@ function startExpressServer() {
         console.warn(`⚠️ WARNING: Documents directory does not exist at: ${documentsPath}`);
     }
     if (!fs.existsSync(buildPath)) {
-        console.error(`❌ ERROR: React build directory does not exist at: ${buildPath}. Did you run 'npm run build' in the root?`);
+        console.error(`❌ ERROR: React build directory does not exist at: ${buildPath}. Did you run 'npm run build'?`);
     }
 
     app.use('/images', express.static(imagesPath));
@@ -2994,16 +2996,15 @@ function startExpressServer() {
     app.use(express.static(buildPath));
 
     const indexPath = path.join(buildPath, 'index.html');
-
     if (fs.existsSync(indexPath)) {
         app.get('*', (req, res) => {
-            console.log(`➡️  Serving index.html for request: ${req.url}`);
+            console.log(`➡️ Serving index.html for: ${req.url}`);
             res.sendFile(indexPath);
         });
     } else {
-        console.warn(`⚠️ index.html not found at: ${indexPath}`);
+        console.error(`❌ ERROR: index.html not found at: ${indexPath}`);
         app.use((req, res) => {
-            res.status(404).send('React frontend not found. Did you build the frontend?');
+            res.status(404).send('React frontend not found.');
         });
     }
 
@@ -3012,6 +3013,8 @@ function startExpressServer() {
         console.log(`✅ Server is running on port ${PORT}`);
     });
 }
+
+
 
 
 
