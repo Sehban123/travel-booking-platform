@@ -400,7 +400,10 @@ const businessInquirySchema = new mongoose.Schema({
 }, { timestamps: true }); // Added timestamps option
 
 const BusinessInquiry = mongoose.model("BusinessInquiry", businessInquirySchema);
-
+const authenticateAdmin = (req, res, next) => {
+  // verify JWT token here
+  next();
+};
 
 
 // --- GENERAL BOOKING ENDPOINTS (Likely for User Side) ---
