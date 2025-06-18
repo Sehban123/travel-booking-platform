@@ -40,31 +40,31 @@ const AdminDashboard = () => {
 
   // Function to handle clicking on an item in a list view (to show details)
   const handleShowDetails = (module, id) => {
-     console.log("AdminDashboard: handleShowDetails called with module:", module, "and ID:", id);
-     // Set the view to 'details' for the specific module and selected item ID
-     setCurrentView({ module: module, view: 'details', selectedId: id });
+    console.log("AdminDashboard: handleShowDetails called with module:", module, "and ID:", id);
+    // Set the view to 'details' for the specific module and selected item ID
+    setCurrentView({ module: module, view: 'details', selectedId: id });
   };
 
-   // Function to handle viewing services for a specific provider (called from AdminProviderList)
-   const handleViewProviderServices = (providerId) => {
-       console.log("AdminDashboard: handleViewProviderServices called with providerId:", providerId);
-       // This is a specific view for provider services, distinct from the main module lists
-       // We set the module to 'service-providers' (as it's related) and the view to 'provider-services'
-       setCurrentView({ module: 'service-providers', view: 'provider-services', selectedId: providerId });
-   };
+  // Function to handle viewing services for a specific provider (called from AdminProviderList)
+  const handleViewProviderServices = (providerId) => {
+    console.log("AdminDashboard: handleViewProviderServices called with providerId:", providerId);
+    // This is a specific view for provider services, distinct from the main module lists
+    // We set the module to 'service-providers' (as it's related) and the view to 'provider-services'
+    setCurrentView({ module: 'service-providers', view: 'provider-services', selectedId: providerId });
+  };
 
 
   // Function to go back to the list view from details or provider services
   const handleBackToList = () => {
-     console.log("AdminDashboard: handleBackToList called. Current view:", currentView);
-     // Determine which list to go back to based on the current module/view
-     if (currentView.view === 'provider-services') {
-         // If coming from provider services, go back to the All Service Providers list
-         setCurrentView({ module: 'service-providers', view: 'list', selectedId: null });
-     } else {
-         // If coming from a module detail view, go back to that module's list
-         setCurrentView(prev => ({ ...prev, view: 'list', selectedId: null }));
-     }
+    console.log("AdminDashboard: handleBackToList called. Current view:", currentView);
+    // Determine which list to go back to based on the current module/view
+    if (currentView.view === 'provider-services') {
+      // If coming from provider services, go back to the All Service Providers list
+      setCurrentView({ module: 'service-providers', view: 'list', selectedId: null });
+    } else {
+      // If coming from a module detail view, go back to that module's list
+      setCurrentView(prev => ({ ...prev, view: 'list', selectedId: null }));
+    }
   };
 
   // Render the appropriate component based on currentView state
@@ -106,15 +106,15 @@ const AdminDashboard = () => {
       case 'service-providers':
         // This module handles both the list of all providers and the services for a specific provider
         return view === 'list' ? (
-             // Pass the handleViewProviderServices function down to AdminProviderList
-             <AdminProviderList onViewServices={handleViewProviderServices} />
+          // Pass the handleViewProviderServices function down to AdminProviderList
+          <AdminProviderList onViewServices={handleViewProviderServices} />
         ) : view === 'provider-services' && selectedId ? (
-             // Render the specific provider services component when view is 'provider-services'
-             // Pass the selectedId (which is the providerId) and the back function
-             <AdminProviderServices providerId={selectedId} onBackToList={handleBackToList} />
+          // Render the specific provider services component when view is 'provider-services'
+          // Pass the selectedId (which is the providerId) and the back function
+          <AdminProviderServices providerId={selectedId} onBackToList={handleBackToList} />
         ) : (
-             // Fallback for service-providers module if view/selectedId is unexpected
-             <div>Select a service provider from the list.</div>
+          // Fallback for service-providers module if view/selectedId is unexpected
+          <div>Select a service provider from the list.</div>
         );
 
       case 'pending-providers':
@@ -133,14 +133,14 @@ const AdminDashboard = () => {
     }
   };
 
-const handleLogout = () => {
-  localStorage.removeItem('isAdminAuthenticated');
-  navigate('/admin_login');
-};
+  const handleLogout = () => {
+    localStorage.removeItem('isAdminAuthenticated');
+    navigate('/admin_login');
+  };
   return (
     <div className="admin-dashboard-container">
       {/* Pass the handleNavigate function and the current module state to the sidebar */}
-      <AdminSidebar onNavigate={handleNavigate} currentModule={currentView.module} />
+      <AdminSidebar onNavigate={handleNavigate} currentModule={currentView.module} onLogout={handleLogout} />
       <div className="admin-main-content">
         {renderMainContent()}
       </div>
