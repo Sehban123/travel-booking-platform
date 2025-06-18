@@ -97,3 +97,13 @@
         /* Auto width */
     }
 }
+.admin-logout-button {
+  margin-top: 2rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+}

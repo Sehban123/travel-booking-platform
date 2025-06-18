@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import axios from 'axios'; // Import axios here to set defaults
+import { Navigate } from 'react-router-dom';
 
 import Navbar from './Navbar'; // Assuming your Navbar is in ./Navbar.js
 import HomePage from './Home'; // Import the HomePage component
@@ -17,6 +18,7 @@ import ServiceProviderLoginPage from './ServiceProviderLogin';
 import ServiceProviderDashboard from './ServiceproviderDashboard'; // Import the new ServiceProviderDashboard
 import AdminLogin from './AdminLogin';
 import CustomerLogin from './CustomerLogin'; // Your new combined customer auth component
+import AdminProtectedRoute from './AdminProtectedRoute';
 
 // Set axios to NOT send cookies with every request globally, as authentication is removed.
 // This resolves the CORS error related to Access-Control-Allow-Credentials.
@@ -51,6 +53,7 @@ const AppLayout = () => {
     }
     return location.pathname === route;
   });
+  const isAdminAuthenticated = localStorage.getItem('isAdminAuthenticated') === 'true';
 
   return (
     <>
@@ -60,27 +63,36 @@ const AppLayout = () => {
           {/* --- Public Routes --- */}
           <Route path="/" element={<HomePage />} />
           <Route path="/customer-login" element={<CustomerLogin />} />
-
           <Route path="/accommodations" element={<Accommodation />} />
           <Route path="/accommodation-booking/:accommodationId" element={<AccommodationBooking />} />
-
           <Route path="/transportation" element={<Transportation />} />
           <Route path="/transportation-booking/:transportId" element={<TransportationBooking />} />
-
           <Route path="/sports-adventure" element={<SportsAdventure />} />
           <Route path="/sports-booking/:activityId" element={<SportAdventureBooking />} />
-
           <Route path="/business" element={<BusinessTravel />} />
           <Route path="/business/inquiry" element={<BusinessInquiryForm />} />
 
-          {/* --- Admin Routes (Now Publicly Accessible) --- */}
+          {/* ✅ Admin Routes */}
           <Route path="/admin_login" element={<AdminLogin />} />
-          <Route path="/admin_dashboard" element={<AdminDashboard />} />
+          <Route
+            path="/admin_dashboard"
+            element={
+              isAdminAuthenticated ? (
+                <AdminDashboard />
+              ) : (
+                <Navigate to="/admin_login" replace />
+              )
+            }
+          />
 
-          {/* --- Service Provider Routes (Now Publicly Accessible) --- */}
+          {/* ✅ Service Provider Routes */}
           <Route path="/service-provider-login" element={<ServiceProviderLoginPage />} />
           <Route path="/provider-dashboard/:providerId" element={<ServiceProviderDashboard />} />
         </Routes>
+
+
+
+
       </div>
     </>
   );

@@ -1,5 +1,7 @@
 // src/components/Admin/AdminDashboard.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 // Ensure correct imports for all components used in renderMainContent
 import AdminSidebar from './AdminSidebar';
 import AdminAccommodationList from './AdminAccommodationList';
@@ -20,6 +22,8 @@ import AdminSummaryDashboard from './AdminSummaryDashboard';
 import './css/AdminDashboard.css'; // Ensure this CSS file exists
 
 const AdminDashboard = () => {
+  const navigate = useNavigate(); // Required for navigation
+
   // State to manage which component is currently displayed in the main area
   // Set initial state to 'summary'
   // Format: { module: 'summary' | 'accommodation' | 'sport' | 'transport' | 'inquiry' | 'service-providers' | 'pending-providers', view: 'list' | 'details' | 'provider-services', selectedId: null | string }
@@ -129,6 +133,10 @@ const AdminDashboard = () => {
     }
   };
 
+const handleLogout = () => {
+  localStorage.removeItem('isAdminAuthenticated');
+  navigate('/admin_login');
+};
   return (
     <div className="admin-dashboard-container">
       {/* Pass the handleNavigate function and the current module state to the sidebar */}

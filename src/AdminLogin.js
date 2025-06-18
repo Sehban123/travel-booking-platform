@@ -4,6 +4,7 @@ import axios from 'axios';
 import './css/AdminLogin.css';
 
 const API_URL = "https://travel-booking-platform.onrender.com";
+
 const AdminLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -20,22 +21,21 @@ const AdminLogin = () => {
 
         try {
             const response = await axios.post(`${API_URL}/api/admin/login`, {
-                email,
-                password,
+                email: email.trim().toLowerCase(), // normalize email
+                password
             });
 
             if (response.status === 200) {
-                console.log('Super Admin login successful:', response.data);
-                // No localStorage operations needed as authentication is removed
+                console.log('✅ Super Admin login successful:', response.data);
+                localStorage.setItem('isAdminAuthenticated', 'true');
                 navigate('/admin_dashboard');
             } else {
+                console.warn('⚠️ Unexpected login status:', response.status);
                 setError('Login failed. Please try again.');
-                console.error('Super Admin login failed with status:', response.status);
             }
-
         } catch (err) {
-            console.error('Error during Super Admin login:', err);
-            if (err.response && err.response.data && err.response.data.error) {
+            console.error('❌ Error during Super Admin login:', err);
+            if (err.response?.data?.error) {
                 setError(`Login failed: ${err.response.data.error}`);
             } else {
                 setError('Login failed. Please check your credentials and try again.');
@@ -49,7 +49,7 @@ const AdminLogin = () => {
         <div className="super-admin-login-container">
             <div className="login-form-card">
                 <h2>Super Admin Login</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} noValidate>
                     <div className="form-group">
                         <label htmlFor="email">Email:</label>
                         <input
@@ -59,8 +59,10 @@ const AdminLogin = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             required
                             aria-label="Email address"
+                            autoFocus
                         />
                     </div>
+
                     <div className="form-group">
                         <label htmlFor="password">Password:</label>
                         <input
